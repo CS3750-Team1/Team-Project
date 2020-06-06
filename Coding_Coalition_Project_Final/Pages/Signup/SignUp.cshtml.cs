@@ -40,6 +40,15 @@ namespace Coding_Coalition_Project.Pages.Signup
             HttpContext.Session.SetString("FirstName", UserInfo.FirstName);
             HttpContext.Session.SetInt32("UserID", UserInfo.ID);
 
+            if(UserInfo.IsInstructor)
+            {
+                HttpContext.Session.SetInt32("IsInstructor", 1);
+            }
+            else
+            {
+                HttpContext.Session.SetInt32("IsInstructor", 0);
+            }
+
             // encrypt password using Security.PasswordEncryption
             // add data protection services
             var serviceCollection = new ServiceCollection();

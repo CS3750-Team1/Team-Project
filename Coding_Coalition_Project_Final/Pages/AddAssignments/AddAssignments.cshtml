@@ -1,0 +1,54 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.AddAssignments.AddAssignmentsModel
+
+@{
+    ViewData["Title"] = "AddAssignments";
+}
+
+<h1>AddAssignments</h1>
+
+<h4>Assignments</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Assignments.ClassID" class="control-label"></label>
+                <input asp-for="Assignments.ClassID" class="form-control" />
+                <span asp-validation-for="Assignments.ClassID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.AssignmentName" class="control-label"></label>
+                <input asp-for="Assignments.AssignmentName" class="form-control" />
+                <span asp-validation-for="Assignments.AssignmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.AssignmentCode" class="control-label"></label>
+                <input asp-for="Assignments.AssignmentCode" class="form-control" />
+                <span asp-validation-for="Assignments.AssignmentCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.DueDate" class="control-label"></label>
+                <input asp-for="Assignments.DueDate" class="form-control" />
+                <span asp-validation-for="Assignments.DueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.MaxPoints" class="control-label"></label>
+                <input asp-for="Assignments.MaxPoints" class="form-control" />
+                <span asp-validation-for="Assignments.MaxPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
