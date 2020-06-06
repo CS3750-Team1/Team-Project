@@ -48,9 +48,9 @@ namespace Coding_Coalition_Project.Pages.Signup
             var encryption = ActivatorUtilities.CreateInstance<PasswordEncryption>(services);
 
             // hash password
-            string passwordHash = Hash.Create(encryption.EncryptInput(UserInfo.Password));
+            UserInfo.Password = Hash.Create(encryption.EncryptInput(UserInfo.Password));
 
-            HttpContext.Session.SetString("Password", passwordHash);
+            //HttpContext.Session.SetString("Password", passwordHash);
 
             _context.UserInfo.Add(UserInfo);
             await _context.SaveChangesAsync();
