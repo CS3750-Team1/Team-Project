@@ -11,6 +11,8 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext</WebStackScaffolding_DbContextTypeFullName>
     <ActiveDebugProfile>Coding_Coalition_Project</ActiveDebugProfile>
+    <_SelectedScaffolderID>ModelBasedRazorPageScaffolder</_SelectedScaffolderID>
+    <_SelectedScaffolderCategoryPath>root/Common/RazorPage</_SelectedScaffolderCategoryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

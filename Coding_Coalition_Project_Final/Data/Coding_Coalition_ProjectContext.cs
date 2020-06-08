@@ -15,5 +15,17 @@ namespace Coding_Coalition_Project.Data
         }
 
         public DbSet<Coding_Coalition_Project.Models.UserInfo> UserInfo { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.Courses> Courses { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.Announcements> Announcements { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.AssignmentCodes> AssignmentCodes { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.Assignments> Assignments { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.UserJunctionCourses> UserJunctionCourses { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.CourseSubject> CourseSubject { get; set; }
     }
 }
