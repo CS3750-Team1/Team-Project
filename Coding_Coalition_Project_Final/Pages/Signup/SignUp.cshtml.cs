@@ -38,6 +38,7 @@ namespace Coding_Coalition_Project.Pages.Signup
             HttpContext.Session.Clear();
 
             HttpContext.Session.SetString("FirstName", UserInfo.FirstName);
+            HttpContext.Session.SetString("LastName", UserInfo.LastName);
             HttpContext.Session.SetInt32("UserID", UserInfo.ID);
 
             if(UserInfo.IsInstructor)
@@ -51,20 +52,19 @@ namespace Coding_Coalition_Project.Pages.Signup
 
             // encrypt password using Security.PasswordEncryption
             // add data protection services
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddDataProtection();
-            var services = serviceCollection.BuildServiceProvider();
-            var encryption = ActivatorUtilities.CreateInstance<PasswordEncryption>(services);
+            //var serviceCollection = new ServiceCollection();
+            //serviceCollection.AddDataProtection();
+            //var services = serviceCollection.BuildServiceProvider();
+            //var encryption = ActivatorUtilities.CreateInstance<PasswordEncryption>(services);
+
 
             // hash password
-            UserInfo.Password = Hash.Create(encryption.EncryptInput(UserInfo.Password));
-
-            //HttpContext.Session.SetString("Password", passwordHash);
+            UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
 
             _context.UserInfo.Add(UserInfo);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("../Index");
+            return RedirectToPage("../MainPage/MainPage");
         }
     }
 }
