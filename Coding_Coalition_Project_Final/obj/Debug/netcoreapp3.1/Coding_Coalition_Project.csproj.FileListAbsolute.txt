@@ -998,3 +998,4 @@ D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\AddAssignments\AddAssignments.cshtml.g.cs
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\AddUserJunctionCourses\AddUserJunctionCourses.cshtml.g.cs
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\AddCourseSubject\AddCourseSubject.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\MainPage\MainPage.cshtml.g.cs
