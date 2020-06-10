@@ -5,6 +5,7 @@ using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
 using Coding_Coalition_Project.Security;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 
 namespace Coding_Coalition_Project.Pages.Signup
 {
@@ -30,6 +31,7 @@ namespace Coding_Coalition_Project.Pages.Signup
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+
             if (!ModelState.IsValid)
             {
                 return Page();

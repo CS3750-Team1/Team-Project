@@ -1,48 +1,77 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Coding_Coalition_Project.Data;
+using Coding_Coalition_Project.Models;
+using Microsoft.Extensions.Primitives;
+using Coding_Coalition_Project.Security;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.CodeAnalysis;
+using System.Reflection.Metadata;
+using Document = Microsoft.CodeAnalysis.Document;
+using Microsoft.AspNetCore.Http;
 
 namespace Coding_Coalition_Project.Pages.SignIn
 {
-    public class signinModel : PageModel
+    public class SignInModel : PageModel
     {
         private readonly Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext _context;
 
-        public signinModel(Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext context)
+        public SignInModel(Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext context)
         {
             _context = context;
         }
 
-        //public void OnGet()
-        public IActionResult OnGet()
+        public IList<UserInfo> UserInfo { get;set; }
+        [BindProperty(SupportsGet = true)]
+        public string UserEmail { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string UserPassword { get; set; }
+        public Boolean validInfo = false;
+
+
+        public async Task<RedirectToPageResult> OnGetAsync()
         {
-            return Page();
-
-        }
-/*
-        [BindProperty]
-       public SignInViewModel SignInViewModel { get; set; }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Signin(UserInfo model)
-       {
-            if (!ModelState.IsValid)
+            var Users = from m in _context.UserInfo select m;
+            if(!string.IsNullOrEmpty(UserEmail) && !string.IsNullOrEmpty(UserPassword))
             {
-                var user = new ApplicationUser() { UserName = model.Email };
-                var result = await _context.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-               {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
+
+                // hash password
+                UserPassword = Hash.Create(PasswordEncryption.EncryptString(UserPassword));
+
+                UserEmail = UserEmail.ToLower();
+                Users = Users.Where(s => s.Email.Equals(UserEmail));
+                Users = Users.Where(t => t.Password.Equals(UserPassword));
+
+                if (Users.Count() == 0)
+                {
+                    //Need code to display error message
                 }
+                else if(Users.Count() == 1)
+                {
 
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
-           }
+                    HttpContext.Session.SetString("FirstName",(from m in Users select m.FirstName).Single()) ;
+                    HttpContext.Session.SetString("LastName", (from m in Users select m.LastName).Single());
+                    HttpContext.Session.SetInt32("UserID", (from m in Users select m.ID).Single());
+                    return RedirectToPage("../MainPage/MainPage");
+          //          UserInfo = await Users.ToListAsync();
 
-          return View(model);
-     }
 
-        */
+                }
+            }
+
+
+                UserInfo = await Users.ToListAsync();
+            return null;
+
+            //            UserInfo = await _context.UserInfo.ToListAsync();
+        }
+
+
     }
 }
