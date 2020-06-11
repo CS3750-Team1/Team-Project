@@ -19,7 +19,7 @@
         /* Float four columns side by side */
         .column {
             float: left;
-            width: 25%;
+            width: 20%;
             padding: 0 10px;
         }
 
@@ -40,6 +40,14 @@
             text-align: center;
             background-color: #f1f1f1;
         }
+        .notif {
+            float: right;
+            width: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
 
     </style>
 </head>
@@ -47,11 +55,8 @@
     <h1>Main Page</h1>
 
     <div>
-        <label asp-for="UserInfo.FirstName" class="control-label">FirstName</label>
+        <label class="control-label" id="firstName">Welcome @Model.FirstName</label>
         <div class="row">
-            <div class="column" float="left" width="25%" padding="0 10px">
-                <div class="card">..</div>
-            </div>
             <div class="column">
                 <div class="card">..</div>
             </div>
@@ -61,7 +66,19 @@
             <div class="column">
                 <div class="card">..</div>
             </div>
-        </div>
+            <div class="column">
+                <div class="card">..</div>
+            </div>
+            <div class="notif">
+                <h2>Notifications</h2>
+
+                @for(int i = 0; i <5; i++)
+                {
+                        <div class="card">@Convert.ToString(Model.tempNotifications[i])</div>
+
+                }
+            </div>
+    </div>
     </div>
 </body>
 </html>

@@ -11,11 +11,12 @@ namespace Coding_Coalition_Project.Models
         [Key]
         public int AnnouncementID { get; set; }
 
-        
+
         public int UserID { get; set; }
 
         public int CourseID { get; set; }
 
+        public string AnnouncementTitle { get; set; }
         public string AnnouncementText { get; set; }
     }
 }
