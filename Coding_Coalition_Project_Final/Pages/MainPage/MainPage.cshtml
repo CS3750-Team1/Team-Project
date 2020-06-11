@@ -24,31 +24,80 @@
         }
 
         /* Remove extra left and right margins, due to padding in columns */
-        .row {margin: 0 -5px;}
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
+        .row {
+            margin: 0 -5px;
         }
 
-        /* Style the counter cards */
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        .courses {
+            width: 60%;
+            position: absolute;
+            top: 200px;
+            left: 400px;
+        }
+
+        /* Style the cards */
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
             padding: 16px;
             text-align: center;
             background-color: #f1f1f1;
         }
+
+        /* Style for notifications */
         .notif {
-            float: right;
             width: 20%;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
             padding: 16px;
             text-align: center;
             background-color: #f1f1f1;
+            position: absolute;
+            top: 200px;
+            right: 0;
         }
 
+        /* Style for announcements */
+        .announce {
+            width: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+            position: absolute;
+            bottom: 500px;
+            right: 0;
+        }
+
+        /* Style for menu */
+        .menu {
+            width: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+
+        /* Style for calendar */
+        .calendar {
+            width: 20%;
+            height: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+            position: absolute;
+            bottom: 200px;
+            left: 0;
+        }
     </style>
 </head>
 <body>
@@ -57,28 +106,42 @@
     <div>
         <label class="control-label" id="firstName">Welcome @Model.FirstName</label>
         <div class="row">
-            <div class="column">
-                <div class="card">..</div>
+            <div class="menu">
+                <h2>Menu</h2>
             </div>
-            <div class="column">
-                <div class="card">..</div>
+            <div class="courses">
+                <div class="column">
+                    <div class="card">Course 1</div>
+                </div>
+                <div class="column">
+                    <div class="card">Course 2</div>
+                </div>
+                <div class="column">
+                    <div class="card">Course 3</div>
+                </div>
+                <div class="column">
+                    <div class="card">Course 4</div>
+                </div>
             </div>
-            <div class="column">
-                <div class="card">..</div>
-            </div>
-            <div class="column">
-                <div class="card">..</div>
-            </div>
+
             <div class="notif">
                 <h2>Notifications</h2>
 
-                @for(int i = 0; i <5; i++)
+                @for (int i = 0; i < 5; i++)
                 {
-                        <div class="card">@Convert.ToString(Model.tempNotifications[i])</div>
+                    <div class="card">@Convert.ToString(Model.tempNotifications[i])</div>
 
                 }
             </div>
-    </div>
+
+            <div class="calendar">
+                <h2>Calendar</h2>
+            </div>
+
+            <div class="announce">
+                <h2>Announcements</h2>
+            </div>
+        </div>
     </div>
 </body>
 </html>
