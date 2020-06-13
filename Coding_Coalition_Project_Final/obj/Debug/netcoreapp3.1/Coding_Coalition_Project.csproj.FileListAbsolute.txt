@@ -1001,6 +1001,7 @@ D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\SignIn\SignIn.cshtml.g.cs
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\package-lock.json
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Coding_Coalition_Project.exe
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Coding_Coalition_Project.deps.json
@@ -1140,8 +1141,6 @@ C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Deb
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csprojAssemblyReference.cache
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.AssemblyInfoInputs.cache
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.AssemblyInfo.cs
-C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csproj.CoreCompileInputs.cache
-C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.RazorAssemblyInfo.cache
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.RazorAssemblyInfo.cs
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.TagHelpers.input.cache
@@ -1153,6 +1152,7 @@ C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Deb
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\AddClass\AddClass.cshtml.g.cs
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\AddCourseSubject\AddCourseSubject.cshtml.g.cs
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\AddUserJunctionCourses\AddUserJunctionCourses.cshtml.g.cs
+C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Calender\Calender.cshtml.g.cs
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\MainPage\MainPage.cshtml.g.cs
@@ -1173,5 +1173,13 @@ C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Deb
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.dll
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.pdb
 C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.genruntimeconfig.cache
-C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\package-lock.json
-C:\Users\Janetp\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Calender\Calender.cshtml.g.cs
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\DHTMLX.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csproj.CoreCompileInputs.cache
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.MvcApplicationPartsAssemblyInfo.cache
