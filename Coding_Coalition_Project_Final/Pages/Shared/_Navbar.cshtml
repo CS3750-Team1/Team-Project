@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     <header>
@@ -20,24 +21,27 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex ">
                     <ul class="navbar-nav flex-grow-1 ">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Index"><i class="fa fa-fw fa-home"></i>Home</a>
+                            <a class="nav-link text-white" asp-area="" asp-page="/MainPage/MainPage">
+                                <i class="fa fa-home" aria-hidden="true"></i> Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy">
-                                <i class="fa fa-user-secret"></i> Privacy
-                            </a>
+                        <li class="nav-item" id="AddClass">
+                            <a class="nav-link text-white" asp-area="" asp-page="/AddClass/AddClass">
+                                <i class="fa fa-plus" aria-hidden="true"></i>Add Class</a>
                         </li>
-                                              
+                        <li class="nav-item" id="AddClass">
+                            <a class="nav-link text-white" asp-area="" asp-page="/Calender/Calender">
+                                <i class="fa fa-calendar"></i> Calender</a>
+                        </li>
                     </ul>
+
                     <ul class="navbar-nav navbar-right ">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Signup/SignUp">
-                                <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                Signup
-                            </a>
+                            <a class="nav-link text-white" asp-area="" asp-page="#">
+                                <i class="fa fa-user-circle"></i> Welcome Student</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/SignIn/signin"><i class="fa fa-sign-in aria-hidden=" true""></i> Signin</a>
+                            <a class="nav-link text-white" asp-area="" asp-page="/SignIn/signin">
+                                <i class="fa fa-sign-out"></i> Sign Out</a>
                         </li>
                     </ul>
 

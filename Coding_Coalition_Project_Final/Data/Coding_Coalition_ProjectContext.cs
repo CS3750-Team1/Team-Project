@@ -27,5 +27,7 @@ namespace Coding_Coalition_Project.Data
         public DbSet<Coding_Coalition_Project.Models.UserJunctionCourses> UserJunctionCourses { get; set; }
 
         public DbSet<Coding_Coalition_Project.Models.CourseSubject> CourseSubject { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.CalenderModel> Calender { get; set; }
     }
 }

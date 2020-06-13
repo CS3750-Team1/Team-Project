@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {}
+    "C:\\Users\\Janetp\\source\\repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
+    "C:\\Users\\Janetp\\source\\repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+        "projectUniqueName": "C:\\Users\\Janetp\\source\\repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
         "projectName": "Coding_Coalition_Project",
-        "projectPath": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
-        "packagesPath": "C:\\Users\\Kelton\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
+        "projectPath": "C:\\Users\\Janetp\\source\\repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+        "packagesPath": "C:\\Users\\Janetp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Janetp\\source\\repos\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Kelton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Janetp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,6 +38,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "DHTMLX.Scheduler.NET": {
+              "target": "Package",
+              "version": "[4.0.2, )"
+            },
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.4, )"
@@ -67,12 +75,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

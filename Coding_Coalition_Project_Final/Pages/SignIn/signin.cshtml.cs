@@ -52,8 +52,7 @@ namespace Coding_Coalition_Project.Pages.SignIn
                 {
                     //Need code to display error message
                 }
-                else if(Users.Count() == 1)
-                {
+                else if(Users.Count() == 1)                {
 
                     HttpContext.Session.SetString("FirstName",(from m in Users select m.FirstName).Single()) ;
                     HttpContext.Session.SetString("LastName", (from m in Users select m.LastName).Single());
@@ -64,10 +63,8 @@ namespace Coding_Coalition_Project.Pages.SignIn
 
                 }
             }
-
-
                 UserInfo = await Users.ToListAsync();
-            return null;
+                return null;
 
             //            UserInfo = await _context.UserInfo.ToListAsync();
         }
