@@ -30,8 +30,8 @@
 
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
-          margin-bottom: 0;
-          border-radius: 0;
+            margin-bottom: 0;
+            border-radius: 0;
         }
 
         /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -39,16 +39,16 @@
 
         /* Set gray background color and 100% height */
         .sidenav {
-          padding-top: 20px;
-          background-color: #f1f1f1;
-          height: 100%;
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
         }
 
         /* Set black background color, white text and some padding */
         footer {
-          background-color: #555;
-          color: white;
-          padding: 15px;
+            background-color: #555;
+            color: white;
+            padding: 15px;
         }
 
         * {
@@ -62,7 +62,7 @@
         /* Float four columns side by side */
         .column {
             float: left;
-            width: 20%;
+            width: 30%;
             padding: 0 10px;
         }
 
@@ -174,22 +174,21 @@
     </nav>
 
     <div class="container-fluid text-center">
+        <h2>My Courses</h2>
         <div class="row content">
 
             <div class="col-sm-8 text-center">
 
-                <div class="column">
-                    <div class="classCard">Course 1</div>
-                </div>
-                <div class="column">
-                    <div class="classCard">Course 2</div>
-                </div>
-                <div class="column">
-                    <div class="classCard">Course 3</div>
-                </div>
-                <div class="column">
-                    <div class="classCard">Course 4</div>
-                </div>
+                @foreach (var row in Model.userCourses)
+                {
+                    <div class="column">
+                        <a href="#">
+                            <div class="classCard">
+                                @row.CourseName - @row.CourseNumber;
+                            </div>
+                        </a>
+                    </div>
+                }
 
             </div>
             <div class="col-sm-4 sidenav">
