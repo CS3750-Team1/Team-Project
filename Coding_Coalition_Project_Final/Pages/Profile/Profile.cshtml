@@ -1,5 +1,5 @@
 ﻿@page
-@model Coding_Coalition_Project.Pages.Profile.ProfileModel
+@model Coding_Coalition_Project.Models.UserInfo
 @{
     ViewData["Title"] = "Profile";
     Layout = "~/Pages/Shared/_Navbar.cshtml";
@@ -12,41 +12,74 @@
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
 
     <style>
-
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
     </style>
 </head>
 <body>
-    <h1>Profile</h1>
+    <h1>Profile</h1>   
+        <a href="http://facebook.com/"><i class="fa fa-3x fa-facebook-square" aria-hidden="true"></i></a>  
+        <a href="http://linkedin.com/"><i class="fa fa-3x fa-linkedin-square" aria-hidden="true"></i></a> 
+        <a href="http://twitter.com/"><i class="fa fa-3x fa-twitter-square" aria-hidden="true"></i></a>  
 
     <div class="row content">
         <div class="row">
-            <div class="col-md-6">
-                    
-                <h3>
-                    <a href="../Profile/ProfileEdit">Edit</a>
-                </h3>
+            <div>
+                <h4>User Information:</h4>
+
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.FirstName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.LastName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Password)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Password)
+                    </dd>
+                </dl>
+                <div class="col-md-6">
+
+                    <h3>
+                        <a href="../Profile/ProfileEdit">Edit</a>
+                    </h3>
+                </div>
             </div>
-        </div>   
+        </div>
     </div>
 </body>
 </html>
-    
 
+
+ 
