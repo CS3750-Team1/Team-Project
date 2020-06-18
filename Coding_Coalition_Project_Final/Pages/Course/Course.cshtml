@@ -1,0 +1,10 @@
+﻿@page "{courseName}/{courseNumber}"
+@model Coding_Coalition_Project.Pages.Course.CourseModel
+@{
+    ViewData["Title"] = "Course";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+<h1>Course</h1>
+<h2>@Model.CourseName - @Model.CourseNumber</h2>
+
