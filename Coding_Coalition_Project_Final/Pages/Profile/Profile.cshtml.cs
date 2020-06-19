@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Coding_Coalition_Project.Models;
@@ -20,9 +22,10 @@ namespace Coding_Coalition_Project.Pages.Profile
         }
 
         public UserInfo UserInfo { get; set; }
-
+        public Image ProfileImage;
         public async Task<IActionResult> OnGetAsync()
         {
+
             var id = HttpContext.Session.GetInt32("UserID");
             if (id == null)
             {
@@ -46,6 +49,8 @@ namespace Coding_Coalition_Project.Pages.Profile
             }
 
             */
+
+            ProfileImage = Image.FromStream(new MemoryStream(UserInfo.UserImage));
 
             return Page();
 
