@@ -829,8 +829,6 @@ C:\Users\Bushman\source\repos\Coding_Coalition_Project_Final\obj\Debug\netcoreap
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csprojAssemblyReference.cache
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.AssemblyInfoInputs.cache
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.AssemblyInfo.cs
-D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csproj.CoreCompileInputs.cache
-D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.MvcApplicationPartsAssemblyInfo.cache
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.RazorAssemblyInfo.cache
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.RazorAssemblyInfo.cs
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.dll
@@ -1183,3 +1181,18 @@ C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Deb
 C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
 C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csproj.CoreCompileInputs.cache
 C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.MvcApplicationPartsAssemblyInfo.cache
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\DHTMLX.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Calender\Calender.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Course\Course.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Profile\Profile.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Profile\ProfileEdit.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Navbar.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csproj.CoreCompileInputs.cache
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.MvcApplicationPartsAssemblyInfo.cache
