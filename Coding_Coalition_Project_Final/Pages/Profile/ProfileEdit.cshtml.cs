@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Coding_Coalition_Project.Models;
@@ -25,9 +23,9 @@ namespace Coding_Coalition_Project.Pages.Profile
 
         [BindProperty]
         public UserInfo UserInfo { get; set; }
+
         public async Task<IActionResult> OnGetAsync()
         {
-
             var id = HttpContext.Session.GetInt32("UserID");
             if (id == null)
             {
@@ -58,38 +56,11 @@ namespace Coding_Coalition_Project.Pages.Profile
 
         public async Task<IActionResult> OnPostAsync()
         {
-            var Users = from m in _context.UserInfo select m;
-            int UserID = (int)HttpContext.Session.GetInt32("UserID");
-            Users = Users.Where(x => x.ID.Equals(UserID));
 
             if (await TryUpdateModelAsync<UserInfo>(UserInfo,"userinfo", s => s.FirstName, s => s.LastName, s => s.Email,
                     s => s.Birthdate, s => s.Password, s => s.IsInstructor))
             {
-                if(UserInfo.Password == null)
-                {
-                    UserInfo.Password = (from m in Users select m.Password).Single();
-                }
-                else
-                {
-                    UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
-                }
-
-                if(UserInfo.UserImage == null)
-                {
-                    UserInfo.UserImage = (from m in Users select m.UserImage).Single();
-                }
-                else
-                {
-                    Image tempImage = Image.FromFile(UserInfo.ImagePath);
-                    var ms = new MemoryStream();
-                    tempImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    UserInfo.UserImage = ms.ToArray();
-
-                }
-                UserInfo.ImagePath = "Image added successfully";
-                UserInfo.Biography = (from m in Users select m.Biography).Single();
-
-
+                UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
 
                 _context.UserInfo.Update(UserInfo);
                 await _context.SaveChangesAsync();
