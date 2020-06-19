@@ -12,8 +12,10 @@
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
     <style>
         /* Set gray background color and 100% height */
@@ -28,11 +30,22 @@
             color: white;
             padding: 15px;
         }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+           
+        }
+                 
     </style>
 </head>
 <body>
-    <h1>Profile</h1>
-
     <div class="row content">
         <div class="row">
             <div>
@@ -42,6 +55,7 @@
                     <dt>
                         First Name:
                     </dt>
+                    
                     <dd>
                         @Convert.ToString(Model.UserInfo.FirstName)
                     </dd>
@@ -70,14 +84,26 @@
                         @Convert.ToString(Model.UserInfo.IsInstructor)
                     </dd>
                 </dl>
-                <div class="col-md-6">
 
-                    <h3>
-                        <a href="../Profile/ProfileEdit">Edit</a>
-                    </h3>
-                </div>
+            </div>
+           
+            <div class="col-md-6">
+
+                <h3>
+                    <a href="../Profile/ProfileEdit">Edit</a>
+                </h3>
             </div>
         </div>
+        <div class="card">
+            <i class="fa fa-5x fa-user-circle" aria-hidden="true"></i>
+            <strong><p>Biography</p></strong>
+            @Convert.ToString(Model.UserInfo.Biography)
+            <a href="http://facebook.com/"><i class="fa fa-twitter"></i></a><a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a>
+            
+            <a href="http://twitter.com/"><i class="fa fa-facebook"></i></a>
+
+</div>
     </div>
+  
 </body>
 </html>

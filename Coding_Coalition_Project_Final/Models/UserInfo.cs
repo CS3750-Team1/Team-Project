@@ -29,5 +29,7 @@ namespace Coding_Coalition_Project.Models
 
         [Display(Name = "Instructor")]
         public Boolean IsInstructor { get; set; }
+
+        public string Biography { get; set; }
     }
 }
