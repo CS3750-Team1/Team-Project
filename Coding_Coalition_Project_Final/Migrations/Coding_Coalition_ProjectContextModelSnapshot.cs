@@ -87,6 +87,30 @@ namespace Coding_Coalition_Project.Migrations
                     b.ToTable("Assignments");
                 });
 
+            modelBuilder.Entity("Coding_Coalition_Project.Models.CalenderModel", b =>
+                {
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EventDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EventID");
+
+                    b.ToTable("Calender");
+                });
+
             modelBuilder.Entity("Coding_Coalition_Project.Models.CourseSubject", b =>
                 {
                     b.Property<int>("CourseSubjectID")
@@ -146,6 +170,9 @@ namespace Coding_Coalition_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsInstructor")
                         .HasColumnType("bit");
 
@@ -156,6 +183,9 @@ namespace Coding_Coalition_Project.Migrations
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("UserImage")
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("ID");
 
