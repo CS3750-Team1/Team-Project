@@ -57,51 +57,18 @@ namespace Coding_Coalition_Project.Pages.Profile
         public async Task<IActionResult> OnPostAsync()
         {
 
-            if (!ModelState.IsValid)
+            if (await TryUpdateModelAsync<UserInfo>(UserInfo,"userinfo", s => s.FirstName, s => s.LastName, s => s.Email,
+                    s => s.Birthdate, s => s.Password, s => s.IsInstructor))
             {
-                return Page();
-            }
+                UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
 
-            _context.Attach(UserInfo).State = EntityState.Modified;
-
-            try
-            {
+                _context.UserInfo.Update(UserInfo);
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(UserInfo.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("../Profile/Profile");
             }
 
-            UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
-            HttpContext.Session.SetString("FirstName", (from m in _context.UserInfo select m.FirstName).Single());
-            HttpContext.Session.SetString("LastName", (from m in _context.UserInfo select m.LastName).Single());
-            HttpContext.Session.SetInt32("UserID", (from m in _context.UserInfo select m.ID).Single());
+            return Page();
 
-            if (UserInfo.IsInstructor)
-            {
-                HttpContext.Session.SetInt32("IsInstructor", 1);
-            }
-            else
-            {
-                HttpContext.Session.SetInt32("IsInstructor", 0);
-            }
-
-            _context.UserInfo.Add(UserInfo);
-            await _context.SaveChangesAsync();
-            return RedirectToPage("../Profile/Profile");
-        }
-
-        private bool UserExists(int id)
-        {
-            return _context.UserInfo.Any(e => e.ID == id);
         }
     }
 }
