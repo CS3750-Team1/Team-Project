@@ -39,7 +39,7 @@ namespace Coding_Coalition_Project.Pages.MainPage
 
         public List<string> tempMenu = new List<string>(new string[] { "Account", "Classes", "Mail", "Settings", "Log Out" });
         public List<string> tempNotifications = new List<string>(new string[] { "Assignment Added", "Exam 1 graded", "Due date changed", "I don't know what else to put", "These are temporary", "This shouldn't show" });
-        public List<string> tempAnnouncements = new List<string>(new string[] {"Announcement 1", "Announcement 2", "Announcement 3", "Announcement 3", "Announcement 4"});
+        public List<string> tempAnnouncements = new List<string>(new string[] { "Announcement 1", "Announcement 2", "Announcement 3", "Announcement 3", "Announcement 4" });
 
         public IList<Courses> userCourses { get; set; }
 
@@ -50,5 +50,6 @@ namespace Coding_Coalition_Project.Pages.MainPage
             FirstName = HttpContext.Session.GetString("FirstName");
             return Page();
         }
+
     }
 }

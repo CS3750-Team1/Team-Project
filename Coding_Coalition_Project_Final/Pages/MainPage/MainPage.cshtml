@@ -163,7 +163,8 @@
                 @foreach (var row in Model.userCourses)
                 {
                     <div class="column">
-                        <a href="#">
+                        <a href="../Course/Course/@row.CourseName/@row.CourseNumber" @RouteData.Values[@row.CourseName] @RouteData.Values[@row.CourseNumber.ToString()]>
+                            
                             <div class="classCard">
                                 @row.CourseName - @row.CourseNumber;
                             </div>

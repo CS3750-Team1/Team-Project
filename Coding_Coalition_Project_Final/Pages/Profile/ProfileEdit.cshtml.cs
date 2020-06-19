@@ -7,6 +7,8 @@ using Coding_Coalition_Project.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Coding_Coalition_Project.Pages.Profile
 {
@@ -19,10 +21,36 @@ namespace Coding_Coalition_Project.Pages.Profile
             _context = context;
         }
 
+        [BindProperty]
         public UserInfo UserInfo { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
+            var id = HttpContext.Session.GetInt32("UserID");
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            UserInfo = await _context.UserInfo.FirstOrDefaultAsync(m => m.ID == id);
+
+            if (UserInfo == null)
+            {
+                return NotFound();
+            }
+
+            Console.WriteLine("ID = " + id.ToString());
+
+            /*
+            var user = from u in _context.UserInfo select u;
+            if (!string.IsNullOrEmpty(id.ToString()))
+            {
+                user = user.Where(s => s.ID.ToString().Contains(id.ToString()));
+            }
+
+            */
+
+            return Page();
 
         }
 
@@ -34,11 +62,28 @@ namespace Coding_Coalition_Project.Pages.Profile
                 return Page();
             }
 
-            HttpContext.Session.Clear();
+            _context.Attach(UserInfo).State = EntityState.Modified;
 
-            HttpContext.Session.SetString("FirstName", UserInfo.FirstName);
-            HttpContext.Session.SetString("LastName", UserInfo.LastName);
-            HttpContext.Session.SetInt32("UserID", UserInfo.ID);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(UserInfo.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
+            HttpContext.Session.SetString("FirstName", (from m in _context.UserInfo select m.FirstName).Single());
+            HttpContext.Session.SetString("LastName", (from m in _context.UserInfo select m.LastName).Single());
+            HttpContext.Session.SetInt32("UserID", (from m in _context.UserInfo select m.ID).Single());
 
             if (UserInfo.IsInstructor)
             {
@@ -49,21 +94,14 @@ namespace Coding_Coalition_Project.Pages.Profile
                 HttpContext.Session.SetInt32("IsInstructor", 0);
             }
 
-            // encrypt password using Security.PasswordEncryption
-            // add data protection services
-            //var serviceCollection = new ServiceCollection();
-            //serviceCollection.AddDataProtection();
-            //var services = serviceCollection.BuildServiceProvider();
-            //var encryption = ActivatorUtilities.CreateInstance<PasswordEncryption>(services);
-
-
-            // hash password
-            UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
-
             _context.UserInfo.Add(UserInfo);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("../Profile/Profile");
+        }
+
+        private bool UserExists(int id)
+        {
+            return _context.UserInfo.Any(e => e.ID == id);
         }
     }
 }
