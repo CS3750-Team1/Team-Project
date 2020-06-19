@@ -34,8 +34,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="UserInfo.Password" class="control-label">Password</label>
-                <input asp-for="UserInfo.Password" class="form-control" value="@Convert.ToString(Model.UserInfo.Password)" />
+                <input asp-for="UserInfo.Password" class="form-control" />
                 <span asp-validation-for="UserInfo.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserInfo.ImagePath" class="control-label">Upload Image: </label>
+                <input type="file" asp-for="UserInfo.ImagePath" class="form-control-file"  />
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">

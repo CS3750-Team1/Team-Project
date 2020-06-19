@@ -40,13 +40,16 @@ namespace Coding_Coalition_Project.Pages.SignIn
             var Users = from m in _context.UserInfo select m;
             if(!string.IsNullOrEmpty(UserEmail) && !string.IsNullOrEmpty(UserPassword))
             {
-
+                HttpContext.Session.SetString("Password", UserPassword);
                 // hash password
                 UserPassword = Hash.Create(PasswordEncryption.EncryptString(UserPassword));
+
 
                 UserEmail = UserEmail.ToLower();
                 Users = Users.Where(s => s.Email.Equals(UserEmail));
                 Users = Users.Where(t => t.Password.Equals(UserPassword));
+
+
 
                 if (Users.Count() == 0)
                 {
