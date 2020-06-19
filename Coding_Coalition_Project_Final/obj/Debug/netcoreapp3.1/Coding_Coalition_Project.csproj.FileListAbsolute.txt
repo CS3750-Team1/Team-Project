@@ -1185,3 +1185,4 @@ C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Deb
 C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.pdb
 C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.genruntimeconfig.cache
 C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csprojAssemblyReference.cache
+C:\Users\Janetp\source\repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Course\Course.cshtml.g.cs
