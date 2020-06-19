@@ -66,7 +66,7 @@ namespace Coding_Coalition_Project.Pages.Signup
             _context.UserInfo.Add(UserInfo);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("../MainPage/MainPage");
+            return RedirectToPage("../SignIn/signin");
         }
     }
 }
