@@ -1196,3 +1196,4 @@ D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Navbar.cshtml.g.cs
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.csproj.CoreCompileInputs.cache
 D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.MvcApplicationPartsAssemblyInfo.cache
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\Index.cshtml.g.cs

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.Text;
 using System.Threading.Tasks;
 using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace Coding_Coalition_Project.Pages.Profile
 {
@@ -21,8 +24,17 @@ namespace Coding_Coalition_Project.Pages.Profile
             _context = context;
         }
 
+
+
+//       public string getImageString()
+//       {
+//            return imageString;
+//       }
+        
         public UserInfo UserInfo { get; set; }
-        public Image ProfileImage;
+
+        //       private string imageString;
+        public Image profileImage;
         public async Task<IActionResult> OnGetAsync()
         {
 
@@ -41,17 +53,10 @@ namespace Coding_Coalition_Project.Pages.Profile
 
             Console.WriteLine("ID = " + id.ToString());
 
-            /*
-            var user = from u in _context.UserInfo select u;
-            if (!string.IsNullOrEmpty(id.ToString()))
-            {
-                user = user.Where(s => s.ID.ToString().Contains(id.ToString()));
-            }
 
-            */
-
-            ProfileImage = Image.FromStream(new MemoryStream(UserInfo.UserImage));
-
+            //            string imgString = Convert.ToBase64String(UserInfo.UserImage);
+            //            imageString = string.Format("img src=\"data:image/Bmp;base64,{0}\">", imgString);
+            profileImage = Image.FromFile("../Coding_Coalition_Project_Final/Pages/Images/DefaultImage.jpg");
             return Page();
 
         }

@@ -4,6 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Helpers;
+using System.Web.Razor.Tokenizer;
 using Coding_Coalition_Project.Models;
 using Coding_Coalition_Project.Security;
 using Microsoft.AspNetCore.Http;
@@ -25,6 +27,15 @@ namespace Coding_Coalition_Project.Pages.Profile
 
         [BindProperty]
         public UserInfo UserInfo { get; set; }
+
+
+
+        private byte[] turnImageToByteArray(Image img)
+        {
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            return ms.ToArray();
+        }
         public async Task<IActionResult> OnGetAsync()
         {
 
@@ -74,19 +85,28 @@ namespace Coding_Coalition_Project.Pages.Profile
                     UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
                 }
 
-                if(UserInfo.UserImage == null)
+
+
+
+                //      Saves the image selected path into UserInfo.UserImage
+
+                if (UserInfo.ImagePath == null)
                 {
                     UserInfo.UserImage = (from m in Users select m.UserImage).Single();
                 }
                 else
                 {
-                    Image tempImage = Image.FromFile(UserInfo.ImagePath);
-                    var ms = new MemoryStream();
-                    tempImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    UserInfo.UserImage = ms.ToArray();
-
+                    UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
+                    
+                    
+                //    Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
+                //    var ms = new MemoryStream();
+                //   photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                //    UserInfo.UserImage = ms.ToArray();
                 }
-                UserInfo.ImagePath = "Image added successfully";
+                
+
+
                 UserInfo.Biography = (from m in Users select m.Biography).Single();
 
 
