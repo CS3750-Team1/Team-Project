@@ -29,13 +29,14 @@ namespace Coding_Coalition_Project.Pages.Profile
         public UserInfo UserInfo { get; set; }
 
 
-
+/*
         private byte[] turnImageToByteArray(Image img)
         {
             MemoryStream ms = new MemoryStream();
             img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
             return ms.ToArray();
         }
+*/
         public async Task<IActionResult> OnGetAsync()
         {
 
@@ -96,13 +97,17 @@ namespace Coding_Coalition_Project.Pages.Profile
                 }
                 else
                 {
-                    UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
+                    Image img = Image.FromFile(UserInfo.ImagePath.Replace("\\", "/"));
+                    MemoryStream ms = new MemoryStream();
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    UserInfo.UserImage = ms.ToArray();
+                  //  UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
                     
                     
-                //    Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
-                //    var ms = new MemoryStream();
-                //   photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                //    UserInfo.UserImage = ms.ToArray();
+                    Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
+                    var ms = new MemoryStream();
+                   photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    UserInfo.UserImage = ms.ToArray();
                 }
                 
 
