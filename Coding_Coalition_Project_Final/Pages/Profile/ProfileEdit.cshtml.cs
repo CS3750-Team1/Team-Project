@@ -101,6 +101,7 @@ namespace Coding_Coalition_Project.Pages.Profile
                     MemoryStream ms = new MemoryStream();
                     img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     UserInfo.UserImage = ms.ToArray();
+                    UserInfo.ImagePath = null;
                   //  UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
                     
                   /*  
