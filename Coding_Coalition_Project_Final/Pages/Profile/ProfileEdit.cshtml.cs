@@ -103,11 +103,12 @@ namespace Coding_Coalition_Project.Pages.Profile
                     UserInfo.UserImage = ms.ToArray();
                   //  UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
                     
-                    
+                  /*  
                     Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
                     var ms = new MemoryStream();
                    photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                     UserInfo.UserImage = ms.ToArray();
+                  */
                 }
                 
 
