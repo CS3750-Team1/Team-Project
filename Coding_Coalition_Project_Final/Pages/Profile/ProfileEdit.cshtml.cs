@@ -75,7 +75,7 @@ namespace Coding_Coalition_Project.Pages.Profile
             Users = Users.Where(x => x.ID.Equals(UserID));
 
             if (await TryUpdateModelAsync<UserInfo>(UserInfo,"userinfo", s => s.FirstName, s => s.LastName, s => s.Email,
-                    s => s.Birthdate, s => s.Password, s => s.IsInstructor))
+                    s => s.Birthdate, s => s.Password, s => s.Biography, s => s.Twitter, s => s.Linkedin, s => s.Facebook, s => s.IsInstructor ))
             {
                 if(UserInfo.Password == null)
                 {
@@ -111,12 +111,6 @@ namespace Coding_Coalition_Project.Pages.Profile
                     UserInfo.UserImage = ms.ToArray();
                   */
                 }
-                
-
-
-                UserInfo.Biography = (from m in Users select m.Biography).Single();
-
-
 
                 _context.UserInfo.Update(UserInfo);
                 await _context.SaveChangesAsync();

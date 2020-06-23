@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.CodeAnalysis;
 using SQLitePCL;
+using System.Collections;
 
 namespace Coding_Coalition_Project.Pages.MainPage
 {
@@ -35,7 +36,8 @@ namespace Coding_Coalition_Project.Pages.MainPage
                 [BindProperty]
                 public Announcements Announcements { get; set; }
         */
-        public string FirstName { get; set; }
+
+        public UserInfo UserInfo { get; set; }
 
         public List<string> tempMenu = new List<string>(new string[] { "Account", "Classes", "Mail", "Settings", "Log Out" });
         public List<string> tempNotifications = new List<string>(new string[] { "Assignment Added", "Exam 1 graded", "Due date changed", "I don't know what else to put", "These are temporary", "This shouldn't show" });
@@ -43,11 +45,36 @@ namespace Coding_Coalition_Project.Pages.MainPage
 
         public IList<Courses> userCourses { get; set; }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-            userCourses = _context.Courses.AsNoTracking().ToList();
+            var id = HttpContext.Session.GetInt32("UserID");
 
-            FirstName = HttpContext.Session.GetString("FirstName");
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+
+
+            UserInfo = await _context.UserInfo.FirstOrDefaultAsync(m => m.ID == id);
+
+            List<UserJunctionCourses> courses = _context.UserJunctionCourses.ToList();
+            List<Courses> uCourses = new List<Courses>();
+
+            foreach (UserJunctionCourses ujc in courses)
+            {
+                if (ujc.UserID == UserInfo.ID)
+                {
+                    Courses course = await _context.Courses.FirstOrDefaultAsync(c => c.CourseID == ujc.CourseID);
+                    uCourses.Add(course);
+                }
+            }
+
+            userCourses = uCourses;
+
+
+            //userCourses = _context.Courses.AsNoTracking().ToList();
+
             return Page();
         }
 

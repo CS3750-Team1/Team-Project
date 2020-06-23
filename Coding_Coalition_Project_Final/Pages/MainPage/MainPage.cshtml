@@ -144,6 +144,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
+                    <h4>Welcome Back, @Model.UserInfo.FirstName</h4>
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="../Profile/Profile">Profile</a></li>
                     <li><a href="#">Classes</a></li>
@@ -166,7 +167,7 @@
                         <a href="../Course/Course/@row.CourseName/@row.CourseNumber" @RouteData.Values[@row.CourseName] @RouteData.Values[@row.CourseNumber.ToString()]>
                             
                             <div class="classCard">
-                                @row.CourseName - @row.CourseNumber;
+                                @row.CourseName<br>@row.CourseNumber
                             </div>
                         </a>
                     </div>

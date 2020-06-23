@@ -99,9 +99,9 @@
 
             <strong><p>Biography</p></strong>
             @Convert.ToString(Model.UserInfo.Biography)
-            <a href="http://facebook.com/"><i class="fa fa-twitter"></i></a><a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a>
-
-            <a href="http://twitter.com/"><i class="fa fa-facebook"></i></a>
+            <a href="@Convert.ToString(Model.UserInfo.Twitter)"><i class="fa fa-twitter"></i></a>
+            <a href="@Convert.ToString(Model.UserInfo.Linkedin)"><i class="fa fa-linkedin"></i></a>
+            <a href="@Convert.ToString(Model.UserInfo.Facebook)"><i class="fa fa-facebook"></i></a>
 
         </div>
     </div>
