@@ -1,35 +1,79 @@
 ﻿@page
+
 @model Coding_Coalition_Project.Pages.Profile.ProfileModel
+
 @{
+
     ViewData["Title"] = "Profile";
+
     Layout = "~/Pages/Shared/_Navbar.cshtml";
+
+
+
+    var imgsrc = "Images/DefaultImage.jpg"; // useful when image is not available
+
+    if (Model.UserInfo.UserImage != null)
+
+    {
+
+        var base64 = Convert.ToBase64String(Model.UserInfo.UserImage);
+
+        imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+
+    }
+
+
+
 }
+
+
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
     <!--Bootstrap-->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
+
+
+
     <style>
+
         /* Set gray background color and 100% height */
+
         .sidenav {
             padding-top: 20px;
             background-color: #f1f1f1;
             height: 100%;
         }
+
         /* Set black background color, white text and some padding */
+
         footer {
             background-color: #555;
             color: white;
             padding: 15px;
         }
+
+
+
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             max-width: 500px;
@@ -37,74 +81,140 @@
             text-align: center;
         }
 
+
+
         a {
             text-decoration: none;
             font-size: 22px;
-           
         }
-                 
     </style>
+
 </head>
+
 <body>
 
+
+
     <div class="row content">
+
         <div class="row">
+
             <div>
+
                 <h4>User Information:</h4>
+
+                <img src='@imgsrc' style="max-width:100px;max-height:100px" />
+
                 <dl>
+
                     <dt>
+
                         First Name:
+
+                    </dt>
+
+
+
+                    <dd>
+
+                        @Convert.ToString(Model.UserInfo.FirstName)
+
+                    </dd>
+
+                    <dt>
+
+                        Last Name:
+
                     </dt>
 
                     <dd>
-                        @Convert.ToString(Model.UserInfo.FirstName)
-                    </dd>
-                    <dt>
-                        Last Name:
-                    </dt>
-                    <dd>
+
                         @Convert.ToString(Model.UserInfo.LastName)
+
                     </dd>
+
                     <dt>
+
                         Email:
+
                     </dt>
+
                     <dd>
+
                         @Convert.ToString(Model.UserInfo.Email)
+
                     </dd>
+
                     <dt>
+
                         Birth Date:
+
                     </dt>
+
                     <dd>
+
                         @Convert.ToString(Model.UserInfo.Birthdate)
+
                     </dd>
+
                     <dt>
+
                         Instructor:
+
                     </dt>
+
                     <dd>
+
                         @Convert.ToString(Model.UserInfo.IsInstructor)
+
                     </dd>
+
                 </dl>
 
+
+
             </div>
+
+
 
             <div class="col-md-6">
 
+
+
                 <h3>
+
                     <a href="../Profile/ProfileEdit">Edit</a>
+
                 </h3>
+
             </div>
-        </div>        
+
+        </div>
+
+
 
         <div class="card">
 
+
+
             <strong><p>Biography</p></strong>
+
             @Convert.ToString(Model.UserInfo.Biography)
+
             <a href="@Convert.ToString(Model.UserInfo.Twitter)"><i class="fa fa-twitter"></i></a>
+
             <a href="@Convert.ToString(Model.UserInfo.Linkedin)"><i class="fa fa-linkedin"></i></a>
+
             <a href="@Convert.ToString(Model.UserInfo.Facebook)"><i class="fa fa-facebook"></i></a>
 
+
+
         </div>
+
     </div>
-  
+
+
+
 </body>
+
 </html>
