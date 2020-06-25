@@ -129,6 +129,10 @@
             left: 0;
         }
 
+        .classHide {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -143,13 +147,13 @@
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
+                <h2>Welcome Back, @Model.UserInfo.FirstName</h2>
                 <ul class="nav navbar-nav">
-                    <h4>Welcome Back, @Model.UserInfo.FirstName</h4>
-                    <li class="active"><a href="#">Home</a></li>
                     <li><a href="../Profile/Profile">Profile</a></li>
                     <li><a href="#">Classes</a></li>
                     <li><a href="#">Mail</a></li>
                     <li><a href="#">Settings</a></li>
+                    <li class="classHide"><a href="../AddClass/AddClass">Add Class</a></li>
                 </ul>
             </div>
         </div>

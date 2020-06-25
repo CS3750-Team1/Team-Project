@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="UserInfo.Birthdate" class="control-label">Birth Date</label>
-                <input asp-for="UserInfo.Birthdate" class="form-control" value="@Model.UserInfo.Birthdate" />
+                <input asp-for="UserInfo.Birthdate" class="form-control" value="@Convert.ToDateTime(Model.UserInfo.Birthdate)" />
                 <span asp-validation-for="UserInfo.Birthdate" class="text-danger"></span>
             </div>
             <div class="form-group">
