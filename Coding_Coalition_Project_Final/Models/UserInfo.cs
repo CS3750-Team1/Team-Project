@@ -31,5 +31,13 @@ namespace Coding_Coalition_Project.Models
         public Boolean IsInstructor { get; set; }
 
         public string Biography { get; set; }
+
+        public string Twitter { get; set; }
+
+        public string Linkedin { get; set; }
+
+        public string Facebook { get; set; }
+
+        
     }
 }
