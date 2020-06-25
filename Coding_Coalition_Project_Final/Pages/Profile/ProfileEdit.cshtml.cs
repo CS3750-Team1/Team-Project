@@ -72,6 +72,29 @@ namespace Coding_Coalition_Project.Pages.Profile
                 }
 
 
+                if (UserInfo.ImagePath == null)
+                {
+                    UserInfo.UserImage = (from m in Users select m.UserImage).Single();
+                }
+                else
+                {
+                    Image img = Image.FromFile(UserInfo.ImagePath.Replace("\\", "/"));
+                    MemoryStream ms = new MemoryStream();
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    UserInfo.UserImage = ms.ToArray();
+                    UserInfo.ImagePath = null;
+                    //  UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
+
+                    /*  
+                      Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
+                      var ms = new MemoryStream();
+                     photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                      UserInfo.UserImage = ms.ToArray();
+                    */
+                }
+
+
+
 
 
                 UserInfo.Biography = (from m in Users select m.Biography).Single();
