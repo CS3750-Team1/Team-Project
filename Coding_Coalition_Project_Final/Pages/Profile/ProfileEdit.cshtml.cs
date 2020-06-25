@@ -29,14 +29,7 @@ namespace Coding_Coalition_Project.Pages.Profile
         public UserInfo UserInfo { get; set; }
 
 
-/*
-        private byte[] turnImageToByteArray(Image img)
-        {
-            MemoryStream ms = new MemoryStream();
-            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            return ms.ToArray();
-        }
-*/
+
         public async Task<IActionResult> OnGetAsync()
         {
 
@@ -55,14 +48,6 @@ namespace Coding_Coalition_Project.Pages.Profile
 
             Console.WriteLine("ID = " + id.ToString());
 
-            /*
-            var user = from u in _context.UserInfo select u;
-            if (!string.IsNullOrEmpty(id.ToString()))
-            {
-                user = user.Where(s => s.ID.ToString().Contains(id.ToString()));
-            }
-
-            */
 
             return Page();
 
@@ -89,28 +74,9 @@ namespace Coding_Coalition_Project.Pages.Profile
 
 
 
-                //      Saves the image selected path into UserInfo.UserImage
+                UserInfo.Biography = (from m in Users select m.Biography).Single();
 
-                if (UserInfo.ImagePath == null)
-                {
-                    UserInfo.UserImage = (from m in Users select m.UserImage).Single();
-                }
-                else
-                {
-                    Image img = Image.FromFile(UserInfo.ImagePath.Replace("\\", "/"));
-                    MemoryStream ms = new MemoryStream();
-                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                    UserInfo.UserImage = ms.ToArray();
-                    UserInfo.ImagePath = null;
-                  //  UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
-                    
-                  /*  
-                    Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
-                    var ms = new MemoryStream();
-                   photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    UserInfo.UserImage = ms.ToArray();
-                  */
-                }
+
 
                 _context.UserInfo.Update(UserInfo);
                 await _context.SaveChangesAsync();
