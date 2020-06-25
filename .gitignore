@@ -60,3 +60,5 @@ Coding_Coalition_Project_Final/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_Valid
 Coding_Coalition_Project_Final/obj/Debug/netcoreapp3.1/Razor/Pages/SignIn/signin.cshtml.g.cs
 Coding_Coalition_Project_Final/obj/Debug/netcoreapp3.1/Razor/Pages/Signup/SignUp.cshtml.g.cs
 Coding_Coalition_Project_Final/obj/project.assets.json
+Coding_Coalition_Project_Final/bin/Debug/netcoreapp3.1/Coding_Coalition_Project.Views.pdb
+*.dll
