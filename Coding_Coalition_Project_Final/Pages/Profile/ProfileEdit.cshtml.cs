@@ -29,14 +29,7 @@ namespace Coding_Coalition_Project.Pages.Profile
         public UserInfo UserInfo { get; set; }
 
 
-/*
-        private byte[] turnImageToByteArray(Image img)
-        {
-            MemoryStream ms = new MemoryStream();
-            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            return ms.ToArray();
-        }
-*/
+
         public async Task<IActionResult> OnGetAsync()
         {
 
@@ -55,14 +48,6 @@ namespace Coding_Coalition_Project.Pages.Profile
 
             Console.WriteLine("ID = " + id.ToString());
 
-            /*
-            var user = from u in _context.UserInfo select u;
-            if (!string.IsNullOrEmpty(id.ToString()))
-            {
-                user = user.Where(s => s.ID.ToString().Contains(id.ToString()));
-            }
-
-            */
 
             return Page();
 
@@ -74,10 +59,10 @@ namespace Coding_Coalition_Project.Pages.Profile
             int UserID = (int)HttpContext.Session.GetInt32("UserID");
             Users = Users.Where(x => x.ID.Equals(UserID));
 
-            if (await TryUpdateModelAsync<UserInfo>(UserInfo,"userinfo", s => s.FirstName, s => s.LastName, s => s.Email,
-                    s => s.Birthdate, s => s.Password, s => s.Biography, s => s.Twitter, s => s.Linkedin, s => s.Facebook, s => s.IsInstructor ))
+            if (await TryUpdateModelAsync<UserInfo>(UserInfo, "userinfo", s => s.FirstName, s => s.LastName, s => s.Email,
+                    s => s.Birthdate, s => s.Password, s => s.Biography, s => s.Twitter, s => s.Linkedin, s => s.Facebook, s => s.IsInstructor))
             {
-                if(UserInfo.Password == null)
+                if (UserInfo.Password == null)
                 {
                     UserInfo.Password = (from m in Users select m.Password).Single();
                 }
@@ -86,10 +71,6 @@ namespace Coding_Coalition_Project.Pages.Profile
                     UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
                 }
 
-
-
-
-                //      Saves the image selected path into UserInfo.UserImage
 
                 if (UserInfo.ImagePath == null)
                 {
@@ -102,15 +83,23 @@ namespace Coding_Coalition_Project.Pages.Profile
                     img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                     UserInfo.UserImage = ms.ToArray();
                     UserInfo.ImagePath = null;
-                  //  UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
-                    
-                  /*  
-                    Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
-                    var ms = new MemoryStream();
-                   photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    UserInfo.UserImage = ms.ToArray();
-                  */
+                    //  UserInfo.UserImage = turnImageToByteArray(Image.FromFile(UserInfo.ImagePath));
+
+                    /*  
+                      Image photo = Image.FromFile(UserInfo.ImagePath.Replace('\\', '/'));
+                      var ms = new MemoryStream();
+                     photo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                      UserInfo.UserImage = ms.ToArray();
+                    */
                 }
+
+
+
+
+
+                UserInfo.Biography = (from m in Users select m.Biography).Single();
+
+
 
                 _context.UserInfo.Update(UserInfo);
                 await _context.SaveChangesAsync();
