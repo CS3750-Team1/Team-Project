@@ -4,14 +4,16 @@ using Coding_Coalition_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Coding_Coalition_Project.Migrations
 {
     [DbContext(typeof(Coding_Coalition_ProjectContext))]
-    partial class Coding_Coalition_ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200619053351_CalenderModel")]
+    partial class CalenderModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,9 +172,6 @@ namespace Coding_Coalition_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsInstructor")
                         .HasColumnType("bit");
 
@@ -183,9 +182,6 @@ namespace Coding_Coalition_Project.Migrations
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("UserImage")
-                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("ID");
 

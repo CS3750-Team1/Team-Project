@@ -11,8 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   @* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -32,30 +35,75 @@
         }
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 500px;
             margin: auto;
-            text-align: center;
+           @* text-align: center;*@
+            width: inherit;
+
         }
 
-        a {
-            text-decoration: none;
-            font-size: 22px;
-           
-        }
-                 
+     
+
     </style>
 </head>
 <body>
-    <div class="row content">
-        <div class="row">
+    @*  <div class="row content">
+            <div class="row">
+                <div>
+                    <h4>User Information:</h4>
+                    <img src="@Model.profileImage" />
+                    <dl>
+                        <dt>
+                            First Name:
+                        </dt>
+
+                        <dd>
+                            @Convert.ToString(Model.UserInfo.FirstName)
+                        </dd>
+                        <dt>
+                            Last Name:
+                        </dt>
+                        <dd>
+                            @Convert.ToString(Model.UserInfo.LastName)
+                        </dd>
+                        <dt>
+                            Email:
+                        </dt>
+                        <dd>
+                            @Convert.ToString(Model.UserInfo.Email)
+                        </dd>
+                        <dt>
+                            Birth Date:
+                        </dt>
+                        <dd>
+                            @Convert.ToString(Model.UserInfo.Birthdate)
+                        </dd>
+                        <dt>
+                            Instructor:
+                        </dt>
+                        <dd>
+                            @Convert.ToString(Model.UserInfo.IsInstructor)
+                        </dd>
+                    </dl>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <h3>
+                        <a href="../Profile/ProfileEdit">Edit</a>
+                    </h3>
+                </div>
+            </div>
+        </div>*@
+    @* <div class="card">
             <div>
                 <h4>User Information:</h4>
-
+                <img src="@Model.profileImage" />
                 <dl>
                     <dt>
                         First Name:
                     </dt>
-                    
+
                     <dd>
                         @Convert.ToString(Model.UserInfo.FirstName)
                     </dd>
@@ -69,7 +117,7 @@
                         Email:
                     </dt>
                     <dd>
-                        @Convert.ToString(Model.UserInfo.Email)  
+                        @Convert.ToString(Model.UserInfo.Email)
                     </dd>
                     <dt>
                         Birth Date:
@@ -84,26 +132,106 @@
                         @Convert.ToString(Model.UserInfo.IsInstructor)
                     </dd>
                 </dl>
-
             </div>
-           
-            <div class="col-md-6">
-
-                <h3>
-                    <a href="../Profile/ProfileEdit">Edit</a>
-                </h3>
-            </div>
-        </div>
-        <div class="card">
-            <i class="fa fa-5x fa-user-circle" aria-hidden="true"></i>
             <strong><p>Biography</p></strong>
             @Convert.ToString(Model.UserInfo.Biography)
-            <a href="http://facebook.com/"><i class="fa fa-twitter"></i></a><a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a>
-            
-            <a href="http://twitter.com/"><i class="fa fa-facebook"></i></a>
 
-</div>
-    </div>
-  
+            <a href=" @Convert.ToString(Model.UserInfo.Twitter)"><i class="fa fa-twitter"></i></a>
+            <a href="@Convert.ToString(Model.UserInfo.Linkedin)"><i class="fa fa-linkedin"></i></a>
+            <a href="@Convert.ToString(Model.UserInfo.Facebook)"><i class="fa fa-facebook"></i></a>
+
+        </div>
+        <div class="col-md-6">
+
+            <h3>
+                <a href="../Profile/ProfileEdit">Edit</a>
+            </h3>
+        </div>*@
+    <header class="header">
+        <div class="container">
+            <div class="teacher-name" style="padding-top:20px;">
+
+                <div class="row" style="margin-top:0px;">
+                    <div class="col-md-9">
+                        <h2 style="font-size:38px"><strong> @Convert.ToString(Model.UserInfo.FirstName)  </strong></h2>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="button" style="float:right;">
+                            <a href="../Profile/ProfileEdit" class="btn btn-outline-primary btn-sm">Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-3">
+                    <!-- Image -->
+                    <a href="#"> <img class="rounded-circle" src="@Model.profileImage" alt="Profile Picture" style="width:200px;height:200px"></a>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- Profile Details -->                    
+                    <p><span class="email" style="font-size:18px">Names: <strong> @Convert.ToString(Model.UserInfo.FirstName) @Convert.ToString(Model.UserInfo.LastName) </strong></span></p>
+                    <p><span class="email" style="font-size:18px">Email: <strong> @Convert.ToString(Model.UserInfo.Email)</strong></span></p>
+                    <p><span class="bdate" style="font-size:18px">Birth Date: <strong> @Convert.ToString(Model.UserInfo.Birthdate)</strong></span></p>
+                    <p><span class="email" style="font-size:18px">Instructor: <strong> @Convert.ToString(Model.UserInfo.IsInstructor)</strong></span></p>
+
+
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <!--Social Links -->
+                    <span class="number" style="font-size:18px"><strong>Profile Links</strong></span>
+                    
+                    <div class="social-icons" style="padding-top:18px">
+                        <a href="@Convert.ToString(Model.UserInfo.Linkedin)">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x" ></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <a href="@Convert.ToString(Model.UserInfo.Twitter)">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x" ></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <a href="@Convert.ToString(Model.UserInfo.Facebook)">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x" ></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--End of Header-->
+    <!-- Main container -->
+    <div class="container">
+
+        <!-- Section:Biography -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-block text-xs-left">
+                    <h2 class="card-title" style="color:#0b1b40"><i class="fa fa-user fa-fw"></i>Biography</h2>
+                    <div style="height: 35px"></div>
+                    <p> @Convert.ToString(Model.UserInfo.Biography)</p>
+                </div>
+            </div>
+        </div>
+        <!-- End:Biography -->
+
+    </div> <!--End of Container-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
 </body>
 </html>
+
+

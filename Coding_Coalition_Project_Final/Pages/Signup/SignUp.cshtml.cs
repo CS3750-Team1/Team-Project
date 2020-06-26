@@ -4,13 +4,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
 using Coding_Coalition_Project.Security;
-using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
+using System.Linq;
+using Microsoft.CodeAnalysis;
+using System.Data;
+using Coding_Coalition_Project.Migrations;
+using System.Drawing;
+using System.IO;
 
 namespace Coding_Coalition_Project.Pages.Signup
 {
     public class SignUpModel : PageModel
     {
+        
         private readonly Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext _context;
 
         public SignUpModel(Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext context)
@@ -31,42 +36,49 @@ namespace Coding_Coalition_Project.Pages.Signup
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            if(UserInfo.Password == null)
+            {
+                return null;
+            }
+            
+                UserInfo.ImagePath = "../Images/DefaultImage.jpg";
+                Image tempImage = Image.FromFile(UserInfo.ImagePath);
+                var ms = new MemoryStream();
+                tempImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                UserInfo.UserImage = ms.ToArray();
+                UserInfo.ImagePath = "Image added successfully";
+            
+
+
 
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            HttpContext.Session.Clear();
-
-            HttpContext.Session.SetString("FirstName", UserInfo.FirstName);
-            HttpContext.Session.SetString("LastName", UserInfo.LastName);
-            HttpContext.Session.SetInt32("UserID", UserInfo.ID);
-
-            if(UserInfo.IsInstructor)
-            {
-                HttpContext.Session.SetInt32("IsInstructor", 1);
-            }
-            else
-            {
-                HttpContext.Session.SetInt32("IsInstructor", 0);
-            }
-
-            // encrypt password using Security.PasswordEncryption
-            // add data protection services
-            //var serviceCollection = new ServiceCollection();
-            //serviceCollection.AddDataProtection();
-            //var services = serviceCollection.BuildServiceProvider();
-            //var encryption = ActivatorUtilities.CreateInstance<PasswordEncryption>(services);
 
 
             // hash password
             UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
 
-            _context.UserInfo.Add(UserInfo);
-            await _context.SaveChangesAsync();
 
-            return RedirectToPage("../SignIn/signin");
+            var Users = from x in _context.UserInfo select x;
+
+            Users = Users.Where(s => s.Email.Equals(UserInfo.Email));
+
+
+            if (Users.Count() == 0)
+            {
+                _context.UserInfo.Add(UserInfo);
+                await _context.SaveChangesAsync();
+
+                return RedirectToPage("../SignIn/signin");
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }
