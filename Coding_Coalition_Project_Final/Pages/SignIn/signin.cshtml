@@ -1,0 +1,25 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.SignIn.SignInModel
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<div class="login-form" style="width: 340px; margin: 50px auto;">
+    <form style="margin-bottom: 15px; background: #f7f7f7; box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); padding: 30px;">
+        <h2 class="text-center" style="margin: 0 0 15px;">Sign in</h2>
+        <p>
+            <div class="form-group">
+                <pre>Email:&Tab;&Tab;<input type="text" asp-for="UserEmail" class="form-control" /><br /></pre>
+            </div>
+
+            <div class="form-group">
+                <pre>Password:&Tab;<input type="password" asp-for="UserPassword" class="form-control" /></pre>
+            </div>
+
+            <div runat="server" id="NoUser" style="display:none">Information is Incorrect<br /></div>
+
+            <input type="submit" value="Log in" class="btn btn-primary btn-block" style=" font-size: 15px; font-weight: bold;" />
+        </p>
+    </form>
+</div>

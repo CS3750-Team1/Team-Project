@@ -1,0 +1,38 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.AddCourseSubject.AddCourseSubjectModel
+@{
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+
+@{
+    ViewData["Title"] = "AddCourseSubject";
+}
+
+<h1>AddCourseSubject</h1>
+
+<h4>CourseSubject</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CourseSubject.CourseSubjectName" class="control-label"></label>
+                <input asp-for="CourseSubject.CourseSubjectName" class="form-control" />
+                <span asp-validation-for="CourseSubject.CourseSubjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
