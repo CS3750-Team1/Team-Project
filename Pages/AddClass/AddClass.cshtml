@@ -1,0 +1,61 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.AddClass.AddClassModel
+@{
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+
+@{
+    ViewData["Title"] = "AddClass";
+    bool isInstructor = Model.UserInfo.IsInstructor;
+}
+
+<h1>AddClass</h1>
+
+<h4>Courses</h4>
+<hr />
+<div class="row">
+    @if (isInstructor)
+    {
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseName" class="control-label"></label>
+                <input asp-for="Courses.CourseName" class="form-control" />
+                <span asp-validation-for="Courses.CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseSubject" class="control-label"></label>
+                <input asp-for="Courses.CourseSubject" class="form-control" />
+                <span asp-validation-for="Courses.CourseSubject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseNumber" class="control-label"></label>
+                <input asp-for="Courses.CourseNumber" class="form-control" />
+                <span asp-validation-for="Courses.CourseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.InstructorID" class="control-label"></label>
+                <input asp-for="Courses.InstructorID" class="form-control" />
+                <span asp-validation-for="Courses.InstructorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    }
+    else
+    {
+        <p>You do not have permission to add classes. Please become an instructor then try again.</p>
+    }
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
