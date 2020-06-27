@@ -7,6 +7,7 @@
 
 @{
     ViewData["Title"] = "AddClass";
+    bool isInstructor = Model.UserInfo.IsInstructor;
 }
 
 <h1>AddClass</h1>
@@ -14,6 +15,8 @@
 <h4>Courses</h4>
 <hr />
 <div class="row">
+    @if (isInstructor)
+    {
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -42,6 +45,11 @@
             </div>
         </form>
     </div>
+    }
+    else
+    {
+        <p>You do not have permission to add classes. Please become an instructor then try again.</p>
+    }
 </div>
 
 <div>
