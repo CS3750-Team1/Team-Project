@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {}
+    "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
+    "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+        "projectUniqueName": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
         "projectName": "Coding_Coalition_Project",
-        "projectPath": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\obj\\",
+        "projectPath": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+        "packagesPath": "C:\\Users\\Kelton\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Kelton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -84,6 +79,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -92,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400-preview-015151\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

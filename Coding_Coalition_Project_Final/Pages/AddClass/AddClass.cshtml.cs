@@ -51,6 +51,7 @@ namespace Coding_Coalition_Project.Pages.AddClass
 
         [BindProperty]
         public Courses Courses { get; set; }
+        public CourseSubject Subject {get;set;}
 
         [BindProperty]
         public UserInfo UserInfo { get; set; }
@@ -59,18 +60,16 @@ namespace Coding_Coalition_Project.Pages.AddClass
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            Courses.InstructorID = (int)HttpContext.Session.GetInt32("UserID");
             var Users = from m in _context.UserInfo select m;
             int UserID = (int)HttpContext.Session.GetInt32("UserID");
             Users = Users.Where(x => x.ID.Equals(UserID));
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+
 
             _context.Courses.Add(Courses);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("../Index");
+            return RedirectToPage("../MainPage/MainPage");
         }
     }
 }

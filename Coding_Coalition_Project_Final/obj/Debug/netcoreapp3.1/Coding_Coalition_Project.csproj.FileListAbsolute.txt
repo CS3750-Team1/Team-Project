@@ -1389,3 +1389,4 @@ C:\Users\User\Desktop\Team-Project-master\Coding_Coalition_Project_Final\obj\Deb
 C:\Users\User\Desktop\Team-Project-master\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.dll
 C:\Users\User\Desktop\Team-Project-master\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.pdb
 C:\Users\User\Desktop\Team-Project-master\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.genruntimeconfig.cache
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\package-lock.json

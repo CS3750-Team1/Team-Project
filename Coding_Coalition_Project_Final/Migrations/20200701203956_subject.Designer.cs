@@ -4,14 +4,16 @@ using Coding_Coalition_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Coding_Coalition_Project.Migrations
 {
     [DbContext(typeof(Coding_Coalition_ProjectContext))]
-    partial class Coding_Coalition_ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200701203956_subject")]
+    partial class subject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

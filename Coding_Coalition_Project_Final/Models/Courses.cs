@@ -17,7 +17,7 @@ namespace Coding_Coalition_Project.Models
 
 
 
-        public int CourseSubject { get; set; }
+        public string CourseSubject { get; set; }
 
         
         public int CourseNumber { get; set; }
