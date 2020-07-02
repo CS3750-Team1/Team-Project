@@ -41,7 +41,7 @@ namespace Coding_Coalition_Project.Pages.Signup
                 return null;
             }
             
-                Image tempImage = Image.FromFile("~/Images/DefaultImage.jpg");
+                Image tempImage = Image.FromFile("Images/DefaultImage.jpg");
                 var ms = new MemoryStream();
                 tempImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 UserInfo.UserImage = ms.ToArray();
