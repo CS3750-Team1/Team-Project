@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Coding_Coalition_Project.Pages.AddClass
 {
@@ -26,9 +27,10 @@ namespace Coding_Coalition_Project.Pages.AddClass
             _context = context;
         }
 
+        public int IsInstructor;
         public async Task<IActionResult> OnGetAsync()
         {
-
+            IsInstructor = (int)HttpContext.Session.GetInt32("IsInstructor");
             var id = HttpContext.Session.GetInt32("UserID");
             if (id == null)
             {
@@ -60,10 +62,14 @@ namespace Coding_Coalition_Project.Pages.AddClass
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+
             Courses.InstructorID = (int)HttpContext.Session.GetInt32("UserID");
             var Users = from m in _context.UserInfo select m;
             int UserID = (int)HttpContext.Session.GetInt32("UserID");
             Users = Users.Where(x => x.ID.Equals(UserID));
+
+            DateTime temp = Courses.CourseMeetingTime;
+            Courses.CourseMeetingTime = default(DateTime).Add(Courses.CourseMeetingTime.TimeOfDay);
 
 
             _context.Courses.Add(Courses);

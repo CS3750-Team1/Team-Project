@@ -37,6 +37,7 @@ namespace Coding_Coalition_Project.Pages.SignIn
 
         public async Task<RedirectToPageResult> OnGetAsync()
         {
+            HttpContext.Session.Clear();
             var Users = from m in _context.UserInfo select m;
             if(!string.IsNullOrEmpty(UserEmail) && !string.IsNullOrEmpty(UserPassword))
             {
@@ -60,6 +61,14 @@ namespace Coding_Coalition_Project.Pages.SignIn
                     HttpContext.Session.SetString("FirstName",(from m in Users select m.FirstName).Single()) ;
                     HttpContext.Session.SetString("LastName", (from m in Users select m.LastName).Single());
                     HttpContext.Session.SetInt32("UserID", (from m in Users select m.ID).Single());
+                    if ((from m in Users select m.IsInstructor).Single() == true)
+                    {
+                        HttpContext.Session.SetInt32("IsInstructor", 0);
+                    }
+                    else
+                    {
+                        HttpContext.Session.SetInt32("IsInstructor", 1);
+                    }
                     return RedirectToPage("../MainPage/MainPage");
           //          UserInfo = await Users.ToListAsync();
 

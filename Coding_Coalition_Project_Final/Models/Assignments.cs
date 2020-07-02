@@ -22,5 +22,7 @@ namespace Coding_Coalition_Project.Models
 
         public int MaxPoints { get; set; }
 
+        public string AssignmentDescription { get; set; }
+        public string submissionType { get; set; }
     }
 }

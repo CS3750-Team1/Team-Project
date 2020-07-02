@@ -15,7 +15,7 @@
 <h4>Courses</h4>
 <hr />
 <div class="row">
-    @if (isInstructor)
+    @if (Model.IsInstructor == 1)
     {
     <div class="col-md-4">
         <form method="post">
@@ -34,6 +34,31 @@
                 <label asp-for="Courses.CourseNumber" class="control-label"></label>
                 <input asp-for="Courses.CourseNumber" class="form-control" />
                 <span asp-validation-for="Courses.CourseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseCredits" class="control-label"></label>
+                <input asp-for="Courses.CourseCredits" class="form-control" />
+                <span asp-validation-for="Courses.CourseCredits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseLocation" class="control-label"></label>
+                <input asp-for="Courses.CourseLocation" class="form-control" />
+                <span asp-validation-for="Courses.CourseLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseCapacity" class="control-label"></label>
+                <input asp-for="Courses.CourseCapacity" class="form-control" />
+                <span asp-validation-for="Courses.CourseCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseMeetingTime" class="control-label"></label>
+                <input asp-for="Courses.CourseMeetingTime" class="form-control" />
+                <span asp-validation-for="Courses.CourseMeetingTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseMeetingDay" class="control-label"></label>
+                <input asp-for="Courses.CourseMeetingDay" class="form-control" />
+                <span asp-validation-for="Courses.CourseMeetingDay" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

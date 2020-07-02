@@ -44,9 +44,22 @@ namespace Coding_Coalition_Project.Pages.MainPage
         public List<string> tempAnnouncements = new List<string>(new string[] { "Announcement 1", "Announcement 2", "Announcement 3", "Announcement 3", "Announcement 4" });
 
         public IList<Courses> userCourses { get; set; }
+        private int IsInstructor;
+
+        public void SetIsInstructor(int temp)
+        {
+            IsInstructor = temp;
+        }
+        public int GetIsInstructor()
+        {
+            Console.WriteLine($"IsInstructor returned: " + IsInstructor.ToString());
+            return IsInstructor;
+        }
 
         public async Task<IActionResult> OnGetAsync()
         {
+            SetIsInstructor((int)HttpContext.Session.GetInt32("IsInstructor"));
+            
             var id = HttpContext.Session.GetInt32("UserID");
 
             if (id == null)

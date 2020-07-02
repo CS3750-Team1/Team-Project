@@ -24,6 +24,14 @@ namespace Coding_Coalition_Project.Models
 
         public int InstructorID { get; set; }
 
+        public int CourseCredits { get; set; }
 
+        public string CourseLocation { get; set; }
+
+        [Required, DataType(DataType.DateTime)]
+        public DateTime CourseMeetingTime { get; set; }
+
+        public string CourseMeetingDay { get; set; }
+        public int CourseCapacity { get; set; }
     }
 }
