@@ -184,10 +184,9 @@
             <div class="col-sm-4 sidenav">
                 <h2>Notifications</h2>
 
-                @for (int i = 0; i < 5; i++)
+                @foreach(var row in Model.userAssignments)
                 {
-                    <div class="card">@Convert.ToString(Model.tempNotifications[i])</div>
-
+                    <div class="card">@row.AssignmentName</div>
                 }
 
                 <h2>Announcements</h2>
