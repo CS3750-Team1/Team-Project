@@ -1,0 +1,78 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.RegisterClasses.RegisterClassesDetailsModel
+
+@{
+    ViewData["Title"] = "RegisterClassesDetails";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+<h1>RegisterClassesDetails</h1>
+
+<div>
+    <h4>Courses</h4>
+    <hr />
+    @{Model.setCourseID(Model.Courses.CourseID);}
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseSubject)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseSubject)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.InstructorID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.InstructorID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseCredits)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseCredits)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseLocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseLocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseMeetingTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseMeetingTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseMeetingDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseMeetingDay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseCapacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseCapacity)
+        </dd>
+    </dl>
+</div>
+<form method="post">
+    <div>
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-primary" />
+        </div>
+    </div>
+</form>

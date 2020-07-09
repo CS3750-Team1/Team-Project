@@ -157,6 +157,10 @@
                     {
                     <li class="classHide"><a href="../AddClass/AddClass">Add Class</a></li>
                     }
+                    @if (Model.GetIsInstructor() == 0)
+                    {
+                    <li><a href="../RegisterClasses/RegisterClasses">Register for Courses</a></li>
+                    }
                 </ul>
             </div>
         </div>
