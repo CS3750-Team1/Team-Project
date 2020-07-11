@@ -1,0 +1,29 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.AccountBalance.AccountBalanceModel
+@{
+    ViewData["Title"] = "AccountBalance";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+
+
+}
+
+<h1>Account Balance</h1>
+<h3>Student: @Model.UserInfo.FirstName @Model.UserInfo.LastName</h3>
+<h3>Credit Hours: @Model.credit</h3>
+<h3>Outstanding Balance: @Model.AmountMoney</h3>
+
+<form method="post" >
+    <div class="form-group">
+        <label class="control-label">How much are you going to pay?</label>
+        <input id="Amount" name="Amount" type="number" class="form-control" />
+        <input type="submit" value="Submit Payment" class="btn btn-primary" />
+    </div>
+</form>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+
+
+

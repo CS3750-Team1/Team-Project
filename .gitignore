@@ -62,3 +62,4 @@ Coding_Coalition_Project_Final/obj/Debug/netcoreapp3.1/Razor/Pages/Signup/SignUp
 Coding_Coalition_Project_Final/obj/project.assets.json
 Coding_Coalition_Project_Final/bin/Debug/netcoreapp3.1/Coding_Coalition_Project.Views.pdb
 *.dll
+*.cache

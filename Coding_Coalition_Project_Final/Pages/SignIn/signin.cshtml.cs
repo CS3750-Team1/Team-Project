@@ -4,17 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
-using Microsoft.Extensions.Primitives;
 using Coding_Coalition_Project.Security;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.CodeAnalysis;
-using System.Reflection.Metadata;
-using Document = Microsoft.CodeAnalysis.Document;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Coding_Coalition_Project.Pages.SignIn
 {
