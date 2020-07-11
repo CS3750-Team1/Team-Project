@@ -8,15 +8,9 @@ namespace Coding_Coalition_Project.Models
 {
     public class CalenderModel
     {
-        [Key]
-        public int EventID { get; set; }
-
-        public string Title { get; set; }
-
-        public string Description { get; set; }
-
-        public DateTime EventDate { get; set; }
-
-        public string Location { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

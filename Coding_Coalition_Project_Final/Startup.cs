@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Security;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Coding_Coalition_Project
 {
@@ -26,6 +27,7 @@ namespace Coding_Coalition_Project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddRazorPages();
 
             services.AddSession();
@@ -56,11 +58,10 @@ namespace Coding_Coalition_Project
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
-            
-
+            app.UseDefaultFiles();
             app.UseRouting();
-
             app.UseAuthorization();
+           
 
             app.UseEndpoints(endpoints =>
             {
