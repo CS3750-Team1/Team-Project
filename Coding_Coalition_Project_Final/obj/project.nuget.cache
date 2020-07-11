@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MDve2FInp+aj8VMebxJFqWlG1cTulMmLFoQtqxNgxnklJWWV4QUKiruURJq68HFn22HY2O86fx/hALDfwD1p3Q==",
+  "dgSpecHash": "C7zfvMHZsRWKtzJT9V1FHo3Oi0qKXonTtwQKVlpYEI2FD4xLKhHLPgh+WpJ5HDCFMnkuQeiR59V+D5VqT3lzvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
   "expectedPackageFiles": [
@@ -87,6 +87,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.2\\sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\stripe.net\\37.16.0\\stripe.net.37.16.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
