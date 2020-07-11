@@ -38,10 +38,10 @@
     </div>
     <script>
         scheduler.config.xml_date = "%Y-%m-%d %H:%i";
-        scheduler.init('scheduler_here', new Date(2020, 6, 20), "week");
+        scheduler.init('scheduler_here', new Date(2020, 6, 20), "month");
 
         // load data from backend
-        scheduler.load("/api/events", "json");
+        scheduler.load("/api/Calender", "json");
         // connect backend to scheduler
         var dp = new dataProcessor("/api/Calender");
         dp.init(scheduler);
