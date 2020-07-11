@@ -16,11 +16,14 @@ namespace Coding_Coalition_Project.Pages.RegisterClasses
     public class RegisterClassesDetailsModel : PageModel
     {
         private readonly Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext _context;
+        int costPerCredit = 10000;
 
         public RegisterClassesDetailsModel(Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext context)
         {
             _context = context;
         }
+
+        public UserInfo UserInfo { get; set; }
 
         public Courses Courses { get; set; }
         
@@ -41,6 +44,14 @@ namespace Coding_Coalition_Project.Pages.RegisterClasses
 
             Courses = await _context.Courses.FirstOrDefaultAsync(m => m.CourseID == id);
 
+            id = HttpContext.Session.GetInt32("UserID");
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            UserInfo = await _context.UserInfo.FirstOrDefaultAsync(m => m.ID == id);
+
             if (Courses == null)
             {
                 return NotFound();
@@ -55,12 +66,34 @@ namespace Coding_Coalition_Project.Pages.RegisterClasses
         public async Task<IActionResult> OnPostAsync()
         {
             Console.WriteLine("courseid = " + (int)HttpContext.Session.GetInt32("CourseID"));
+            
+            var id = HttpContext.Session.GetInt32("CourseID");
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Courses = await _context.Courses.FirstOrDefaultAsync(m => m.CourseID == id);
+
+            id = HttpContext.Session.GetInt32("UserID");
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            UserInfo = await _context.UserInfo.FirstOrDefaultAsync(m => m.ID == id);
 
             userJunctionCourses.UserID = (int)HttpContext.Session.GetInt32("UserID");
             userJunctionCourses.CourseID = (int)HttpContext.Session.GetInt32("CourseID");
 
+            int cost = costPerCredit * Courses.CourseCredits;
+
+            UserInfo.CreditHours = UserInfo.CreditHours + Courses.CourseCredits;
+            UserInfo.AccountCharges = UserInfo.AccountCharges + cost;
+
 
             _context.UserJunctionCourses.Add(userJunctionCourses);
+            _context.UserInfo.Update(UserInfo);
             await _context.SaveChangesAsync();
             return RedirectToPage("./RegisterClasses");
         }
