@@ -1,0 +1,36 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.AccountBalance.AccountPaymentModel
+@{
+    ViewData["Title"] = "AccountPayment";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://js.stripe.com/v3/"></script>
+
+</head>
+<body>
+    <h1>Account Payment</h1>
+    <div>
+        <form method="post">
+            <article>
+                <label>Amount: @Model.AmountMoney</label>
+            </article>
+            <script src="//checkout.stripe.com/v2/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51H0WFmDbhj28s2PIx5LodU43CrlrR3SgCmN8F07HpRxrdl4RreFGzrJlRAA1wTMJDCjv3Hdc26Je5EopQv7DK8KU00UPNxGkES"
+                    data-locale="auto"
+                    data-description="Sample Charge"
+                    data-amount="@Model.AmountInt">
+            </script>
+        </form>
+    </div>
+</body>
+</html>

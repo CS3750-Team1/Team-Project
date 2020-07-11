@@ -38,6 +38,12 @@ namespace Coding_Coalition_Project.Models
 
         public string Facebook { get; set; }
 
+        public int CreditHours { get; set; }
+
+        public int AccountCharges { get; set; }
+
+        public int AccountPayments { get; set; }
+
         
     }
 }

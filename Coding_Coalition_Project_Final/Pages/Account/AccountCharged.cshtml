@@ -1,0 +1,14 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.Account.AccountChargedModel
+@{
+    ViewData["Title"] = "AccountCharged";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+<h1>Account Charged</h1>
+
+<p>Account Successfully Charged @Model.AmountMoney!</p>
+<p>Thank you for your payment, @Model.UserInfo.FirstName</p>
+<li><a asp-page="../MainPage/MainPage">Return</a></li>
+
+
