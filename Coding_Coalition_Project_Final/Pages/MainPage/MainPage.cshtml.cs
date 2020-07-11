@@ -59,8 +59,6 @@ namespace Coding_Coalition_Project.Pages.MainPage
 
         public async Task<IActionResult> OnGetAsync()
         {
-            SetIsInstructor((int)HttpContext.Session.GetInt32("IsInstructor"));
-            
             var id = HttpContext.Session.GetInt32("UserID");
 
             if (id == null)
@@ -68,14 +66,19 @@ namespace Coding_Coalition_Project.Pages.MainPage
                 return NotFound();
             }
 
-
-
             UserInfo = await _context.UserInfo.FirstOrDefaultAsync(m => m.ID == id);
-            
+
+            if (UserInfo.IsInstructor)
+            {
+                SetIsInstructor(1);
+            } else
+            {
+                SetIsInstructor(0);
+            }     
+
             List<UserJunctionCourses> courses = _context.UserJunctionCourses.ToList();
             List<Courses> uCourses = new List<Courses>();
 
-            int IsInstructor = (int)HttpContext.Session.GetInt32("IsInstructor");
             if (IsInstructor != 1)
             {
                 foreach (UserJunctionCourses ujc in courses)
