@@ -1,0 +1,75 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.RegisterClassesModel
+
+@{
+    ViewData["Title"] = "RegisterClasses";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+<h1>Courses</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseSubject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseCredits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseMeetingDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseMeetingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseCapacity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Courses) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseSubject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCredits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseMeetingDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseMeetingTime.TimeOfDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCapacity)
+            </td>
+            <td>
+
+                <a asp-page="./RegisterClassesDetails" asp-route-id="@item.CourseID" >View</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

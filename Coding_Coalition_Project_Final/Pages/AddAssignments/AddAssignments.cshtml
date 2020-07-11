@@ -42,6 +42,18 @@
                 <input asp-for="Assignments.MaxPoints" class="form-control" />
                 <span asp-validation-for="Assignments.MaxPoints" class="text-danger"></span>
             </div>
+            <h9>*Only input "file" or "text" for submission type*</h9>
+            <div class="form-group">
+                <label asp-for="Assignments.submissionType" class="control-label"></label>
+                <input asp-for="Assignments.submissionType" class="form-control" />
+                <span asp-validation-for="Assignments.submissionType" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignments.AssignmentDescription" class="control-label"></label>
+                <input asp-for="Assignments.AssignmentDescription" class="form-control" />
+                <span asp-validation-for="Assignments.AssignmentDescription" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
