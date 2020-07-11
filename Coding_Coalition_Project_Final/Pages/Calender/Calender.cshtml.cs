@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Http;
+using Coding_Coalition_Project.Models;
+using DHTMLX.Scheduler;
 
 namespace Coding_Coalition_Project.Pages.Calender
 {
@@ -17,10 +19,12 @@ namespace Coding_Coalition_Project.Pages.Calender
         {
             _context = context;
         }
-        public void OnGet()
-        {
-        }
 
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
      
+
     }
 }

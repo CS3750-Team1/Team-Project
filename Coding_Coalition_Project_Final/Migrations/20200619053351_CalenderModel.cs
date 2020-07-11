@@ -11,16 +11,15 @@ namespace Coding_Coalition_Project.Migrations
                 name: "Calender",
                 columns: table => new
                 {
-                    EventID = table.Column<int>(nullable: false)
+                    ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    EventDate = table.Column<DateTime>(nullable: false),
-                    Location = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: true),
+                    EndDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Calender", x => x.EventID);
+                    table.PrimaryKey("PK_Calender", x => x.ID);
                 });
         }
 
