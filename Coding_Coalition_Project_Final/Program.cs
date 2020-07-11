@@ -16,22 +16,18 @@ namespace Coding_Coalition_Project
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args)
-                .Build()
-                .InitializeDatabase()
-                .Run();            
+            CreateHostBuilder(args).Build().Run();
         }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
+        /*  public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+              WebHost.CreateDefaultBuilder(args)
+                  .UseStartup<Startup>();*/
     }
 
-    /*  public static IHostBuilder CreateHostBuilder(string[] args) =>
-          Host.CreateDefaultBuilder(args)
-              .ConfigureWebHostDefaults(webBuilder =>
-              {
-                  webBuilder.UseStartup<Startup>();
-              });*/
-
+  
 }

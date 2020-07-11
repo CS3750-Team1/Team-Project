@@ -1583,3 +1583,7 @@ C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debu
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.pdb
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Coding_Coalition_Project.genruntimeconfig.cache
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Stripe.net.dll
+C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountBalance.cshtml.g.cs
+C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountCharged.cshtml.g.cs
+C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountPayment.cshtml.g.cs
