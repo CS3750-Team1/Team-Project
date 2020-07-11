@@ -153,14 +153,15 @@
                     <li><a href="#">Classes</a></li>
                     <li><a href="#">Mail</a></li>
                     <li><a href="#">Settings</a></li>
+                    
                     @if (Model.GetIsInstructor() == 1)
                     {
-                    <li class="classHide"><a href="../AddClass/AddClass">Add Class</a></li>
-                    }
+                <li class="classHide"><a href="../AddClass/AddClass">Add Class</a></li>
+                <li><a href="../AddAssignments/AddAssignments">Add Assignment</a></li>}
+
                     @if (Model.GetIsInstructor() == 0)
                     {
-                    <li><a href="../RegisterClasses/RegisterClasses">Register for Courses</a></li>
-                    }
+                <li><a href="../RegisterClasses/RegisterClasses">Register for Courses</a></li>}
                 </ul>
             </div>
         </div>

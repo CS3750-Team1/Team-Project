@@ -24,5 +24,6 @@ namespace Coding_Coalition_Project.Models
 
         public string AssignmentDescription { get; set; }
         public string submissionType { get; set; }
+
     }
 }
