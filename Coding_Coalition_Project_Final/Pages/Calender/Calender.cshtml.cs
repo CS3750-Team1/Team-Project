@@ -24,7 +24,24 @@ namespace Coding_Coalition_Project.Pages.Calender
         {
             return Page();
         }
-     
+
+        [HttpGet]
+        public IEnumerable<WebAPIEvent> Get()
+        {
+            return _context.Calender
+                .ToList()
+                .Select(e => (WebAPIEvent)e);
+        }
+
+        // GET api/events/5
+        [HttpGet("{id}")]
+        public WebAPIEvent Get(int id)
+        {
+            return (WebAPIEvent)_context
+                .Calender
+                .Find(id);
+        }
+
 
     }
 }
