@@ -50,13 +50,12 @@ namespace Coding_Coalition_Project.Pages.AccountBalance
             return Page();
         }
 
-
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string stripeEmail, string stripeToken)
         {
             var id = HttpContext.Session.GetInt32("UserID");
 
@@ -67,14 +66,41 @@ namespace Coding_Coalition_Project.Pages.AccountBalance
 
             UserInfo = await _context.UserInfo.FirstOrDefaultAsync(m => m.ID == id);
 
-            var amount = (int) HttpContext.Session.GetInt32("AccountPayment");
+            var customers = new CustomerService();
+            var charges = new ChargeService();
+            var customer = customers.Create(new CustomerCreateOptions
+            {
+                Email = stripeEmail,
+                Source = stripeToken
+            });
 
-            UserInfo.AccountPayments = amount + UserInfo.AccountPayments;
-            _context.UserInfo.Update(UserInfo);
-            await _context.SaveChangesAsync();
+            
+            var charge = charges.Create(new ChargeCreateOptions
+            {
+                Amount = (int) HttpContext.Session.GetInt32("AccountPayment"),
+                Description = "Account Payment",
+                Currency = "usd",
+                Customer = customer.Id
+            });
+            
 
-            return RedirectToPage("../Account/AccountCharged");
+            if (charge.Status == "succeeded")
+            {
+                string BalanceTransactionId = charge.BalanceTransactionId;
+                
+                var amount = (int)HttpContext.Session.GetInt32("AccountPayment");
+
+                UserInfo.AccountPayments = amount + UserInfo.AccountPayments;
+                _context.UserInfo.Update(UserInfo);
+                await _context.SaveChangesAsync();
+
+                return RedirectToPage("../Account/AccountCharged");
+            }
+            else
+            {
+                return Page();
+            }
+ 
         }
-
     }
 }

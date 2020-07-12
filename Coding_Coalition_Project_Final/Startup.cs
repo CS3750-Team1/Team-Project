@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Security;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
 
 namespace Coding_Coalition_Project
 {
@@ -33,15 +34,19 @@ namespace Coding_Coalition_Project
             services.AddSession();
             services.AddMemoryCache();
             services.AddMvc();
+            
 
             services.AddDbContext<Coding_Coalition_ProjectContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Coding_Coalition_ProjectContext")));
 
             // adds password encryption service
             services.AddSingleton<DataProtectionPurposeStrings>();
+
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -67,6 +72,8 @@ namespace Coding_Coalition_Project
             {
                 endpoints.MapRazorPages();
             });
+
+            StripeConfiguration.SetApiKey(Configuration.GetSection("Stripe")["SecretKey"]);
         }
     }
 }
