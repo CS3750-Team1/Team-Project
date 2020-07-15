@@ -1587,3 +1587,10 @@ C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\bin\Debu
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountBalance.cshtml.g.cs
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountCharged.cshtml.g.cs
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountPayment.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\libman.json
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\bin\Debug\netcoreapp3.1\Stripe.net.dll
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountBalance.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountCharged.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Account\AccountPayment.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\UserCourses\UserCourses.cshtml.g.cs
+D:\Users\Kelton\Documents\GitHub\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\ViewAssignments\ViewAssignments.cshtml.g.cs

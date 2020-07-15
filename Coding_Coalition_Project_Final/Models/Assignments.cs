@@ -14,7 +14,7 @@ namespace Coding_Coalition_Project.Models
         [Required]
         public string AssignmentName { get; set; }
 
-        public int AssignmentCode { get; set; }
+        public string AssignmentType { get; set; }
         public int ClassID { get; set; }
     
         [Required, DataType(DataType.DateTime)]
