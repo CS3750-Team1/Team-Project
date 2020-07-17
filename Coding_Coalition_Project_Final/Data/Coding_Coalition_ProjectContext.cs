@@ -29,5 +29,7 @@ namespace Coding_Coalition_Project.Data
         public DbSet<Coding_Coalition_Project.Models.CourseSubject> CourseSubject { get; set; }
 
         public DbSet<Coding_Coalition_Project.Models.CalenderModel> Calender { get; set; }
+
+        public DbSet<Coding_Coalition_Project.Models.SubmitAssignment> SubmitAssignments { get; set; }
     }
 }

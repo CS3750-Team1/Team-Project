@@ -6,10 +6,7 @@ namespace Coding_Coalition_Project.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "AssignmentName",
-                table: "Assignments",
-                nullable: true);
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -1,0 +1,74 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.ViewAssignments.AssignmentDescModel
+
+@{
+    ViewData["Title"] = "AssignmentDesc";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+
+}
+
+    <h1>@Html.DisplayNameFor(model => model.Assignments.AssignmentName)</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Assignments.AssignmentType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Assignments.AssignmentType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Assignments.DueDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Assignments.DueDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Assignments.MaxPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Assignments.MaxPoints)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Assignments.AssignmentDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Assignments.AssignmentDescription)
+        </dd>
+    </dl>
+</div>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+
+            @if (Model.Assignments.submissionType == "file")
+            {
+
+
+                <div class="form-group">
+                    <label asp-for="uploadedFile" class="control-label">Upload Image: </label>
+                    <input asp-for="uploadedFile" type="file" />
+
+                </div>
+            }
+            @if (Model.Assignments.submissionType == "text")
+            {
+                
+                 <div class="form-group">
+                     <textarea id="fileLocation" name="fileLocation" class="form-control" asp-for="fileLocation" rows="20" cols="100"></textarea>
+                </div>
+                
+                <!--<input asp-for="fileLocation" class="form-control" type=""/>-->
+
+             }
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+</form>
+            
+        </div>
+<div>
+    <a asp-page="./ViewAssignments">Back to Assignments</a>
+</div>

@@ -4,14 +4,16 @@ using Coding_Coalition_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Coding_Coalition_Project.Migrations
 {
     [DbContext(typeof(Coding_Coalition_ProjectContext))]
-    partial class Coding_Coalition_ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200717081234_submitAssignments")]
+    partial class submitAssignments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,39 +249,6 @@ namespace Coding_Coalition_Project.Migrations
 
                     b.ToTable("UserJunctionCourses");
                 });
-
-            modelBuilder.Entity("Coding_Coalition_Project.Models.submitAssignments", b =>
-            {
-                b.Property<int>("SAssignmentID")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int")
-                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                b.Property<int>("Points")
-                    .HasColumnType("int");
-
-                b.Property<int>("maxPoints")
-                    .HasColumnType("int");
-
-                b.Property<int>("UserID")
-                    .HasColumnType("int");
-
-                b.Property<int>("CourseID")
-                    .HasColumnType("int");
-
-                b.Property<int>("AssignmentID")
-                    .HasColumnType("int");
-
-                b.Property<string>("submissionType")
-                    .HasColumnType("nvarchar(20)");
-
-                b.Property<string>("AssignmentLocation")
-                    .HasColumnType("nvarchar(max)");
-
-                b.HasKey("UserCourseID");
-
-                b.ToTable("UserJunctionCourses");
-            });
 #pragma warning restore 612, 618
         }
     }
