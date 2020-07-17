@@ -41,7 +41,7 @@ namespace Coding_Coalition_Project.Pages.AddAssignments
             _context.Assignments.Add(Assignments);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("../Index");
+            return RedirectToPage("../MainPage/MainPage");
         }
     }
 }

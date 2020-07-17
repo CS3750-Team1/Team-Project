@@ -189,8 +189,8 @@ namespace Coding_Coalition_Project.Migrations
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreditHours")
-                        .HasColumnType("int");
+//                    b.Property<int>("CreditHours")
+//                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()

@@ -6,10 +6,10 @@ namespace Coding_Coalition_Project.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-    name: "AccountCharges",
-    table: "UserInfo",
-    nullable: true);
+     //       migrationBuilder.AddColumn<int>(
+   // name: "AccountCharges",
+  //  table: "UserInfo",
+  //  nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

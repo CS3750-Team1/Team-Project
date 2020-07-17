@@ -21,20 +21,20 @@ namespace Coding_Coalition_Project.Migrations
                 table: "UserInfo",
                 nullable: true);
 
-            migrationBuilder.AddColumn<int>(
-                name: "CreditHours",
-                table: "UserInfo",
-                nullable: true);
+    //        migrationBuilder.AddColumn<int>(
+    //            name: "CreditHours",
+     //           table: "UserInfo",
+      //          nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "Biography",
                 table: "UserInfo",
                 nullable: true);
 
-            migrationBuilder.AddColumn<int>(
-                name: "AccountPayments",
-                table: "UserInfo",
-                nullable: true);
+     //       migrationBuilder.AddColumn<int>(
+      //          name: "AccountPayments",
+       //         table: "UserInfo",
+        //        nullable: true);
 
 
         }
