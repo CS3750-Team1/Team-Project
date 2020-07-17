@@ -175,7 +175,7 @@
                 <!-- Profile Details -->
                 <p><span class="email" style="font-size:18px">Names: <strong> @Convert.ToString(Model.UserInfo.FirstName) @Convert.ToString(Model.UserInfo.LastName) </strong></span></p>
                 <p><span class="email" style="font-size:18px">Email: <strong> @Convert.ToString(Model.UserInfo.Email)</strong></span></p>
-                <p><span class="bdate" style="font-size:18px">Birth Date: <strong> @Convert.ToString(Model.UserInfo.Birthdate)</strong></span></p>
+                <p><span class="bdate" style="font-size:18px">Birth Date: <strong> @(Model.UserInfo.Birthdate.Date)</strong></span></p>
                 <p><span class="email" style="font-size:18px">Instructor: <strong> @Convert.ToString(Model.UserInfo.IsInstructor)</strong></span></p>
 
             </div>

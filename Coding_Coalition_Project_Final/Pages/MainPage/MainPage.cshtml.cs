@@ -78,32 +78,41 @@ namespace Coding_Coalition_Project.Pages.MainPage
 
             List<UserJunctionCourses> courses = _context.UserJunctionCourses.ToList();
             List<Courses> uCourses = new List<Courses>();
-
-            if (IsInstructor != 1)
-            {
-                foreach (UserJunctionCourses ujc in courses)
+//            if (courses.Count != 0)
+//            {
+                if (IsInstructor != 1)
                 {
-                    if (ujc.UserID == UserInfo.ID)
+                    foreach (UserJunctionCourses ujc in courses)
                     {
-                        Courses course = await _context.Courses.FirstOrDefaultAsync(c => c.CourseID == ujc.CourseID);
-                        uCourses.Add(course);
+                        if (ujc.UserID == UserInfo.ID)
+                        {
+                            Courses course = await _context.Courses.FirstOrDefaultAsync(c => c.CourseID == ujc.CourseID);
+                            uCourses.Add(course);
+                        }
                     }
                 }
-            }
-            else
-            {
-                List<Courses> icourse1 = _context.Courses.ToList();
-                foreach(Courses icourse in icourse1)
+                else
                 {
-                    if(icourse.InstructorID == UserInfo.ID)
+                    List<Courses> icourse1 = _context.Courses.ToList();
+                    foreach (Courses icourse in icourse1)
                     {
-                        uCourses.Add(icourse);
+                        if (icourse.InstructorID == UserInfo.ID)
+                        {
+                            uCourses.Add(icourse);
+                        }
                     }
+
                 }
-
+                if(uCourses.Count == 0)
+            {
+                userCourses = new List<Courses>();
             }
-            userCourses = uCourses;
-
+                userCourses = uCourses;
+//            }
+//            else
+//            {
+//                userCourses = new List<Courses>() ;
+//            }
 
 
 
@@ -114,33 +123,38 @@ namespace Coding_Coalition_Project.Pages.MainPage
 
             List<Assignments> assignments = _context.Assignments.ToList();
             List<Assignments> uAssignments = new List<Assignments>();
-
-            foreach (Assignments assignments1 in assignments)
+            if (assignments.Count != 0)
             {
-                 foreach (Courses courses1 in uCourses)
-                 {
-                      if (assignments1.ClassID == courses1.CourseID)
-                      {
-                         uAssignments.Add(assignments1);
-                      }
-                 }
-            }
-
-            var varAssignments = uAssignments.OrderBy(x => x.DueDate.Date);
-            int ToDoListLimit = 0;
-            List<Assignments> nextAssinments = new List<Assignments>();
-            foreach(Assignments assignments2 in varAssignments)
-            {
-                if(ToDoListLimit <= 4)
+                foreach (Assignments assignments1 in assignments)
                 {
-                    nextAssinments.Add(assignments2);
-                    ToDoListLimit++;
+                    foreach (Courses courses1 in uCourses)
+                    {
+                        if (assignments1.ClassID == courses1.CourseID)
+                        {
+                            uAssignments.Add(assignments1);
+                        }
+                    }
                 }
+
+                var varAssignments = uAssignments.OrderBy(x => x.DueDate.Date);
+                int ToDoListLimit = 0;
+                List<Assignments> nextAssinments = new List<Assignments>();
+                foreach (Assignments assignments2 in varAssignments)
+                {
+                    if (ToDoListLimit <= 4)
+                    {
+                        nextAssinments.Add(assignments2);
+                        ToDoListLimit++;
+                    }
+                }
+
+                userAssignments = nextAssinments;
+
             }
-
-            userAssignments = nextAssinments;
-
-
+            else
+            {
+                userAssignments = new List<Assignments>();
+            }
 
             //userCourses = _context.Courses.AsNoTracking().ToList();
 

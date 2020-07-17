@@ -30,7 +30,12 @@ namespace Coding_Coalition_Project.Pages.AddClass
         public int IsInstructor;
         public async Task<IActionResult> OnGetAsync()
         {
-            IsInstructor = (int)HttpContext.Session.GetInt32("IsInstructor");
+            if((int)HttpContext.Session.GetInt32("IsInstructor") == 1)
+            {
+                IsInstructor = 1;
+            }
+            else
+            { IsInstructor = 0; }
             var id = HttpContext.Session.GetInt32("UserID");
             if (id == null)
             {

@@ -146,7 +146,6 @@
                     @if (Model.GetIsInstructor() == 1)
                     {
                         <li class="classHide"><a href="../AddClass/AddClass">Add Class</a></li>
-                        <li><a href="../AddAssignments/AddAssignments">Add Assignment</a></li>
 }
 
                     @if (Model.GetIsInstructor() == 0)
@@ -163,7 +162,7 @@
         <div class="row content">
 
             <div class="col-sm-8 text-center">
-
+                
                 @foreach (var row in Model.userCourses)
                 {
                     <div class="column">
@@ -175,16 +174,16 @@
                         </a>
                     </div>
                 }
-
+                
             </div>
             <div class="col-sm-4 sidenav">
                 <h2>Notifications</h2>
-
+                
                 @foreach (var row in Model.userAssignments)
                 {
                     <div class="card">@row.AssignmentName</div>
                 }
-
+                
                 <h2>Announcements</h2>
                 @for (int i = 0; i < 4; i++)
                 {

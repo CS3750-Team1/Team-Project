@@ -92,9 +92,19 @@ namespace Coding_Coalition_Project.Pages.RegisterClasses
             UserInfo.AccountCharges = UserInfo.AccountCharges + cost;
 
 
-            _context.UserJunctionCourses.Add(userJunctionCourses);
-            _context.UserInfo.Update(UserInfo);
-            await _context.SaveChangesAsync();
+
+            var Users = from m in _context.UserJunctionCourses select m;
+            Users = Users.Where(x => x.CourseID.Equals(userJunctionCourses.CourseID));
+            Users = Users.Where(y => y.UserID.Equals(userJunctionCourses.UserID));
+
+
+
+            if (Users.Count() == 0)
+            {
+                _context.UserJunctionCourses.Add(userJunctionCourses);
+                _context.UserInfo.Update(UserInfo);
+                await _context.SaveChangesAsync();
+            }
             return RedirectToPage("./RegisterClasses");
         }
     }

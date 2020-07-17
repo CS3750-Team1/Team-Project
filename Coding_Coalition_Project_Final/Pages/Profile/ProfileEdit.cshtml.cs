@@ -75,6 +75,14 @@ namespace Coding_Coalition_Project.Pages.Profile
                     UserInfo.Password = Hash.Create(PasswordEncryption.EncryptString(UserInfo.Password));
                 }
 
+                UserInfo.Birthdate = (from m in Users select m.Birthdate).Single();
+
+                if(UserInfo.ImagePath == null)
+                {
+                    UserInfo.UserImage = (from m in Users select m.UserImage).Single();
+                    UserInfo.ImagePath = (from m in Users select m.ImagePath).Single();
+
+                }
                 if (this.FormImage != null)
                 {
 
@@ -87,8 +95,10 @@ namespace Coding_Coalition_Project.Pages.Profile
                     UserInfo.ImagePath = null;
                 }
 
-                UserInfo.Biography = (from m in Users select m.Biography).Single();
-
+                if (UserInfo.Biography == null)
+                {
+                    UserInfo.Biography = (from m in Users select m.Biography).Single();
+                }
                 _context.UserInfo.Update(UserInfo);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("../Profile/Profile");

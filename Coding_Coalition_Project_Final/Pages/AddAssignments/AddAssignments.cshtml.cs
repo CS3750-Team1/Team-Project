@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Coding_Coalition_Project.Pages.AddAssignments
 {
@@ -36,6 +37,7 @@ namespace Coding_Coalition_Project.Pages.AddAssignments
                 return Page();
             }
 
+            Assignments.ClassID = (int)HttpContext.Session.GetInt32("CourseID");
             _context.Assignments.Add(Assignments);
             await _context.SaveChangesAsync();
 

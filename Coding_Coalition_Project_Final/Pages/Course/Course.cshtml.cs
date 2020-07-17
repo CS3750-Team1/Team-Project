@@ -20,7 +20,11 @@ namespace Coding_Coalition_Project.Pages.Course
         public string CourseNumber { get; set; }
         public int CourseID = -1;
         public Courses userCourses { get; set; }
-
+        public int GetIsInstructor()
+        {
+            return (int)HttpContext.Session.GetInt32("IsInstructor");
+            
+        }
         public void OnGet(string courseName, string courseNumber)
         {
             var UCourses = _context.Courses.Where(x => x.CourseNumber.ToString() == courseNumber);

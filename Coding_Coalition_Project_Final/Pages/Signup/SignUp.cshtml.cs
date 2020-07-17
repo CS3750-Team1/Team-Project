@@ -46,7 +46,14 @@ namespace Coding_Coalition_Project.Pages.Signup
                 tempImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 UserInfo.UserImage = ms.ToArray();
                 UserInfo.ImagePath = "~/Images/DefaultImage.jpg";
-            
+            UserInfo.Twitter = "https://twitter.com";
+            UserInfo.Linkedin = "https://www.linkedin.com/";
+            UserInfo.Linkedin = "https://www.facebook.com/";
+            UserInfo.CreditHours = 0;
+            UserInfo.Biography = "Temporary";
+            UserInfo.AccountCharges = 0;
+            UserInfo.AccountPayments = 0;
+
 
 
 

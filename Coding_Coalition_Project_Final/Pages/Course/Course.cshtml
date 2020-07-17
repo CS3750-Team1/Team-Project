@@ -8,6 +8,10 @@
 <h2>@Model.CourseName - @Model.CourseNumber - @Model.CourseID</h2>
 <body>
     <a href="../../../ViewAssignments/ViewAssignments">Assignments</a>
+    @if (Model.GetIsInstructor() == 1)
+    {
+        <li><a href="../../../AddAssignments/AddAssignments">Add Assignment</a></li>
+    }
 
 </body>
 

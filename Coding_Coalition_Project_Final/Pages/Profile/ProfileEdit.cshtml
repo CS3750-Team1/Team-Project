@@ -28,11 +28,6 @@
                 <span asp-validation-for="UserInfo.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserInfo.Birthdate" class="control-label">Birth Date</label>
-                <input asp-for="UserInfo.Birthdate" class="form-control" value="@Convert.ToDateTime(Model.UserInfo.Birthdate)" />
-                <span asp-validation-for="UserInfo.Birthdate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="UserInfo.Password" class="control-label">Password</label>
                 <input asp-for="UserInfo.Password" class="form-control" />
                 <span asp-validation-for="UserInfo.Password" class="text-danger"></span>

@@ -56,11 +56,11 @@ namespace Coding_Coalition_Project.Pages.SignIn
                     HttpContext.Session.SetInt32("UserID", (from m in Users select m.ID).Single());
                     if ((from m in Users select m.IsInstructor).Single() == true)
                     {
-                        HttpContext.Session.SetInt32("IsInstructor", 0);
+                        HttpContext.Session.SetInt32("IsInstructor", 1);
                     }
                     else
                     {
-                        HttpContext.Session.SetInt32("IsInstructor", 1);
+                        HttpContext.Session.SetInt32("IsInstructor", 0);
                     }
                     return RedirectToPage("../MainPage/MainPage");
           //          UserInfo = await Users.ToListAsync();
