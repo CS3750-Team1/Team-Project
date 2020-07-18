@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Assignments\**" />
+    <Content Remove="Assignments\**" />
+    <EmbeddedResource Remove="Assignments\**" />
+    <None Remove="Assignments\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DHTMLX.Scheduler.NET" Version="4.0.2" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.4" />
@@ -20,7 +27,6 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Assignments\" />
   </ItemGroup>
 
 </Project>

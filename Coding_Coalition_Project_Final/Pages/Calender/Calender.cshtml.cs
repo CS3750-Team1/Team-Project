@@ -4,44 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Http;
-using Coding_Coalition_Project.Models;
-using DHTMLX.Scheduler;
 
 namespace Coding_Coalition_Project.Pages.Calender
 {
     public class CalenderModel : PageModel
     {
-
-        private readonly Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext _context;
-
-        public CalenderModel(Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext context)
+        public void OnGet()
         {
-            _context = context;
         }
-
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
-
-        [HttpGet]
-        public IEnumerable<WebAPIEvent> Get()
-        {
-            return _context.Calender
-                .ToList()
-                .Select(e => (WebAPIEvent)e);
-        }
-
-        // GET api/events/5
-        [HttpGet("{id}")]
-        public WebAPIEvent Get(int id)
-        {
-            return (WebAPIEvent)_context
-                .Calender
-                .Find(id);
-        }
-
-
     }
 }

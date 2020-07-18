@@ -21,27 +21,27 @@ namespace Coding_Coalition_Project.Controllers
 
         // GET api/events
         [HttpGet]
-        public IEnumerable<WebAPIEvent> Get()
+        public IEnumerable<WebApiEvent> Get([FromQuery] DateTime from, [FromQuery] DateTime to)
         {
             return _context.Calender
                 .ToList()
-                .Select(e => (WebAPIEvent)e);
+                .Select(e => (WebApiEvent)e);
         }
 
         // GET api/events/5
         [HttpGet("{id}")]
-        public WebAPIEvent Get(int id)
+        public WebApiEvent Get(int id)
         {
-            return (WebAPIEvent)_context
+            return (WebApiEvent)_context
                 .Calender
                 .Find(id);
         }
 
         // POST api/events
         [HttpPost]
-        public ObjectResult Post([FromForm] WebAPIEvent apiEvent)
+        public ObjectResult Post([FromForm] WebApiEvent apiEvent)
         {
-            var newEvent = (CalenderModel)apiEvent;
+            var newEvent = (Calender)apiEvent;
 
             _context.Calender.Add(newEvent);
             _context.SaveChanges();
@@ -55,9 +55,9 @@ namespace Coding_Coalition_Project.Controllers
 
         // PUT api/events/5
         [HttpPut("{id}")]
-        public ObjectResult Put(int id, [FromForm] WebAPIEvent apiEvent)
+        public ObjectResult Put(int id, [FromForm] WebApiEvent apiEvent)
         {
-            var updatedEvent = (CalenderModel)apiEvent;
+            var updatedEvent = (Calender)apiEvent;
             var dbEvent = _context.Calender.Find(id);
             dbEvent.Name = updatedEvent.Name;
             dbEvent.StartDate = updatedEvent.StartDate;
@@ -86,7 +86,6 @@ namespace Coding_Coalition_Project.Controllers
                 action = "deleted"
             });
         }
-
 
     }
 }

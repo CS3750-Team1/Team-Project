@@ -9082,19 +9082,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kelton\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
       "projectName": "Coding_Coalition_Project",
-      "projectPath": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
-      "packagesPath": "C:\\Users\\Kelton\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Kelton\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
+      "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kelton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9163,12 +9163,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.2, 3.1.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9177,7 +9171,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   },
