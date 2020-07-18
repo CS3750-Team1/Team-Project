@@ -13,43 +13,52 @@
 
 <h4>Assignments</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Assignments.AssignmentName" class="control-label"></label>
-                <input asp-for="Assignments.AssignmentName" class="form-control" />
-                <span asp-validation-for="Assignments.AssignmentName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Assignments.DueDate" class="control-label"></label>
-                <input asp-for="Assignments.DueDate" class="form-control" />
-                <span asp-validation-for="Assignments.DueDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Assignments.MaxPoints" class="control-label"></label>
-                <input asp-for="Assignments.MaxPoints" class="form-control" />
-                <span asp-validation-for="Assignments.MaxPoints" class="text-danger"></span>
-            </div>
-            <h9>*Only input "file" or "text" for submission type*</h9>
-            <div class="form-group">
-                <label asp-for="Assignments.submissionType" class="control-label"></label>
-                <input asp-for="Assignments.submissionType" class="form-control" />
-                <span asp-validation-for="Assignments.submissionType" class="text-danger"></span>
-
-            </div>
-            <div class="form-group">
-                <label asp-for="Assignments.AssignmentDescription" class="control-label"></label>
-                <input asp-for="Assignments.AssignmentDescription" class="form-control" />
-                <span asp-validation-for="Assignments.AssignmentDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<!--<div class="row">
+    <div class="col-md-4">-->
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Assignments.AssignmentName" class="control-label"></label>
+        <input asp-for="Assignments.AssignmentName" class="form-control" />
+        <span asp-validation-for="Assignments.AssignmentName" class="text-danger"></span>
     </div>
-</div>
+    <div class="form-group">
+        <label asp-for="Assignments.DueDate" class="control-label"></label>
+        <input asp-for="Assignments.DueDate" class="form-control" />
+        <span asp-validation-for="Assignments.DueDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Assignments.MaxPoints" class="control-label"></label>
+        <input asp-for="Assignments.MaxPoints" class="form-control" />
+        <span asp-validation-for="Assignments.MaxPoints" class="text-danger"></span>
+    </div>
+    <h9>*Only input "file" or "text" for submission type*</h9>
+    <div class="form-group">
+        <label asp-for="Assignments.submissionType" class="control-label"></label>
+        <select name="subType" id="subType">
+            <option value="file">File</option>
+            <option value="text">Text</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Assignments.AssignmentType" class="control-label"></label>
+        <select name="assignType" id="assignType">
+            <option value="Assignment">Assignment</option>
+            <option value="Quiz">Quiz</option>
+            <option value="Test">Test</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Assignments.AssignmentDescription" class="control-label"></label>
+        <textarea asp-for="Assignments.AssignmentDescription" class="form-control" id="Assignments.AssignmentDescription" name="Assignments.AssignmentDescription" rows="20" cols="100"></textarea>
+        <span asp-validation-for="Assignments.AssignmentDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+<!--   </div>
+</div>-->
 
 <div>
     <a asp-page="Index">Back to List</a>
