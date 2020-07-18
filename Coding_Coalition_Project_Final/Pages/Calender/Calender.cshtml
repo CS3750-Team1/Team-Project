@@ -1,5 +1,5 @@
 ﻿@page
-@model Coding_Coalition_Project.Pages.Calender.CalenderModel
+@model Coding_Coalition_Project.Pages.Calender.Calender
 @{
     Layout = "~/Pages/Shared/_Navbar.cshtml";
 }
@@ -37,9 +37,9 @@
         scheduler.init("scheduler_here", new Date(2020, 6, 20), "week");
         scheduler.setLoadMode("day");
         // load data from backend
-        scheduler.load("/api/calender", "json");
+        scheduler.load("/api/Calender", "json");
         // connect backend to scheduler
-        var dp = new dataProcessor("/api/calender");
+        var dp = new dataProcessor("/api/Calender");
         dp.init(scheduler);
         // set data exchange mode
         dp.setTransactionMode("REST");

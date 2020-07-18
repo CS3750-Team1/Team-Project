@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Coding_Coalition_Project.Pages.Calender
 {
-    public class CalenderModel : PageModel
+    public class Calender : PageModel
     {
         public void OnGet()
         {
