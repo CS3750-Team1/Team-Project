@@ -36,9 +36,13 @@
                 @Html.DisplayFor(modelItem => item.maxPoints)
             </td>
             <td>
-                <a asp-page="./GradAssignments" asp-route-id="@item.SAssignmentID">Grade</a> |
+                <a asp-page="./GradAssignments" asp-route-id="@item.SAssignmentID">Grade</a> 
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<td>
+    <a asp-page="./ViewAssignments" >Back to Assignments list</a> 
+</td>

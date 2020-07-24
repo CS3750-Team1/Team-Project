@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace Coding_Coalition_Project.Pages.ViewAssignments
 {
@@ -25,7 +26,16 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
         public SubmitAssignment SubmitAssignment { get; set; }
         public Assignments Assignment { get; set; }
 
-
+        public string getAssignmentName()
+        {
+            Assignments assignments = _context.Assignments.First(x => x.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
+            return assignments.AssignmentName;
+        }
+        public string getAssignmentDescription()
+        {
+            Assignments assignments = _context.Assignments.First(x => x.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
+            return assignments.AssignmentDescription;
+        }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -43,10 +53,17 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
             return Page();
         }
 
-        public ActionResult OnPostDownloadFile()
+        public async Task<IActionResult> OnPostDownloadFile()
         {
             SubmitAssignment submitAssignment = _context.SubmitAssignments.First(x => x.SAssignmentID == HttpContext.Session.GetInt32("SAssignmentID"));
-            return File(submitAssignment.AssignmentLocation + ".FILE", submitAssignment.submissionType, submitAssignment.AssignmentLocation);
+            //return File(submitAssignment.AssignmentLocation + ".FILE", submitAssignment.submissionType, submitAssignment.AssignmentLocation);
+            var memory = new System.IO.MemoryStream();
+            using (var stream = new FileStream(submitAssignment.AssignmentLocation, FileMode.Open))
+            {
+                await stream.CopyToAsync(memory);
+            }
+            memory.Position = 0;
+            return File(memory, submitAssignment.submissionType, submitAssignment.AssignmentLocation);
         }
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -61,7 +78,7 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
 
             if(SubmitAssignment.Points < 0 || SubmitAssignment.Points > SubmitAssignment.maxPoints)
             {
-                return Page();
+                return null;
             }
             try
             {
