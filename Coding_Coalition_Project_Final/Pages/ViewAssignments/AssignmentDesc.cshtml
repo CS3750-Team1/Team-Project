@@ -42,7 +42,8 @@
 <div>
     <form method="post" enctype="multipart/form-data">
         <div>
-
+            @if (Model.GetIsInstructor() == 0)
+            {
             @if (Model.Assignments.submissionType == "file")
             {
 
@@ -55,17 +56,22 @@
             }
             @if (Model.Assignments.submissionType == "text")
             {
-                
+
                  <div class="form-group">
                      <textarea id="fileLocation" name="fileLocation" class="form-control" asp-for="fileLocation" rows="20" cols="100"></textarea>
                 </div>
-                
+
                 <!--<input asp-for="fileLocation" class="form-control" type=""/>-->
 
-             }
+            }
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+            }
+            else
+            {
+                <input type="submit" value="View Assignments" class="btn btn-primary" />
+            }
 </form>
             
         </div>

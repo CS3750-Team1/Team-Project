@@ -29,6 +29,7 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
         public string fileLocation { get; set; }
         public Assignments SAssignments;
         public SubmitAssignment submitAssignment = new SubmitAssignment();
+        public List<SubmitAssignment> submitedAssignments { get; set; }
         [BindProperty]
         public IFormFile uploadedFile { get; set; }
 
@@ -50,46 +51,62 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
             return Page();
         }
 
+        public int GetIsInstructor()
+        {
+
+            return (int)HttpContext.Session.GetInt32("IsInstructor");
+        }
+
         public async Task<RedirectToPageResult> OnPostAsync()
         {
-            
-              var AssignmentList = from m in _context.SubmitAssignments select m;
 
-              AssignmentList = AssignmentList.Where(m => m.CourseID == HttpContext.Session.GetInt32("CourseID"));
-            AssignmentList = AssignmentList.Where(m => m.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
-              AssignmentList = AssignmentList.Where(m => m.UserID == HttpContext.Session.GetInt32("UserID"));
+                var AssignmentList = from m in _context.SubmitAssignments select m;
 
-            submitAssignment.UserID = (int)HttpContext.Session.GetInt32("UserID");
-            submitAssignment.CourseID = (int)HttpContext.Session.GetInt32("CourseID");
-            SAssignments = await _context.Assignments.FirstOrDefaultAsync(m => m.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
+                AssignmentList = AssignmentList.Where(m => m.CourseID == HttpContext.Session.GetInt32("CourseID"));
+                AssignmentList = AssignmentList.Where(m => m.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
+                AssignmentList = AssignmentList.Where(m => m.UserID == HttpContext.Session.GetInt32("UserID"));
 
-            submitAssignment.AssignmentID = SAssignments.AssignmentID;
-            submitAssignment.maxPoints = SAssignments.MaxPoints;
-            submitAssignment.submissionType = SAssignments.submissionType;
+                submitAssignment.UserID = (int)HttpContext.Session.GetInt32("UserID");
+                submitAssignment.CourseID = (int)HttpContext.Session.GetInt32("CourseID");
+                SAssignments = await _context.Assignments.FirstOrDefaultAsync(m => m.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
 
-            if (submitAssignment.submissionType == "file")
+                submitAssignment.AssignmentID = SAssignments.AssignmentID;
+                submitAssignment.maxPoints = SAssignments.MaxPoints;
+
+            if (GetIsInstructor() == 0)
             {
-                string filePath = "~/../Assignments/" + SAssignments.AssignmentName + "_" + HttpContext.Session.GetString("FirstName") +"_" + submitAssignment.CourseID + "_" + submitAssignment.AssignmentID + "_" + submitAssignment.UserID;
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+
+                if (SAssignments.submissionType == "file")
                 {
-                    //await uploadedFile.CopyToAsync(fileStream);
-                    uploadedFile.CopyTo(fileStream);
+                    string filePath = "~/../Assignments/" + HttpContext.Session.GetString("FirstName") + "_" + submitAssignment.CourseID + "_" + submitAssignment.AssignmentID + "_" + submitAssignment.UserID;
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        //await uploadedFile.CopyToAsync(fileStream);
+                        uploadedFile.CopyTo(fileStream);
+                    }
+                    submitAssignment.AssignmentLocation = filePath;
+                    submitAssignment.submissionType = uploadedFile.ContentType;
                 }
-                submitAssignment.AssignmentLocation = filePath;
+                else
+                {
+                    submitAssignment.AssignmentLocation = fileLocation;
+                    submitAssignment.submissionType = SAssignments.submissionType;
+                }
+
+                if (AssignmentList.Count() == 0)
+                {
+                    _context.SubmitAssignments.Add(submitAssignment);
+                    await _context.SaveChangesAsync();
+                }
+                return RedirectToPage("./ViewAssignments");
             }
-           else
+            else
             {
-                submitAssignment.AssignmentLocation = fileLocation;
-            }
-   
-            if (AssignmentList.Count() == 0)
-            {
-                _context.SubmitAssignments.Add(submitAssignment);
-                await _context.SaveChangesAsync();
+                return RedirectToPage("./InstructorViewAssignments");
             }
 
 
-            return RedirectToPage("./ViewAssignments");
+            
         }
     }
 }
