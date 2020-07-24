@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Coding_Coalition_Project.Controllers
 {
     [Route("api/[controller]")]
+    
     [ApiController]
     public class EventController : ControllerBase
     {

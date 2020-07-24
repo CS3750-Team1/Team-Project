@@ -1597,3 +1597,6 @@ C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debu
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\ViewAssignments\AssignmentDesc.cshtml.g.cs
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\ViewAssignments\ViewAssignments.cshtml.g.cs
 C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\Calender\Calender.cshtml.g.cs
+C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\AnnouncementsPage\Announcements.cshtml.g.cs
+C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\ViewAssignments\GradAssignments.cshtml.g.cs
+C:\Users\ADMIN\Source\Repos\Team-Project\Coding_Coalition_Project_Final\obj\Debug\netcoreapp3.1\Razor\Pages\ViewAssignments\InstructorViewAssignments.cshtml.g.cs
