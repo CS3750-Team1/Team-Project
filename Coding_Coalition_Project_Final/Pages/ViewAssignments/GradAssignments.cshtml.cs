@@ -26,7 +26,16 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
         public SubmitAssignment SubmitAssignment { get; set; }
         public Assignments Assignment { get; set; }
 
-
+        public string getAssignmentName()
+        {
+            Assignments assignments = _context.Assignments.First(x => x.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
+            return assignments.AssignmentName;
+        }
+        public string getAssignmentDescription()
+        {
+            Assignments assignments = _context.Assignments.First(x => x.AssignmentID == HttpContext.Session.GetInt32("AssignmentID"));
+            return assignments.AssignmentDescription;
+        }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -69,7 +78,7 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
 
             if(SubmitAssignment.Points < 0 || SubmitAssignment.Points > SubmitAssignment.maxPoints)
             {
-                return Page();
+                return null;
             }
             try
             {
