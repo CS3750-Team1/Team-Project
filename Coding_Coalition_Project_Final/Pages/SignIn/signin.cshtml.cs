@@ -62,8 +62,8 @@ namespace Coding_Coalition_Project.Pages.SignIn
                     {
                         HttpContext.Session.SetInt32("IsInstructor", 0);
                     }
-                    // return RedirectToPage("../MainPage/MainPage");
-                       return RedirectToPage("../Calender/Calender");
+                    return RedirectToPage("../MainPage/MainPage");
+                       
 
                     //          UserInfo = await Users.ToListAsync();
 
