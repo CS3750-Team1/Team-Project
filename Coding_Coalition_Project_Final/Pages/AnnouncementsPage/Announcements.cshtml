@@ -1,0 +1,17 @@
+﻿@page "{id}"
+@model Coding_Coalition_Project.Pages.Announcements.AnnouncementsModel
+@{
+    ViewData["Title"] = "Announcements";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+<h1>Announcements</h1>
+
+<div>
+    <h3>Title:</h3>
+    <h1>@Model.announcements.AnnouncementTitle</h1>
+
+    <h3>Text:</h3>
+    <h1>@Model.announcements.AnnouncementText</h1>
+</div>
+

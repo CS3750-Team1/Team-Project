@@ -1,0 +1,44 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.ViewAssignments.InstructorViewAssignmentsModel
+
+@{
+    ViewData["Title"] = "InstructorViewAssignments";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+<h1>InstructorViewAssignments</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>
+                Points
+            </th>
+            <th>
+                Max Points
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SubmitAssignment) {
+        <tr>
+            <td>@Model.getUserName(item.UserID)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maxPoints)
+            </td>
+            <td>
+                <a asp-page="./GradAssignments" asp-route-id="@item.SAssignmentID">Grade</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -24,6 +24,8 @@ namespace Coding_Coalition_Project.Migrations
                 {
                     table.PrimaryKey("PK_SubmitAssignments", x => x.SAssignmentID);
                 });
+
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

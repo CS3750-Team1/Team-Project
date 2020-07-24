@@ -40,11 +40,13 @@ namespace Coding_Coalition_Project.Pages.MainPage
         public UserInfo UserInfo { get; set; }
 
         public List<string> tempMenu = new List<string>(new string[] { "Account", "Classes", "Mail", "Settings", "Log Out" });
-        public List<string> tempNotifications = new List<string>(new string[] { "Assignment Added", "Exam 1 graded", "Due date changed", "I don't know what else to put", "These are temporary", "This shouldn't show" });
-        public List<string> tempAnnouncements = new List<string>(new string[] { "Announcement 1", "Announcement 2", "Announcement 3", "Announcement 3", "Announcement 4" });
 
         public IList<Courses> userCourses { get; set; }
+
         public IList<Assignments> userAssignments { get; set; }
+
+        public IList<Models.Announcements> userAnnouncements { get; set; }
+
         private int IsInstructor;
 
         public void SetIsInstructor(int temp)
@@ -78,47 +80,36 @@ namespace Coding_Coalition_Project.Pages.MainPage
 
             List<UserJunctionCourses> courses = _context.UserJunctionCourses.ToList();
             List<Courses> uCourses = new List<Courses>();
-//            if (courses.Count != 0)
-//            {
-                if (IsInstructor != 1)
-                {
-                    foreach (UserJunctionCourses ujc in courses)
-                    {
-                        if (ujc.UserID == UserInfo.ID)
-                        {
-                            Courses course = await _context.Courses.FirstOrDefaultAsync(c => c.CourseID == ujc.CourseID);
-                            uCourses.Add(course);
-                        }
-                    }
-                }
-                else
-                {
-                    List<Courses> icourse1 = _context.Courses.ToList();
-                    foreach (Courses icourse in icourse1)
-                    {
-                        if (icourse.InstructorID == UserInfo.ID)
-                        {
-                            uCourses.Add(icourse);
-                        }
-                    }
 
+            if (IsInstructor != 1)
+            {
+                foreach (UserJunctionCourses ujc in courses)
+                {
+                    if (ujc.UserID == UserInfo.ID)
+                    {
+                        Courses course = await _context.Courses.FirstOrDefaultAsync(c => c.CourseID == ujc.CourseID);
+                        uCourses.Add(course);
+                    }
                 }
-                if(uCourses.Count == 0)
+            }
+            else
+            {
+                List<Courses> icourse1 = _context.Courses.ToList();
+                foreach (Courses icourse in icourse1)
+                {
+                    if (icourse.InstructorID == UserInfo.ID)
+                    {
+                        uCourses.Add(icourse);
+                    }
+                }
+
+            }
+            
+            if (uCourses.Count == 0)
             {
                 userCourses = new List<Courses>();
             }
                 userCourses = uCourses;
-//            }
-//            else
-//            {
-//                userCourses = new List<Courses>() ;
-//            }
-
-
-
-
-
-
 
 
             List<Assignments> assignments = _context.Assignments.ToList();
@@ -156,7 +147,21 @@ namespace Coding_Coalition_Project.Pages.MainPage
                 userAssignments = new List<Assignments>();
             }
 
-            //userCourses = _context.Courses.AsNoTracking().ToList();
+
+            List<Models.Announcements> allAnnouncements = _context.Announcements.ToList();
+            userAnnouncements = new List<Models.Announcements>();
+
+            foreach (Models.Announcements announcement in allAnnouncements)
+            {
+                foreach (Courses courses1 in uCourses)
+                {
+                    if (announcement.CourseID == courses1.CourseID)
+                    {
+                        userAnnouncements.Add(announcement);
+                    }
+                }
+            }
+
 
             return Page();
         }
