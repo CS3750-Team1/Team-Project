@@ -1,0 +1,77 @@
+﻿@page
+@model Coding_Coalition_Project.Pages.ViewAssignments.GradAssignmentsModel
+
+@{
+    ViewData["Title"] = "GradAssignments";
+    Layout = "~/Pages/Shared/_Navbar.cshtml";
+}
+
+<h1>@Model.Assignment.AssignmentName</h1>
+
+<h4>@Model.Assignment.AssignmentDescription</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            @if (Model.SubmitAssignment.submissionType == "text")
+            {
+            <h6>Response:</h6><hr />
+            @Model.SubmitAssignment.AssignmentLocation
+                <hr/>
+            }
+            else
+            {
+        <form method="post">
+            <button type="submit" asp-page-handler="DownloadFile" style="width:75px" class="cancel">Download</button>
+        </form>
+            }
+        </div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SubmitAssignment.SAssignmentID" />
+            <div class="form-group">
+                <label asp-for="SubmitAssignment.Points" class="control-label"></label>
+                <input asp-for="SubmitAssignment.Points" class="form-control" /> <h6> Max points: @Model.SubmitAssignment.maxPoints</h6>
+                <span asp-validation-for="SubmitAssignment.Points" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden="true">
+                <label asp-for="SubmitAssignment.maxPoints" class="control-label"></label>
+                <input asp-for="SubmitAssignment.maxPoints" class="form-control" />
+                <span asp-validation-for="SubmitAssignment.maxPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden="true">
+                <label asp-for="SubmitAssignment.submissionType" class="control-label"></label>
+                <input asp-for="SubmitAssignment.submissionType" class="form-control" />
+                <span asp-validation-for="SubmitAssignment.submissionType" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden="true">
+                <label asp-for="SubmitAssignment.AssignmentLocation" class="control-label"></label>
+                <input asp-for="SubmitAssignment.AssignmentLocation" class="form-control" />
+                <span asp-validation-for="SubmitAssignment.AssignmentLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden="true">
+                <label asp-for="SubmitAssignment.UserID" class="control-label"></label>
+                <input asp-for="SubmitAssignment.UserID" class="form-control" />
+                <span asp-validation-for="SubmitAssignment.UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden="true">
+                <label asp-for="SubmitAssignment.CourseID" class="control-label"></label>
+                <input asp-for="SubmitAssignment.CourseID" class="form-control" />
+                <span asp-validation-for="SubmitAssignment.CourseID" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden="true">
+                <label asp-for="SubmitAssignment.AssignmentID" class="control-label"></label>
+                <input asp-for="SubmitAssignment.AssignmentID" class="form-control" />
+                <span asp-validation-for="SubmitAssignment.AssignmentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./InstructorViewAssignments">Back to List</a>
+</div>
+

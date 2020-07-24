@@ -21,12 +21,16 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
         }
 
         public IList<Assignments> Assignments { get;set; }
+        public int GetIsInstructor()
+        {
 
-        public async Task OnGetAsync()
+            return (int)HttpContext.Session.GetInt32("IsInstructor");
+        }
+        public async Task OnGetAsync(int? id)
         {
             var tempAssignments = await _context.Assignments.ToListAsync();
             List<Assignments> tempList = new List<Assignments>();
-            foreach(Assignments assign in tempAssignments)
+            foreach (Assignments assign in tempAssignments)
             {
                 if (assign.ClassID == HttpContext.Session.GetInt32("CourseID")) 
                 {
