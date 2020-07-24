@@ -82,7 +82,7 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         //await uploadedFile.CopyToAsync(fileStream);
-                        uploadedFile.CopyTo(fileStream);
+                        await uploadedFile.CopyToAsync(fileStream);
                     }
                     submitAssignment.AssignmentLocation = filePath;
                     submitAssignment.submissionType = uploadedFile.ContentType;
