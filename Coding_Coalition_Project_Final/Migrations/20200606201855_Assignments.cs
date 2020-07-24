@@ -11,6 +11,11 @@ namespace Coding_Coalition_Project.Migrations
                 table: "Assignments",
                 nullable: false,
                 defaultValue: 0);
+
+            migrationBuilder.AddColumn<string>(
+                name: "AssignmentName",
+                table: "Assignments",
+                nullable: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

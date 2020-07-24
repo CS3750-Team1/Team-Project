@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Coding_Coalition_Project.Pages.AddAnnouncements
 {
@@ -25,7 +23,7 @@ namespace Coding_Coalition_Project.Pages.AddAnnouncements
         }
 
         [BindProperty]
-        public Announcements Announcements { get; set; }
+        public Models.Announcements Announcements { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -36,10 +34,14 @@ namespace Coding_Coalition_Project.Pages.AddAnnouncements
                 return Page();
             }
 
+            // TODO
+            Announcements.UserID = (int) HttpContext.Session.GetInt32("UserID");
+            Announcements.CourseID = (int) HttpContext.Session.GetInt32("CourseID");
+
             _context.Announcements.Add(Announcements);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("../Index");
+            return RedirectToPage("../MainPage/MainPage");
         }
     }
 }
