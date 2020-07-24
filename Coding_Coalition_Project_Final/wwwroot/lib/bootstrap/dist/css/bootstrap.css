@@ -577,12 +577,18 @@ pre code {
   }
 }
 
-.container-fluid {
+/*.container-fluid {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}*/
+
+.container-fluid {
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .row {

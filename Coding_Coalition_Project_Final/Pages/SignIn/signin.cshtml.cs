@@ -63,7 +63,7 @@ namespace Coding_Coalition_Project.Pages.SignIn
                         HttpContext.Session.SetInt32("IsInstructor", 0);
                     }
                     return RedirectToPage("../MainPage/MainPage");
-                       
+                      // return RedirectToPage("../Calender/Calender");
 
                     //          UserInfo = await Users.ToListAsync();
 
