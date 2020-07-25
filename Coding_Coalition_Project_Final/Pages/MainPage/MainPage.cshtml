@@ -16,16 +16,9 @@
 
     <!--Bootstrap-->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   
-
-  @*  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
-  
-
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
  #wrapper {
@@ -39,7 +32,7 @@
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
-  background-color: #333333; 
+  background-color: #333333;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -60,7 +53,8 @@
 }
         .sidenav {
             background-color: #f1f1f1;
-            float: left;
+            float: right;
+            height: 100%;
         }
 
         /* Style the cards */
@@ -78,65 +72,31 @@
             text-align: center;
             background-color: #d2d4d6;
         }
-       
+
 
         /* Style for notifications */
         .notif {
             width: 20%;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-            padding: 16px;
+            @*padding: 16px;*@
             text-align: center;
             background-color: #f1f1f1;
-            position: absolute;
-            top: 200px;
+            @*position: absolute;*@
+           @* top: 200px;*@
             right: 0;
         }
         /* Style for announcements */
         .announce {
             width: 20%;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-            padding: 16px;
+            @*padding: 16px;*@
             text-align: center;
             background-color: #f1f1f1;
-            position: absolute;
-            top: 600px;
+            @*position: absolute;*@
+            @*top: 600px;*@
             right: 0;
         }
-       
-        @* body {
-            font-family: Arial, Helvetica, sans-serif;
-        
-        }
-       
-        /* Float four columns side by side */
-        .column {
-            float: left;
-            width: 30%;
-            padding: 0 10px;
-        }
-        /* Remove extra left and right margins, due to padding in columns */
-        .row {
-            margin: 0 -5px;
-        }
-            /* Clear floats after the columns */
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
 
-        .courses {
-            width: 60%;
-            position: absolute;
-            top: 200px;
-            left: 400px;
-        }
-      
-       
-
-        .classHide {
-            display: none;
-        }*@
     </style>
 </head>
 <body>
@@ -155,9 +115,9 @@
 
                 @if (Model.GetIsInstructor() == 1)
                 {
-                    <a class="classHide" href="../AddClass/AddClass">Add Class</a>
+                    <a href="../AddClass/AddClass" class=" classHide list-group-item list-group-item-action bg-light">Add Class</a>
                 }
-                             
+
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -168,143 +128,56 @@
                 <button class="btn btn-primary" id="menu-toggle">Menu</button>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>              
+                </button>
+
+                <h3 style=" float: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">My Courses</h3>
             </nav>
 
             <div class="container-fluid">
-                <h3 class="mt-4">My Courses</h3>
-                <div class="row content">
+               
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                           <img class="card-img-top" src="~/images/blog-img4.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                @foreach (var row in Model.userCourses)
+                                {
 
-                    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Course</div>
-                        
-                        <div class="card-body">
-                            @foreach (var row in Model.userCourses)
-                            {
-                             
-                               <a href="../Course/Course/@row.CourseName/@row.CourseNumber" @RouteData.Values[@row.CourseName] @RouteData.Values[@row.CourseNumber.ToString()] style=" text-decoration: none; color: white;" >
-                                
-                                   @row.CourseName<br>@row.CourseNumber </a>
-                             
-                            }
+                                    <a href="../Course/Course/@row.CourseName/@row.CourseNumber" @RouteData.Values[@row.CourseName] @RouteData.Values[@row.CourseNumber.ToString()] style=" text-decoration: none; color: white;">
+
+                                        @row.CourseName<br>@row.CourseNumber
+                                    </a>
+
+                                }
+                            </div>
                         </div>
                     </div>
+                    <div class="col-4">
+                        <div class="sidenav" style="float:right;">
+                            <h4>Notifications</h4>
 
-                 
+                            @foreach (var row in Model.userAssignments)
+                            {
+                                <div class="card" style="width: 18rem;">@row.AssignmentName</div>
+                            }
 
-
-                </div>
-                <div class="sidenav">                   
-                        <h4>Notifications</h4>
-
-                        @foreach (var row in Model.userAssignments)
-                        {
-                            <div class="card"  style="width: 18rem;">@row.AssignmentName</div>
-                        }
-
-                        <h4>Announcements</h4>
-                        @foreach (var row in Model.userAnnouncements)
-                        {
-                            <div class="card" style="width: 18rem;">
-                                <a href="../AnnouncementsPage/Announcements/@row.AnnouncementID">@row.AnnouncementTitle</a>
-                            </div>
-
-                        }
-                   
-                </div>
-                </div>
-            </div>
-
-
-        <!-- /#page-content-wrapper -->
-
-        </div>
-    </div>
-
-    @*<nav class="navbar navbar-inverse">*@
-    <!--<div class="nav-side-menu">
-        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        <div class="menu-list">-->
-    @*<div class="container-fluid">*@
-    <!--<ul id="menu-content" class="menu-content collapse out">
-                <li>
-                    <a href="../Profile/Profile">
-                        <i class="fa fa-dashboard fa-lg"></i> Profile
-                    </a>
-                </li>
-                <li>
-                    <a href="../UserCourses/UserCourses">
-                        <i class="fa fa-dashboard fa-lg"></i> Classes
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-dashboard fa-lg"></i> Mail
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-dashboard fa-lg"></i> Settings
-                    </a>
-                </li>
-                <li>
-                    <a href="../Account/AccountBalance">
-                        <i class="fa fa-dashboard fa-lg"></i> A/C Balance
-                    </a>
-                </li>
-
-                @if (Model.GetIsInstructor() == 1)
-                {
-                    <li class="classHide"><a href="../AddClass/AddClass">Add Class</a></li>
-                }
-
-                @if (Model.GetIsInstructor() == 0)
-                {
-                    <li><a href="../RegisterClasses/RegisterClasses">Register for Courses</a></li>
-                }
-
-            </ul>
-        </div>
-
-    </div>-->
-    @* <div class="container-fluid text-center">
-            <h2>My Courses</h2>
-            <div class="row content">
-
-                <div class="col-sm-8 text-center">
-
-                    @foreach (var row in Model.userCourses)
-                    {
-                        <div class="column">
-                            <a href="../Course/Course/@row.CourseName/@row.CourseNumber" @RouteData.Values[@row.CourseName] @RouteData.Values[@row.CourseNumber.ToString()]>
-
-                                <div class="classCard">
-                                    @row.CourseName<br>@row.CourseNumber
+                            <h4>Announcements</h4>
+                            @foreach (var row in Model.userAnnouncements)
+                            {
+                                <div class="card" style="width: 18rem;">
+                                    <a href="../AnnouncementsPage/Announcements/@row.AnnouncementID">@row.AnnouncementTitle</a>
                                 </div>
-                            </a>
-                        </div>
-                    }
 
-                </div>
-                <div class="col-sm-4 sidenav">
-                    <h2>Notifications</h2>
+                            }
 
-                    @foreach (var row in Model.userAssignments)
-                    {
-                        <div class="card">@row.AssignmentName</div>
-                    }
-
-                    <h2>Announcements</h2>
-                    @foreach (var row in Model.userAnnouncements)
-                    {
-                        <div class="card">
-                            <a href="../AnnouncementsPage/Announcements/@row.AnnouncementID">@row.AnnouncementTitle</a>
                         </div>
 
-                    }
+                    </div>
                 </div>
             </div>
-        </div>*@
+        </div>     
+        <!-- /#page-content-wrapper -->
+    </div>
 
     <script>
         $("#menu-toggle").click(function (e) {
@@ -312,8 +185,6 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
-
-
 
 </body>
 </html>
