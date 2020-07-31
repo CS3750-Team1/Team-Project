@@ -37,7 +37,7 @@ namespace Coding_Coalition_Project.Models
                 }
             };
 
-            events.ForEach(s => context.Calender.Add(s));
+           // events.ForEach(s => context.Calender.Add(s));
             context.SaveChanges();
         }
     }
