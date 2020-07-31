@@ -67,10 +67,7 @@ namespace Coding_Coalition_Project.Pages.AddClass
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //Courses.CourseID = 3;
             Courses.InstructorID = (int)HttpContext.Session.GetInt32("UserID");
             var Users = from m in _context.UserInfo select m;
             int UserID = (int)HttpContext.Session.GetInt32("UserID");
@@ -78,7 +75,11 @@ namespace Coding_Coalition_Project.Pages.AddClass
 
             DateTime temp = Courses.CourseMeetingTime;
             Courses.CourseMeetingTime = default(DateTime).Add(Courses.CourseMeetingTime.TimeOfDay);
-
+            if (!ModelState.IsValid)
+            {
+                Console.WriteLine("Error");
+                
+            }
 
             _context.Courses.Add(Courses);
             await _context.SaveChangesAsync();
