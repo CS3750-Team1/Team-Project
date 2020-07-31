@@ -31,7 +31,7 @@ namespace Coding_Coalition_Project.Pages.AddAnnouncements
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return BadRequest(ModelState);
             }
 
             // TODO

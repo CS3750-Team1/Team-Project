@@ -34,7 +34,7 @@ namespace Coding_Coalition_Project.Pages.AddAssignments
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return BadRequest(ModelState);
             }
             subType = Request.Form["subType"];
             Assignments.submissionType = subType;

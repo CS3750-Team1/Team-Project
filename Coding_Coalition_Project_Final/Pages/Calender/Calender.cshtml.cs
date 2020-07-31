@@ -18,8 +18,6 @@ namespace Coding_Coalition_Project.Pages.Calender
             _context = context;
         }
 
-
-
         public void OnGet()
         {
         }

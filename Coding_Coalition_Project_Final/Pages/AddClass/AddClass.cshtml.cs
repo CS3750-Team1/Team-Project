@@ -67,7 +67,10 @@ namespace Coding_Coalition_Project.Pages.AddClass
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             Courses.InstructorID = (int)HttpContext.Session.GetInt32("UserID");
             var Users = from m in _context.UserInfo select m;
             int UserID = (int)HttpContext.Session.GetInt32("UserID");
