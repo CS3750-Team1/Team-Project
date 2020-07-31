@@ -44,37 +44,40 @@
         <div>
             @if (Model.GetIsInstructor() == 0)
             {
-            @if (Model.Assignments.submissionType == "file")
-            {
+                @if (Model.Assignments.submissionType == "file")
+                {
 
 
+                    <div class="form-group">
+                        <label asp-for="uploadedFile" class="control-label">Upload Image: </label>
+                        <input asp-for="uploadedFile" type="file" />
+
+                    </div>
+                }
+                @if (Model.Assignments.submissionType == "text")
+                {
+
+                    <div class="form-group">
+                        <textarea id="fileLocation" name="fileLocation" class="form-control" asp-for="fileLocation" rows="20" cols="100"></textarea>
+                    </div>
+
+                    <!--<input asp-for="fileLocation" class="form-control" type=""/>-->
+
+                }
                 <div class="form-group">
-                    <label asp-for="uploadedFile" class="control-label">Upload Image: </label>
-                    <input asp-for="uploadedFile" type="file" />
-
+                    <input type="submit" value="Save" class="btn btn-primary" />
                 </div>
-            }
-            @if (Model.Assignments.submissionType == "text")
-            {
-
-                 <div class="form-group">
-                     <textarea id="fileLocation" name="fileLocation" class="form-control" asp-for="fileLocation" rows="20" cols="100"></textarea>
-                </div>
-
-                <!--<input asp-for="fileLocation" class="form-control" type=""/>-->
-
-            }
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
             }
             else
             {
                 <input type="submit" value="View Assignments" class="btn btn-primary" />
             }
-</form>
-            
-        </div>
+    </form>
+
+</div>
+<div>
+    <a asp-page="./ClassAssignmentChart">Assignment Information</a>
+</div>
 <div>
     <a asp-page="./ViewAssignments">Back to Assignments</a>
 </div>

@@ -37,9 +37,9 @@
         scheduler.init("scheduler_here", new Date(2020, 6, 20), "week");
         scheduler.setLoadMode("day");
         // load data from backend
-        scheduler.load("/api/Calender", "json");
+        scheduler.load("/api/Event", "json");
         // connect backend to scheduler
-        var dp = new dataProcessor("/api/Calender");
+        var dp = new dataProcessor("/api/Event");
         dp.init(scheduler);
         // set data exchange mode
         dp.setTransactionMode("REST");

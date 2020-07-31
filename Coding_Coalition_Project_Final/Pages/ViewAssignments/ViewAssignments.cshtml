@@ -20,6 +20,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Assignments[0].DueDate)
             </th>
+            @if(Model.GetIsInstructor() == 0)
+            {
+                <th>
+                    @Html.DisplayNameFor(model=>model.submitAssignments[0].Points)
+                </th>
+            }
             <th>
                 @Html.DisplayNameFor(model => model.Assignments[0].MaxPoints)
             </th>
@@ -29,26 +35,37 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Assignments)
+        @for(int i = 0; i < Model.Assignments.Count(); i++)
         {
 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AssignmentName)
+                @Html.DisplayFor(modelItem => Model.Assignments[i].AssignmentName)
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.DueDate)
+                @Html.DisplayFor(modelItem => Model.Assignments[i].DueDate)
             </td>
+            @if (Model.GetIsInstructor() == 0)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.userPoints[i])
+                </td>
+
+            }
             <td>
-                @Html.DisplayFor(modelItem => item.MaxPoints)
+                @Html.DisplayFor(modelItem => Model.Assignments[i].MaxPoints)
             </td>
 
             <td>
-                <a asp-page="./AssignmentDesc" asp-route-id="@item.AssignmentID">View</a>
+                <a asp-page="./AssignmentDesc" asp-route-id="@Model.Assignments[i].AssignmentID">Submit</a>
+            </td>
+            <td>
+                <a asp-page="./CompareGrade" asp-route-id="@Model.Assignments[i].AssignmentID">Compare Grade</a>
             </td>
 
         </tr>
         }
     </tbody>
+    <td>Final Grade: @Model.scoredPoints Out of @Model.totalPoints</td>
 </table>
