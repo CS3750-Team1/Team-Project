@@ -149,16 +149,14 @@ namespace Coding_Coalition_Project.Pages.MainPage
 
 
             List<Models.Announcements> allAnnouncements = _context.Announcements.ToList();
+            allAnnouncements = allAnnouncements.OrderByDescending(x => x.AnnouncementID).ToList();
             userAnnouncements = new List<Models.Announcements>();
 
             foreach (Models.Announcements announcement in allAnnouncements)
             {
-                foreach (Courses courses1 in uCourses)
+                if(announcement.UserID == (int)HttpContext.Session.GetInt32("UserID"))
                 {
-                    if (announcement.CourseID == courses1.CourseID)
-                    {
-                        userAnnouncements.Add(announcement);
-                    }
+                    userAnnouncements.Add(announcement);
                 }
             }
 

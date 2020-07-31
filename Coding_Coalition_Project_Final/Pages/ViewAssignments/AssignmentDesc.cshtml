@@ -75,6 +75,12 @@
 </form>
             
         </div>
+@if (Model.GetIsInstructor() == 1)
+{
+<div>
+    <a asp-page="./ClassAssignmentChart">Assignment Information</a>
+</div>
+}
 <div>
     <a asp-page="./ViewAssignments">Back to Assignments</a>
 </div>

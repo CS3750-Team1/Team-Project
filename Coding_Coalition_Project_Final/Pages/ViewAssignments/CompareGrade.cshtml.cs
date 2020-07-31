@@ -4,11 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Graph;
 
 namespace Coding_Coalition_Project.Pages.ViewAssignments
 {

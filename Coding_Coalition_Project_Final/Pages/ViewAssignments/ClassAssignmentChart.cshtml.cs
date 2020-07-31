@@ -43,19 +43,19 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
            foreach(SubmitAssignment item in submitAssignment)
             {
 
-                if(item.Points / item.maxPoints > .9)
+                if((double)item.Points / (double)item.maxPoints >= .9)
                 {
                     totalA++;
                 }
-                else if(item.Points / item.maxPoints > .8)
+                else if((double)item.Points / (double)item.maxPoints >= .8)
                 {
                     totalB++;
                 }
-                else if(item.Points / item.maxPoints > .7)
+                else if((double)item.Points / (double)item.maxPoints >= .7)
                 {
                     totalC++;
                 }
-                else if(item.Points / item.maxPoints > .8)
+                else if((double)item.Points / (double)item.maxPoints >= .6)
                 {
                     totalD++;
                 }

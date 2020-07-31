@@ -10,6 +10,7 @@ using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Coding_Coalition_Project.Pages.ViewAssignments
 {
@@ -25,6 +26,7 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
         [BindProperty]
         public SubmitAssignment SubmitAssignment { get; set; }
         public Assignments Assignment { get; set; }
+
 
         public string getAssignmentName()
         {
@@ -74,6 +76,7 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
                 return Page();
             }
 
+
             _context.Attach(SubmitAssignment).State = EntityState.Modified;
 
             if(SubmitAssignment.Points < 0 || SubmitAssignment.Points > SubmitAssignment.maxPoints)
@@ -82,6 +85,12 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
             }
             try
             {
+                Models.Announcements announce = new Models.Announcements();
+                announce.AnnouncementTitle = getAssignmentName() + " has been Graded";
+                announce.UserID = SubmitAssignment.UserID;
+                announce.AnnouncementText = getAssignmentName() + " has been Graded";
+                announce.CourseID = SubmitAssignment.CourseID;
+                _context.Announcements.Add(announce);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
