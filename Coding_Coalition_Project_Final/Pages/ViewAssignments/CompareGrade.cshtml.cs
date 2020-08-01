@@ -57,8 +57,15 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
             scoreArray = scoreArray.OrderBy(x => x).ToArray();
             List<int> lower = new List<int>();
             List<int> upper = new List<int>();
-
-            if (scoreArray.Count() == 1)
+            if(scoreArray.Count() == 0)
+            {
+                min = 0;
+                q1 = 0;
+                med = 0;
+                q3 = 0;
+                max = 0;
+            }
+            else if (scoreArray.Count() == 1)
             {
                 min = scoreArray[0];
                 q1 = scoreArray[0];
@@ -108,14 +115,14 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
                 min = scoreArray[0];
                 max = scoreArray[scoreArray.Count() - 1];
             }
-            if (lower.Count() % 2 == 0 && scoreArray.Count() != 1)
+            if (lower.Count() % 2 == 0 && scoreArray.Count() > 1)
             {
                 int halfway = lower.Count / 2;
                 q1 = (lower[halfway - 1] + lower[halfway]) / 2;
                 Console.WriteLine(upper.Count());
                 q3 =  (upper[halfway - 1] + upper[halfway]) / 2;
             }
-            else if(lower.Count() % 2 == 1 && scoreArray.Count() != 1)
+            else if(lower.Count() % 2 == 1 && scoreArray.Count() > 1)
             {
                 int halfway = lower.Count / 2;
                 q1 = lower[halfway];

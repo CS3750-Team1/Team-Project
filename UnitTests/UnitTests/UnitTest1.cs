@@ -7,11 +7,15 @@ using Coding_Coalition_Project.Pages.AddCourseSubject;
 using Moq;
 using Xunit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-
+using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
+using Coding_Coalition_Project.Migrations;
+using Coding_Coalition_Project.Models;
+using System.Linq;
 
 namespace UnitTests
 {
+    [TestClass]
     public class testAddAssignment
     {
         /*
@@ -107,5 +111,28 @@ namespace UnitTests
             Assert.IsType<SerializableError>(badRequestResult.Value);
         }
        */
+
+
+        [TestMethod]
+        public void TestingTuitionCost()
+        {
+
+            int result = UserInfo.calcCost(5);
+            Assert.AreEqual(50000, result, "Error");
+        }
+
+        [TestMethod]
+        public void TestingScore()
+        {
+            List<int> scores = new List<int> { 33, 78, 42, 69, 50 };
+            Assert.AreEqual(SubmitAssignment.calcScore(scores), 272, "Calculation Error");
+        }
+
+        [TestMethod]
+        public void TestingPossibleScore()
+        {
+            List<int> scores = new List<int> { 33, 78, 42, 69, 50 };
+            Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 272, "Calculation Error");
+        }
     }
 }

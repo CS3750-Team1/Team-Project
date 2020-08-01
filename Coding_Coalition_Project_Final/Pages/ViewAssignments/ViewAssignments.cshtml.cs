@@ -30,6 +30,32 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
 
             return (int)HttpContext.Session.GetInt32("IsInstructor");
         }
+
+        public int getScore()
+        {
+            List<SubmitAssignment> arr = _context.SubmitAssignments.ToList();
+            arr = arr.Where(x => x.CourseID == HttpContext.Session.GetInt32("CourseID")).ToList();
+            arr = arr.Where(x => x.UserID == HttpContext.Session.GetInt32("UserID")).ToList();
+            List<int> func = new List<int>();
+            foreach(SubmitAssignment item in arr)
+            {
+                func.Add(item.Points);
+            }
+            return SubmitAssignment.calcScore(func);
+        }
+
+        public int getPossibleScore()
+        {
+            List<SubmitAssignment> arr = _context.SubmitAssignments.ToList();
+            arr = arr.Where(x => x.CourseID == HttpContext.Session.GetInt32("CourseID")).ToList();
+            arr = arr.Where(x => x.UserID == HttpContext.Session.GetInt32("UserID")).ToList();
+            List<int> func = new List<int>();
+            foreach (SubmitAssignment item in arr)
+            {
+                func.Add(item.maxPoints);
+            }
+            return SubmitAssignment.calcPossibleScore(func);
+        }
         public async Task OnGetAsync(int? id)
         {
             var tempAssignments = await _context.Assignments.ToListAsync();

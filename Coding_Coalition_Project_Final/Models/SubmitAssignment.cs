@@ -18,5 +18,25 @@ namespace Coding_Coalition_Project.Models
         public int UserID { get; set; }
         public int CourseID { get; set; }
         public int AssignmentID { get; set; }
+
+        public static int calcScore(List<int> arr)
+        {
+            int total = 0;
+            foreach(int item in arr)
+            {
+                total += item;
+            }
+            return total;
+        }
+
+        public static int calcPossibleScore(List<int> arr)
+        {
+            int total = 0;
+            foreach (int item in arr)
+            {
+                total += item;
+            }
+            return total;
+        }
     }
 }
