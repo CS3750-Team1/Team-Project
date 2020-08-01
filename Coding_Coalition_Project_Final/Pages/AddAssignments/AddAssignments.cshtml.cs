@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Coding_Coalition_Project.Data;
 using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Coding_Coalition_Project.Pages.AddAssignments
 {
@@ -34,13 +35,27 @@ namespace Coding_Coalition_Project.Pages.AddAssignments
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return BadRequest(ModelState);
             }
             subType = Request.Form["subType"];
             Assignments.submissionType = subType;
             Assignments.AssignmentType = Request.Form["assignType"];
             Assignments.ClassID = (int)HttpContext.Session.GetInt32("CourseID");
+
+            List<UserJunctionCourses> UserCourse = _context.UserJunctionCourses.ToList();
+            UserCourse = UserCourse.Where(x => x.CourseID == (int)HttpContext.Session.GetInt32("CourseID")).ToList();
+            foreach(UserJunctionCourses ujc in UserCourse)
+            {
+                Models.Announcements announce = new Models.Announcements();
+                announce.AnnouncementText = Assignments.AssignmentName + " Has been added";
+                announce.AnnouncementTitle = Assignments.AssignmentName + " Has been added";
+                announce.UserID = ujc.UserID;
+                announce.CourseID = (int)HttpContext.Session.GetInt32("CourseID");
+                _context.Add(announce);
+            }
+
             _context.Assignments.Add(Assignments);
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("../MainPage/MainPage");

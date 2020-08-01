@@ -89,7 +89,7 @@ namespace Coding_Coalition_Project.Pages.RegisterClasses
             int cost = costPerCredit * Courses.CourseCredits;
 
             UserInfo.CreditHours = UserInfo.CreditHours + Courses.CourseCredits;
-            UserInfo.AccountCharges = UserInfo.AccountCharges + cost;
+            UserInfo.AccountCharges = UserInfo.calcCost(UserInfo.CreditHours);
 
 
 

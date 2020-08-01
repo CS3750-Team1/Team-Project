@@ -44,6 +44,12 @@ namespace Coding_Coalition_Project.Models
 
         public int AccountPayments { get; set; }
 
+
+        public static int calcCost(int CreditHours)
+        {
+           
+            return CreditHours * 10000;
+        }
         
     }
 }

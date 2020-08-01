@@ -33,7 +33,7 @@ namespace Coding_Coalition_Project.Pages.AddCourseSubject
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return BadRequest(ModelState);
             }
 
             _context.CourseSubject.Add(CourseSubject);
