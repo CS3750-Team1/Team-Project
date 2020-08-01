@@ -110,6 +110,25 @@ namespace UnitTests
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             Assert.IsType<SerializableError>(badRequestResult.Value);
         }
+
+     public class testAddUserJunctionCourses
+    {
+        [Fact]
+        public async Task AddUserJunctionCourses_ReturnsBadRequestResult_WhenModelStateIsInvalid()
+        {
+            // Arrange
+            var mockDB = new Mock<Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext>();
+            var controller = new AddUserJunctionCoursesModel(mockDB.Object);
+            controller.ModelState.AddModelError("error", "Model is Invalid");
+
+            // Act
+            var result = await controller.OnPostAsync();
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.IsType<SerializableError>(badRequestResult.Value);
+        }
+    }
        */
 
 
