@@ -6,11 +6,7 @@ using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.CodeAnalysis;
-using SQLitePCL;
-using System.Collections;
 
 namespace Coding_Coalition_Project.Pages.MainPage
 {

@@ -11,6 +11,16 @@
           "lib/DHTMLX.dll": {}
         }
       },
+      "jQuery/3.2.1": {
+        "type": "package"
+      },
+      "jQuery.Fullcalendar/3.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Moment.js": "2.18.2",
+          "jQuery": "3.2.1"
+        }
+      },
       "Microsoft.AspNet.Mvc/5.2.7": {
         "type": "package",
         "dependencies": {
@@ -880,6 +890,9 @@
             "rid": "win"
           }
         }
+      },
+      "Moment.js/2.18.2": {
+        "type": "package"
       },
       "NETStandard.Library/1.6.1": {
         "type": "package",
@@ -2792,6 +2805,28 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "xunit.abstractions/2.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {}
+        }
+      },
+      "xunit.extensibility.core/2.4.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "xunit.abstractions": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard1.1/xunit.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.core.dll": {}
+        }
       }
     }
   },
@@ -3020,6 +3055,137 @@
         "lib/DHTMLX.dll",
         "lib/DHTMLX.pdb",
         "lib/DHTMLX.xml"
+      ]
+    },
+    "jQuery/3.2.1": {
+      "sha512": "Sc4jRcsItNXUoNmnPtD9DEnHCy5d4u0GOdDSKYL+b7PKtwajKO1YBJA55241G2M9KRCwSbtxV4ti3gb4n/pIew==",
+      "type": "package",
+      "path": "jquery/3.2.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-3.2.1-vsdoc.js",
+        "Content/Scripts/jquery-3.2.1.js",
+        "Content/Scripts/jquery-3.2.1.min.js",
+        "Content/Scripts/jquery-3.2.1.min.map",
+        "Content/Scripts/jquery-3.2.1.slim.js",
+        "Content/Scripts/jquery-3.2.1.slim.min.js",
+        "Content/Scripts/jquery-3.2.1.slim.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-3.2.1.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.3.2.1.nupkg.sha512",
+        "jquery.nuspec"
+      ]
+    },
+    "jQuery.Fullcalendar/3.9.0": {
+      "sha512": "soyfwNQ4ZCyJRi08TeC8t96fNbs+yfJblzvBIfAqv12B/UZ1WkioDo3PCO92qQLITvXyj4kSWSaxQFA99xQPww==",
+      "type": "package",
+      "path": "jquery.fullcalendar/3.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Content/fullcalendar.css",
+        "content/Content/fullcalendar.min.css",
+        "content/Content/fullcalendar.print.css",
+        "content/Content/fullcalendar.print.min.css",
+        "content/Scripts/fullcalendar.js",
+        "content/Scripts/fullcalendar.min.js",
+        "content/Scripts/gcal.js",
+        "content/Scripts/gcal.min.js",
+        "content/Scripts/lib/cupertino/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png",
+        "content/Scripts/lib/cupertino/images/ui-bg_glass_100_e4f1fb_1x400.png",
+        "content/Scripts/lib/cupertino/images/ui-bg_glass_50_3baae3_1x400.png",
+        "content/Scripts/lib/cupertino/images/ui-bg_glass_80_d7ebf9_1x400.png",
+        "content/Scripts/lib/cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png",
+        "content/Scripts/lib/cupertino/images/ui-bg_highlight-hard_70_000000_1x100.png",
+        "content/Scripts/lib/cupertino/images/ui-bg_highlight-soft_100_deedf7_1x100.png",
+        "content/Scripts/lib/cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png",
+        "content/Scripts/lib/cupertino/images/ui-icons_2694e8_256x240.png",
+        "content/Scripts/lib/cupertino/images/ui-icons_2e83ff_256x240.png",
+        "content/Scripts/lib/cupertino/images/ui-icons_3d80b3_256x240.png",
+        "content/Scripts/lib/cupertino/images/ui-icons_72a7cf_256x240.png",
+        "content/Scripts/lib/cupertino/images/ui-icons_ffffff_256x240.png",
+        "content/Scripts/lib/cupertino/jquery-ui.min.css",
+        "content/Scripts/lib/jquery-ui.min.js",
+        "content/Scripts/lib/jquery.min.js",
+        "content/Scripts/lib/moment.min.js",
+        "content/Scripts/locale-all.js",
+        "content/Scripts/locale/af.js",
+        "content/Scripts/locale/ar-dz.js",
+        "content/Scripts/locale/ar-kw.js",
+        "content/Scripts/locale/ar-ly.js",
+        "content/Scripts/locale/ar-ma.js",
+        "content/Scripts/locale/ar-sa.js",
+        "content/Scripts/locale/ar-tn.js",
+        "content/Scripts/locale/ar.js",
+        "content/Scripts/locale/bg.js",
+        "content/Scripts/locale/bs.js",
+        "content/Scripts/locale/ca.js",
+        "content/Scripts/locale/cs.js",
+        "content/Scripts/locale/da.js",
+        "content/Scripts/locale/de-at.js",
+        "content/Scripts/locale/de-ch.js",
+        "content/Scripts/locale/de.js",
+        "content/Scripts/locale/el.js",
+        "content/Scripts/locale/en-au.js",
+        "content/Scripts/locale/en-ca.js",
+        "content/Scripts/locale/en-gb.js",
+        "content/Scripts/locale/en-ie.js",
+        "content/Scripts/locale/en-nz.js",
+        "content/Scripts/locale/es-do.js",
+        "content/Scripts/locale/es-us.js",
+        "content/Scripts/locale/es.js",
+        "content/Scripts/locale/et.js",
+        "content/Scripts/locale/eu.js",
+        "content/Scripts/locale/fa.js",
+        "content/Scripts/locale/fi.js",
+        "content/Scripts/locale/fr-ca.js",
+        "content/Scripts/locale/fr-ch.js",
+        "content/Scripts/locale/fr.js",
+        "content/Scripts/locale/gl.js",
+        "content/Scripts/locale/he.js",
+        "content/Scripts/locale/hi.js",
+        "content/Scripts/locale/hr.js",
+        "content/Scripts/locale/hu.js",
+        "content/Scripts/locale/id.js",
+        "content/Scripts/locale/is.js",
+        "content/Scripts/locale/it.js",
+        "content/Scripts/locale/ja.js",
+        "content/Scripts/locale/ka.js",
+        "content/Scripts/locale/kk.js",
+        "content/Scripts/locale/ko.js",
+        "content/Scripts/locale/lb.js",
+        "content/Scripts/locale/lt.js",
+        "content/Scripts/locale/lv.js",
+        "content/Scripts/locale/mk.js",
+        "content/Scripts/locale/ms-my.js",
+        "content/Scripts/locale/ms.js",
+        "content/Scripts/locale/nb.js",
+        "content/Scripts/locale/nl-be.js",
+        "content/Scripts/locale/nl.js",
+        "content/Scripts/locale/nn.js",
+        "content/Scripts/locale/pl.js",
+        "content/Scripts/locale/pt-br.js",
+        "content/Scripts/locale/pt.js",
+        "content/Scripts/locale/ro.js",
+        "content/Scripts/locale/ru.js",
+        "content/Scripts/locale/sk.js",
+        "content/Scripts/locale/sl.js",
+        "content/Scripts/locale/sq.js",
+        "content/Scripts/locale/sr-cyrl.js",
+        "content/Scripts/locale/sr.js",
+        "content/Scripts/locale/sv.js",
+        "content/Scripts/locale/th.js",
+        "content/Scripts/locale/tr.js",
+        "content/Scripts/locale/uk.js",
+        "content/Scripts/locale/vi.js",
+        "content/Scripts/locale/zh-cn.js",
+        "content/Scripts/locale/zh-tw.js",
+        "jquery.fullcalendar.3.9.0.nupkg.sha512",
+        "jquery.fullcalendar.nuspec"
       ]
     },
     "Microsoft.AspNet.Mvc/5.2.7": {
@@ -4454,6 +4620,21 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Moment.js/2.18.2": {
+      "sha512": "ev4okotpwL6hFslhcXwTdFGU/leceMehiME3fNoAr7IZKD6DHGcAgUfoQco+vAs92Dy4FaHpC07d6Y/17098+Q==",
+      "type": "package",
+      "path": "moment.js/2.18.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/moment-with-locales.js",
+        "Content/Scripts/moment-with-locales.min.js",
+        "Content/Scripts/moment.js",
+        "Content/Scripts/moment.min.js",
+        "moment.js.2.18.2.nupkg.sha512",
+        "moment.js.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -9067,6 +9248,41 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "xunit.abstractions/2.0.3": {
+      "sha512": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
+      "type": "package",
+      "path": "xunit.abstractions/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/xunit.abstractions.dll",
+        "lib/net35/xunit.abstractions.xml",
+        "lib/netstandard1.0/xunit.abstractions.dll",
+        "lib/netstandard1.0/xunit.abstractions.xml",
+        "lib/netstandard2.0/xunit.abstractions.dll",
+        "lib/netstandard2.0/xunit.abstractions.xml",
+        "xunit.abstractions.2.0.3.nupkg.sha512",
+        "xunit.abstractions.nuspec"
+      ]
+    },
+    "xunit.extensibility.core/2.4.1": {
+      "sha512": "yKZKm/8QNZnBnGZFD9SewkllHBiK0DThybQD/G4PiAmQjKtEZyHi6ET70QPU9KtSMJGRYS6Syk7EyR2EVDU4Kg==",
+      "type": "package",
+      "path": "xunit.extensibility.core/2.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/xunit.core.dll",
+        "lib/net452/xunit.core.dll.tdnet",
+        "lib/net452/xunit.core.xml",
+        "lib/net452/xunit.runner.tdnet.dll",
+        "lib/net452/xunit.runner.utility.net452.dll",
+        "lib/netstandard1.1/xunit.core.dll",
+        "lib/netstandard1.1/xunit.core.xml",
+        "xunit.extensibility.core.2.4.1.nupkg.sha512",
+        "xunit.extensibility.core.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -9078,23 +9294,25 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.3",
       "Stripe.net >= 37.16.0",
-      "System.Drawing.Common >= 4.7.0"
+      "System.Drawing.Common >= 4.7.0",
+      "jQuery.Fullcalendar >= 3.9.0",
+      "xunit.extensibility.core >= 2.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\Bushman\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+      "projectUniqueName": "C:\\Users\\Bushman\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
       "projectName": "Coding_Coalition_Project",
-      "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
+      "projectPath": "C:\\Users\\Bushman\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+      "packagesPath": "C:\\Users\\Bushman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bushman\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Bushman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9151,6 +9369,14 @@
           "System.Drawing.Common": {
             "target": "Package",
             "version": "[4.7.0, )"
+          },
+          "jQuery.Fullcalendar": {
+            "target": "Package",
+            "version": "[3.9.0, )"
+          },
+          "xunit.extensibility.core": {
+            "target": "Package",
+            "version": "[2.4.1, )"
           }
         },
         "imports": [
@@ -9171,7 +9397,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   },

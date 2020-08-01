@@ -7,7 +7,7 @@ namespace Coding_Coalition_Project.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "SubmitAssignments",
+                name: "SubmitAssignment",
                 columns: table => new
                 {
                     SAssignmentID = table.Column<int>(nullable: false)
@@ -22,7 +22,7 @@ namespace Coding_Coalition_Project.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SubmitAssignments", x => x.SAssignmentID);
+                    table.PrimaryKey("PK_SubmitAssignment", x => x.SAssignmentID);
                 });
 
 
@@ -31,7 +31,7 @@ namespace Coding_Coalition_Project.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "SubmitAssignments");
+                name: "SubmitAssignment");
         }
     }
 }
