@@ -3,7 +3,6 @@
 @{
     Layout = "~/Pages/Shared/_Navbar.cshtml";
 
-
 }
 <!DOCTYPE html>
 <html lang='en'>
@@ -15,25 +14,29 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
-            
+
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 events: [
-                    {
-                        title: 'event1',
-                        start: '2020-08-02'
+                        @{ var lastItem = Model.events.Last(); }
+                        @foreach (var item in Model.events) {
+                        @:{
+                                @: title: ('@item.Name.ToString()'),
+                                @: start: ('@item.StartDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss")'),
+                        @:}
+
+                        if (item != lastItem) {
+                            @:,
+                        }
+                        else
+                        {
+                            @:
+                        }
                     }
                 ]
             });
-            
-            /*
-            
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                events: [
-                    
-                ]
-            });
-            */
-            
+
+
+
             calendar.render();
         });
 

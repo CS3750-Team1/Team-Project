@@ -8,6 +8,7 @@ using Coding_Coalition_Project.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace Coding_Coalition_Project.Pages.Calender
 {
@@ -26,7 +27,7 @@ namespace Coding_Coalition_Project.Pages.Calender
 
         public List<Models.Calender> calenderList { get; set; }
 
-        public string events { get; set; }
+        public Models.Calender[] events { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -42,33 +43,9 @@ namespace Coding_Coalition_Project.Pages.Calender
             UserInfo = await _context.UserInfo.FirstOrDefaultAsync(m => m.ID == id);
 
             
-            List<Models.Calender> tempCal = _context.Calender.ToList();
+            List<Models.Calender> tempCal = _context.Calender.Where(c => c.UserID == UserInfo.ID).ToList();
 
-            List<string> tempList = new List<string>();
-
-            string stringEvents = "";
-
-            foreach (Models.Calender cal in tempCal)
-            {
-                if (UserInfo.ID == cal.UserID)
-                {
-                    /*
-                    CalendarEvent calEvent = new CalendarEvent();
-                    calEvent.title = cal.Name;
-                    calEvent.start = cal.StartDate;
-
-                    string result = JsonConvert.SerializeObject(calEvent);
-                    tempList.Add(result);
-                    */
-
-                    stringEvents += "{ title: '" + cal.Name + "'";
-                    stringEvents += " start: '" + cal.StartDate + "' }";
-
-                }
-            }
-
-            events = HttpUtility.JavaScriptStringEncode(stringEvents);
-
+            events = tempCal.ToArray();
 
             return Page();
         }

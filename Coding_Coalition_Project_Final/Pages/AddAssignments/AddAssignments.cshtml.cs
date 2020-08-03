@@ -51,8 +51,21 @@ namespace Coding_Coalition_Project.Pages.AddAssignments
                 announce.AnnouncementTitle = Assignments.AssignmentName + " Has been added";
                 announce.UserID = ujc.UserID;
                 announce.CourseID = (int)HttpContext.Session.GetInt32("CourseID");
+
                 _context.Add(announce);
+
+                // add this to the Users calendar as well
+                Models.Calender calender = new Models.Calender
+                {
+                    Name = Assignments.AssignmentName,
+                    StartDate = Assignments.DueDate,
+                    UserID = ujc.UserID
+                };
+
+                _context.Calender.Add(calender);
             }
+
+            
 
             _context.Assignments.Add(Assignments);
 
