@@ -33,11 +33,11 @@ namespace Coding_Coalition_Project.Pages.Course
             userCourses = UCourses.FirstOrDefault(x => x.CourseName == courseName) ;
             CourseName = courseName;
             CourseNumber = courseNumber;
-            if (CourseID == -1 && HttpContext.Session.GetInt32("CourseID") == null)
-            {
+           // if (CourseID == -1 && HttpContext.Session.GetInt32("CourseID") == null)
+            //{
                 CourseID = userCourses.CourseID;
                 HttpContext.Session.SetInt32("CourseID", userCourses.CourseID);
-            }
+            //}
         }
     }
 }

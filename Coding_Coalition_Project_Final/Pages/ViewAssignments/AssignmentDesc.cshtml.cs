@@ -79,8 +79,10 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
                 if (SAssignments.submissionType == "file")
                 {
                     string extension = "." + uploadedFile.FileName.Split('.')[uploadedFile.FileName.Split('.').Length - 1];
-                    string filePath = "~/../Assignments/" + HttpContext.Session.GetString("FirstName") + "_" + submitAssignment.CourseID + "_" + submitAssignment.AssignmentID + "_" + submitAssignment.UserID + extension;
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    //string filePath = "~/../Assignments/" + HttpContext.Session.GetString("FirstName") + "_" + submitAssignment.CourseID + "_" + submitAssignment.AssignmentID + "_" + submitAssignment.UserID + extension;
+                    string filePath = HttpContext.Session.GetString("FirstName") + "_" + HttpContext.Session.GetString("LastName") + HttpContext.Session.GetInt32("AssignmentID") + extension;
+
+                    using (var fileStream = new FileStream("~/../Assignments/" + filePath, FileMode.Create))
                     {
                         //await uploadedFile.CopyToAsync(fileStream);
                         await uploadedFile.CopyToAsync(fileStream);

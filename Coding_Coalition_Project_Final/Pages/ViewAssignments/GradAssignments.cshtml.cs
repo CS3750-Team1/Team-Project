@@ -59,8 +59,9 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
         {
             SubmitAssignment submitAssignment = _context.SubmitAssignments.First(x => x.SAssignmentID == HttpContext.Session.GetInt32("SAssignmentID"));
             //return File(submitAssignment.AssignmentLocation + ".FILE", submitAssignment.submissionType, submitAssignment.AssignmentLocation);
+            string fileLocationString = "~/../Assignments/" + submitAssignment.AssignmentLocation;
             var memory = new System.IO.MemoryStream();
-            using (var stream = new FileStream(submitAssignment.AssignmentLocation, FileMode.Open))
+            using (var stream = new FileStream(fileLocationString, FileMode.Open))
             {
                 await stream.CopyToAsync(memory);
             }

@@ -71,6 +71,14 @@
             padding: 16px;
             text-align: center;
             background-color: #d2d4d6;
+            height: 300px;
+        }
+        .notifcard {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: #d2d4d6;
+
         }
 
 
@@ -136,35 +144,35 @@
             <div class="container-fluid">
                
                 <div class="row">
-                    <div class="col-8">
-                        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                           <img class="card-img-top" src="~/images/blog-img4.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                @foreach (var row in Model.userCourses)
-                                {
+                    
+                        @foreach (var row in Model.userCourses)
+                        {
+                            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                                <img class="card-img-top" src="~/images/blog-img4.jpg" alt="Card image cap">
+                                <div class="card-body">
 
-                                    <a href="../Course/Course/@row.CourseName/@row.CourseNumber" @RouteData.Values[@row.CourseName] @RouteData.Values[@row.CourseNumber.ToString()] style=" text-decoration: none; color: white;">
+            <a href="../Course/Course/@row.CourseName/@row.CourseNumber" RouteData.Values[@row.CourseName] RouteData.Values[@row.CourseNumber.ToString()] style=" text-decoration: none; color: white;">
 
-                                        @row.CourseName<br>@row.CourseNumber
-                                    </a>
+                @row.CourseName<br>@row.CourseNumber
+                </a>
 
-                                }
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        }
+                        
                     <div class="col-4">
                         <div class="sidenav" style="float:right;">
                             <h4>Notifications</h4>
 
                             @foreach (var row in Model.userAssignments)
                             {
-                                <div class="card" style="width: 18rem;">@row.AssignmentName</div>
+                                <div class="notifcard" style="width: 18rem;">@row.AssignmentName</div>
                             }
 
                             <h4>Announcements</h4>
                             @foreach (var row in Model.userAnnouncements)
                             {
-                                <div class="card" style="width: 18rem;">
+                                <div class="notifcard" style="width: 18rem;">
                                     <a href="../AnnouncementsPage/Announcements/@row.AnnouncementID">@row.AnnouncementTitle</a>
                                 </div>
 
