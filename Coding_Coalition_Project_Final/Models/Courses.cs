@@ -33,5 +33,12 @@ namespace Coding_Coalition_Project.Models
 
         public string CourseMeetingDay { get; set; }
         public int CourseCapacity { get; set; }
+
+        public static Boolean CheckCourseNumber(int courseNumber)
+        {
+            return courseNumber != 0;
+        }
     }
+
+    
 }

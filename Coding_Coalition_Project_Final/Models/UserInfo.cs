@@ -50,6 +50,16 @@ namespace Coding_Coalition_Project.Models
            
             return CreditHours * 10000;
         }
+
+        public static Boolean CalculateAccount(int AccountCharges, int AccountPayments)
+        {
+            return (AccountCharges - AccountPayments) >= 0;
+        }
+
+        public static Boolean CheckInstructor(Boolean inst)
+        {
+            return inst == true;
+        }
         
     }
 }

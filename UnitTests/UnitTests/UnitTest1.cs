@@ -197,6 +197,35 @@ namespace UnitTests
             List<int> scores = new List<int> { -1, 89, 77, 32, 10 };
             Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 207, "Calculation Error");
         }
+
+        [TestMethod]
+        public void TestCalculateAccount()
+        {
+            // test to see that student doesn't pay more than they owe
+            Assert.AreEqual(UserInfo.CalculateAccount(500, 500), 0, "User paid more than they owed");
+        }
+
+        [TestMethod]
+        public void TestCalenderUserID()
+        {
+            // Testing that calender has a userId attached
+            Assert.AreEqual(Calender.TestUserID(1), true, "No userID attached to calender event");
+        }
+
+        [TestMethod]
+        public void TestUserInstructor()
+        {
+            // Testing if the user is instructor
+            Assert.AreEqual(UserInfo.CheckInstructor(true), true, "User is not an instructor");
+        }
+
+        [TestMethod]
+        public void TestCourseNumber()
+        {
+            // Testing if the user is instructor
+            Assert.AreEqual(Coding_Coalition_Project.Models.Courses.CheckCourseNumber(1), true, "Course can't be 0");
+        }
+
         /*
 
         [TestMethod]
