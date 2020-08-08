@@ -153,5 +153,33 @@ namespace UnitTests
             List<int> scores = new List<int> { 33, 78, 42, 69, 50 };
             Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 272, "Calculation Error");
         }
+
+        [TestMethod]
+        public void TestcalcScoreWithNegatives()
+        {
+            List<int> scores = new List<int> { -1, 89, 77, 32, 10 };
+            Assert.AreEqual(SubmitAssignment.calcScore(scores), 207, "Calculation Error - Negatives");
+        }
+
+        [TestMethod]
+        public void TestcalcPossibleScoreWithNegatives()
+        {
+            List<int> scores = new List<int> { -1, 89, 77, 32, 10 };
+            Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 207, "Calculation Error");
+        }
+
+        [TestMethod]
+        public void TestcalcScoreWithDoubles()
+        {
+            List<double> scores = new List<double> { 11.5, 35.4, 66.6, 42.0, 99.9 };
+            Assert.AreEqual(SubmitAssignment.calcScore(scores), 255.4, "Calculation Error");
+        }
+
+        [TestMethod]
+        public void TestcalcPossibleScoreWithDoubles()
+        {
+            List<double> scores = new List<double> { 11.5, 35.4, 66.6, 42.0, 99.9 };
+            Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 255.4, "Calculation Error");
+        }
     }
 }
