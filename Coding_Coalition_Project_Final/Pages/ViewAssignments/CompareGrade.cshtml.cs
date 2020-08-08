@@ -39,10 +39,6 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
       
           submitAssignment = submitAssignment.Where(x => x.AssignmentID == HttpContext.Session.GetInt32("AssignmentID")).ToList();
             scoreArray = new int[submitAssignment.Count()];
-               //       foreach(SubmitAssignment item in submitAssignment)
-                 //     {
-                   //       scoreArray.Append(item.Points);
-                    //  }
 
             
 
@@ -50,88 +46,15 @@ namespace Coding_Coalition_Project.Pages.ViewAssignments
                     {
                         scoreArray[i] = submitAssignment[i].Points;
                     }
+            List<int> scoreList = scoreArray.ToList();
+            List<int> boxPlotScores = SubmitAssignment.calulateBoxPlot(scoreList);
 
+            min = boxPlotScores[0];
+            q1 = boxPlotScores[1];
+            med = boxPlotScores[2];
+            q3 = boxPlotScores[3];
+            max = boxPlotScores[4];
 
-
-                      Console.WriteLine("Array Length" + scoreArray.Count());
-            scoreArray = scoreArray.OrderBy(x => x).ToArray();
-            List<int> lower = new List<int>();
-            List<int> upper = new List<int>();
-            if(scoreArray.Count() == 0)
-            {
-                min = 0;
-                q1 = 0;
-                med = 0;
-                q3 = 0;
-                max = 0;
-            }
-            else if (scoreArray.Count() == 1)
-            {
-                min = scoreArray[0];
-                q1 = scoreArray[0];
-                med = scoreArray[0];
-                q3 = scoreArray[0];
-                max = scoreArray[0];
-            }
-            else if(scoreArray.Count() % 2 == 0)
-            {
-
-                int halfway = scoreArray.Count() / 2;
-                for (int i = 0; i < scoreArray.Count(); i++)
-                {
-                    if (i < halfway)
-                    {
-                        lower.Add(scoreArray[i]);
-                    }
-                    else
-                    {
-                        upper.Add(scoreArray[i]);
-                    }
-                }
-
-                min = lower[0];
-                max = upper[upper.Count() - 1];
-                med = (lower[lower.Count() - 1] + upper[0]) / 2;
-
-            }
-            else
-            {
-                int halfway = scoreArray.Count() / 2;
-                for (int i = 0; i < scoreArray.Count(); i++)
-                {
-                    if (i < halfway)
-                    {
-                        lower.Add(scoreArray[i]);
-                    }
-                    else if(i == halfway)
-                    {
-                        med = scoreArray[i];
-                    }
-                    else{
-                        upper.Add(scoreArray[i]);
-                    }
-                }
-
-                min = scoreArray[0];
-                max = scoreArray[scoreArray.Count() - 1];
-            }
-            if (lower.Count() % 2 == 0 && scoreArray.Count() > 1)
-            {
-                int halfway = lower.Count / 2;
-                q1 = (lower[halfway - 1] + lower[halfway]) / 2;
-                Console.WriteLine(upper.Count());
-                q3 =  (upper[halfway - 1] + upper[halfway]) / 2;
-            }
-            else if(lower.Count() % 2 == 1 && scoreArray.Count() > 1)
-            {
-                int halfway = lower.Count / 2;
-                q1 = lower[halfway];
-                q3 = upper[halfway];
-                Console.WriteLine(upper.Count());
-                //q3 = 40;
-            }
-
-          
             if (submitAssignment == null)
             {
                 return NotFound();
