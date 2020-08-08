@@ -147,13 +147,17 @@ namespace Coding_Coalition_Project.Pages.MainPage
             List<Models.Announcements> allAnnouncements = _context.Announcements.ToList();
             allAnnouncements = allAnnouncements.OrderByDescending(x => x.AnnouncementID).ToList();
             userAnnouncements = new List<Models.Announcements>();
+            List<Models.UserJunctionCourses> ujcList = _context.UserJunctionCourses.ToList();
 
             foreach (Models.Announcements announcement in allAnnouncements)
             {
-                if(announcement.UserID == (int)HttpContext.Session.GetInt32("UserID"))
-                {
-                    userAnnouncements.Add(announcement);
+                foreach (UserJunctionCourses ujc in ujcList) {
+                    if (announcement.CourseID == ujc.CourseID && UserInfo.ID == ujc.UserID)
+                    {
+                        userAnnouncements.Add(announcement);
+                    }
                 }
+                
             }
 
 
