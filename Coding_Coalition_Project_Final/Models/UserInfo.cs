@@ -51,9 +51,17 @@ namespace Coding_Coalition_Project.Models
             return CreditHours * 10000;
         }
 
-        public static Boolean CalculateAccount(int AccountCharges, int AccountPayments)
+        public static Boolean CalculateAccount(List<int> AccountCharges, List<int> AccountPayments)
         {
-            return (AccountCharges - AccountPayments) >= 0;
+            for (int i = 0; i < AccountCharges.Count; i++)
+            {
+                if (AccountCharges[i] - AccountPayments[i] < 0)
+                {
+                    return false;
+                }
+
+            }
+            return true;
         }
 
         public static Boolean CheckInstructor(Boolean inst)

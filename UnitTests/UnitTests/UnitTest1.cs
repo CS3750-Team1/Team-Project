@@ -202,7 +202,9 @@ namespace UnitTests
         public void TestCalculateAccount()
         {
             // test to see that student doesn't pay more than they owe
-            Assert.AreEqual(UserInfo.CalculateAccount(500, 500), 0, "User paid more than they owed");
+            List<int> amount1 = new List<int> { 500, 1000, 1200, 1500 };
+            List<int> amount2 = new List<int> { 499, 800, 1, 1500};
+            Assert.AreEqual(UserInfo.CalculateAccount(amount1, amount2), true, "User paid more than they owed");
         }
 
         [TestMethod]
