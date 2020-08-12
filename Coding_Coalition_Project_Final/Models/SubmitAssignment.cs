@@ -16,7 +16,17 @@ namespace Coding_Coalition_Project.Models
         public string submissionType { get; set; }
         public string AssignmentLocation { get; set; }
         public int UserID { get; set; }
+
+         public static bool TestUserID(int UserID)
+        {
+            return UserID != 0;
+        }
         public int CourseID { get; set; }
+
+         public static bool TestCourseID(int CourseID)
+        {
+            return CourseID != 0;
+        }
         public int AssignmentID { get; set; }
 
         public static int calcScore(List<int> arr)
