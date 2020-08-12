@@ -14,6 +14,11 @@ namespace Coding_Coalition_Project.Models
 
         public int UserID { get; set; }
 
+        public static bool TestUserID(int userID)
+        {
+            return userID != 0;
+        }
+
         public int CourseID { get; set; }
 
         public string AnnouncementTitle { get; set; }

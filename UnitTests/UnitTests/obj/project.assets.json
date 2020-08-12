@@ -6,7 +6,7 @@
   "libraries": {},
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj"
+      "C:\\Users\\User\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj"
     ]
   },
   "packageFolders": {
@@ -17,11 +17,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Team-Project-master\\UnitTests\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Team-Project\\UnitTests\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "C:\\Users\\User\\Desktop\\Team-Project-master\\UnitTests\\UnitTests\\UnitTests.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-Project\\UnitTests\\UnitTests\\UnitTests.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Team-Project-master\\UnitTests\\UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Team-Project\\UnitTests\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -42,8 +42,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj"
+            "C:\\Users\\User\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj"
             }
           }
         }
@@ -68,8 +68,8 @@
     {
       "code": "NU1105",
       "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj'. Inside Visual Studio, this may be because the project is unloaded or not part of current solution. Otherwise the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+      "message": "Unable to find project information for 'C:\\Users\\User\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj'. Inside Visual Studio, this may be because the project is unloaded or not part of current solution. Otherwise the project file may be invalid or missing targets required for restore.",
+      "libraryId": "C:\\Users\\User\\Documents\\GitHub\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]

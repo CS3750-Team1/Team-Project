@@ -20,119 +20,6 @@ namespace UnitTests
     [TestClass]
     public class testAddAssignment
     {
-        /*
-        [Fact]
-        public async Task AddAssignment_ReturnsBadRequestResult_WhenModelStateIsInvalid()
-        {
-            var mockDB = new Mock<Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext>();
-            var controller = new AddAssignmentsModel(mockDB.Object);
-            controller.ModelState.AddModelError("error", "Model is Invalid");
-            
-
-            // Act
-            var result = await controller.OnPostAsync();
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            Assert.IsType<SerializableError>(badRequestResult.Value);
-        }
-    }
-
-    public class testAddClass
-    {
-        [Fact]
-        public async Task AddClass_ReturnsBadRequestResult_WhenModelStateIsInvalid()
-        {
-            // Arrange
-            var mockDB = new Mock<Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext>();
-            var controller = new AddClassModel(mockDB.Object);
-            controller.ModelState.AddModelError("error", "Model is Invalid");
-
-            // Act
-            var result = await controller.OnPostAsync();
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            Assert.IsType<SerializableError>(badRequestResult.Value);
-        }
-    }
-
-    public class testAddAnnouncements
-    {
-        [Fact]
-        public async Task AddAnnouncements_ReturnsBadRequestResult_WhenModelStateIsInvalid()
-        {
-            // Arrange
-            var mockDB = new Mock<Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext>();
-            var controller = new IdeasController(mockDB.Object);
-            controller.ModelState.AddModelError("error", "Model is Invalid");
-
-            // Act
-            var result = await controller.OnPostAsync();
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            Assert.IsType<SerializableError>(badRequestResult.Value);
-        }
-    }
-
-    public class testAddCourseSubject
-    {
-        [Fact]
-        public async Task AddCourseSubject_ReturnsBadRequestResult_WhenModelStateIsInvalid()
-        {
-            // Arrange
-            var mockDB = new Mock<Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext>();
-            var controller = new AddCourseSubjectModel(mockDB.Object);
-            controller.ModelState.AddModelError("error", "Model is Invalid");
-
-            // Act
-            var result = await controller.OnPostAsync();
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            Assert.IsType<SerializableError>(badRequestResult.Value);
-        }
-    }
-
-     
-
-        [Fact]
-        public async Task AddCourseSubject_ReturnsBadRequestResult_WhenModelStateIsInvalid()
-        {
-            // Arrange
-            var mockDB = new Mock<Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext>();
-            var controller = new AddCourseSubjectModel(mockDB.Object);
-            controller.ModelState.AddModelError("error", "Model is Invalid");
-            
-            // Act
-            var result = await controller.OnPostAsync();
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            Assert.IsType<SerializableError>(badRequestResult.Value);
-        }
-
-     public class testAddUserJunctionCourses
-    {
-        [Fact]
-        public async Task AddUserJunctionCourses_ReturnsBadRequestResult_WhenModelStateIsInvalid()
-        {
-            // Arrange
-            var mockDB = new Mock<Coding_Coalition_Project.Data.Coding_Coalition_ProjectContext>();
-            var controller = new AddUserJunctionCoursesModel(mockDB.Object);
-            controller.ModelState.AddModelError("error", "Model is Invalid");
-
-            // Act
-            var result = await controller.OnPostAsync();
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            Assert.IsType<SerializableError>(badRequestResult.Value);
-        }
-    }
-       */
-
 
         [TestMethod]
         public void TestingTuitionCost()
@@ -187,6 +74,7 @@ namespace UnitTests
         [TestMethod]
         public void TestcalcScoreWithNegatives()
         {
+            //Test if Possible Score still calculates with a negative
             List<int> scores = new List<int> { -1, 89, 77, 32, 10 };
             Assert.AreEqual(SubmitAssignment.calcScore(scores), 207, "Calculation Error - Negatives");
         }
@@ -194,8 +82,9 @@ namespace UnitTests
         [TestMethod]
         public void TestcalcPossibleScoreWithNegatives()
         {
+            //Test if Possible Score still calculates with a negative
             List<int> scores = new List<int> { -1, 89, 77, 32, 10 };
-            Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 207, "Calculation Error");
+            Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 207, "Calculation Error - Negatives");
         }
 
         [TestMethod]
@@ -228,21 +117,19 @@ namespace UnitTests
             Assert.AreEqual(Coding_Coalition_Project.Models.Courses.CheckCourseNumber(1), true, "Course can't be 0");
         }
 
-        /*
-
         [TestMethod]
-        public void TestcalcScoreWithDoubles()
+        public void TestAnnouncementsUserID()
         {
-            List<double> scores = new List<double> { 11.5, 35.4, 66.6, 42.0, 99.9 };
-            Assert.AreEqual(SubmitAssignment.calcScore(scores), 255.4, "Calculation Error");
+            // Testing that announcements has a userID attached
+            Assert.AreEqual(Announcements.TestUserID(1), true, "No userID attached to announcements");
         }
 
         [TestMethod]
-        public void TestcalcPossibleScoreWithDoubles()
+        public void TestUJCUserID()
         {
-            List<double> scores = new List<double> { 11.5, 35.4, 66.6, 42.0, 99.9 };
-            Assert.AreEqual(SubmitAssignment.calcPossibleScore(scores), 255.4, "Calculation Error");
+            // Testing that UJC has a userID attached
+            Assert.AreEqual(UserJunctionCourses.TestUserID(1), true, "No userID attached to UJC");
         }
-        */
+
     }
 }
