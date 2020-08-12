@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\UnitTests\\UnitTests\\UnitTests.csproj": {}
+    "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\UnitTests\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\UnitTests\\UnitTests\\UnitTests.csproj": {
+    "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\UnitTests\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\UnitTests\\UnitTests\\UnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\UnitTests\\UnitTests\\UnitTests.csproj",
         "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\User\\Desktop\\UnitTests\\UnitTests\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\UnitTests\\UnitTests\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\UnitTests\\UnitTests\\UnitTests.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\UnitTests\\UnitTests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -31,7 +26,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
+                "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -55,9 +54,17 @@
               "target": "Package",
               "version": "[16.5.0, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.14.5, )"
+            },
             "coverlet.collector": {
               "target": "Package",
               "version": "[1.2.0, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
@@ -75,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400-preview-015203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

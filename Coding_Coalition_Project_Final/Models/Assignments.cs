@@ -25,5 +25,10 @@ namespace Coding_Coalition_Project.Models
         public string AssignmentDescription { get; set; }
         public string submissionType { get; set; }
 
+          public static Boolean TestClassID(int ClassID)
+        {
+            return ClassID != 0;
+        }
+
     }
 }

@@ -131,5 +131,12 @@ namespace UnitTests
             Assert.AreEqual(UserJunctionCourses.TestUserID(1), true, "No userID attached to UJC");
         }
 
+          [TestMethod]
+        public void TestClassID()
+        {
+            // Testing that assignment has a ClassID attached
+            Assert.AreEqual(Assignments.AssignmentID(1), true, "No ClassID attached to Assignments");
+        }
+
     }
 }

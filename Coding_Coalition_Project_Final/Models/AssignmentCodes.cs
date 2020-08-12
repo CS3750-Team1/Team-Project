@@ -13,6 +13,8 @@ namespace Coding_Coalition_Project.Models
 
         [Required, RegularExpression(@"^[A-Za-z-]*")]
         public string AssignmentCodeName { get; set; }
+
+       
         
 
     }

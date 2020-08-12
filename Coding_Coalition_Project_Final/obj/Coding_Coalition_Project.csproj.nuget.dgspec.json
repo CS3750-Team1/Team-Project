@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {}
+    "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
+    "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
         "projectName": "Coding_Coalition_Project",
-        "projectPath": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Team-Project-master\\Coding_Coalition_Project_Final\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\Coding_Coalition_Project.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\Team-Project\\Coding_Coalition_Project_Final\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -76,6 +71,14 @@
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[4.7.0, )"
+            },
+            "jQuery.Fullcalendar": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
@@ -96,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400-preview-015203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
