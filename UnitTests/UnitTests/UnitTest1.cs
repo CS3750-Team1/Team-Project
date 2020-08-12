@@ -138,5 +138,12 @@ namespace UnitTests
             Assert.AreEqual(Assignments.ClassID(1), true, "No ClassID attached to Assignments");
         }
 
+          [TestMethod]
+        public void TestCourseID()
+        {
+            // Testing that announcement has a CourseID attached
+            Assert.AreEqual(Announcements.CourseID(1), true, "No CourseID attached to Announcements");
+        }
+
     }
 }
